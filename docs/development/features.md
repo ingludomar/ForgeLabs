@@ -25,7 +25,7 @@ Endpoint base: `POST /webhook/inventory/item/{op}`
 |---------|---------|---------|---------|
 | ItemInventory | ✅ | ✅ | ✅ |
 | ItemNonInventory | ✅ | ✅ | ✅ |
-| ItemService | 🔨 | 🔨 | 🔨 |
+| ItemService | ✅ | ✅ | ✅ |
 | ItemInventoryAssembly | ⬜ | ⬜ | ⬜ |
 | ItemOtherCharge | ⬜ | ⬜ | ⬜ |
 | ItemDiscount | ⬜ | ⬜ | ⬜ |
@@ -129,8 +129,8 @@ Endpoint base: `POST /webhook/contacts/{entity}/{op}`
 
 | Entidad | Add | Mod | Query |
 |---------|---------|---------|---------|
-| Customer | 🔨 | ⬜ | ⬜ |
-| Vendor | 🔨 | ⬜ | ⬜ |
+| Customer | ✅ | ✅ | ✅ |
+| Vendor | ✅ | ✅ | ✅ |
 | Employee | ⬜ | ⬜ | ⬜ |
 | OtherName | ⬜ | ⬜ | ⬜ |
 | Lead | ⬜ | ⬜ | ⬜ |
