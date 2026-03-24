@@ -135,15 +135,21 @@ Antes de responder, identificar qué tipo de tarea es y leer el archivo correspo
 
 Cuando el usuario pida el correo de entrega de una entidad:
 
-1. **LEER** el archivo `docs/development/release-notification-template.md` ANTES de generar cualquier texto
+1. **LEER** `docs/development/release-notification-template.md` ANTES de generar cualquier texto
 2. **COPIAR** la sección "EJEMPLO REAL — Vendor" como base
 3. **REEMPLAZAR** únicamente `Vendor`, `proveedores` y la acción por los valores de la entidad actual
-4. **NUNCA** generar el correo de memoria — siempre leer el template primero
-5. **NUNCA** omitir los links `[texto](URL)` de la tabla de documentación
-6. **NUNCA** reemplazar los separadores `────` por `---` o headers markdown
-7. **NUNCA** agregar texto, preguntas ni comentarios después de "Quedamos atentos ante cualquier consulta."
+4. Entregar ASUNTO y CUERPO listos para copiar y pegar. Nada más.
 
-Entregar ASUNTO y CUERPO listos para copiar y pegar. Nada más.
+**PROHIBIDO sin excepción:**
+- Generar el correo de memoria sin leer el template
+- Preguntar sobre HTML, rich text, Outlook, Gmail o cliente de correo
+- Sugerir alternativas de formato (HTML, botones, colores, tablas con estilo)
+- Pedir confirmación antes de generar — generar directamente
+- Agregar texto, preguntas o comentarios después de "Quedamos atentos ante cualquier consulta."
+- Reemplazar los separadores `────` por `---` o headers markdown
+- Omitir los links `[texto](URL)` de la tabla de documentación
+
+El formato está definido y es FINAL. No se negocia, no se mejora, no se pregunta.
 
 ---
 
