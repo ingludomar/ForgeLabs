@@ -2,9 +2,9 @@
 
 ## Qué es este proyecto
 
-SyncBridge es el timón del ecosistema. No es un componente técnico — es el espacio donde se planifica, se decide y se dirige. No se despliega, no tiene webhooks, no tiene código de producción.
+SyncBridge (SB) es el responsable del ciclo completo de desarrollo de cada entidad QB Desktop — desde el análisis hasta el cierre formal. Ejecuta P0-P5, produce todos los artefactos, y al final genera un PROMPT para que LO (LedgerOps) aplique los archivos al repo.
 
-Cuando el usuario abre SyncBridge, el modo es **planificación y dirección**. Cuando necesita implementar, abre LedgerOps.
+**SB hace todo. LO solo recibe y commitea.**
 
 ---
 
@@ -26,35 +26,45 @@ Cuando el usuario abre SyncBridge, el modo es **planificación y dirección**. C
 
 ---
 
-## Relación de SyncBridge con cada proyecto
+## Relación de SB con cada proyecto
 
 ```
-SyncBridge
-    ├── Dirige vía PROMPT → LedgerBridge
+SB
+    ├── Ejecuta P0-P5 completo de cada entidad
+    ├── Dirige vía PROMPT → LedgerBridge (business rules, schemas)
     ├── Dirige vía PROMPT → LedgerExec
     ├── Dirige vía PROMPT → qbxmlIntegrator
-    └── Planifica → el usuario implementa abriendo LedgerOps
+    └── Genera PROMPT final → LO aplica archivos + commit
 ```
 
-**SyncBridge nunca modifica código de LedgerBridge, LedgerExec ni qbxmlIntegrator.**
-Puede leer esos proyectos para recopilar evidencia técnica al construir un PROMPT.
-La implementación de LedgerOps ocurre en el proyecto LedgerOps — no aquí.
+**SB nunca modifica código de LedgerBridge, LedgerExec ni qbxmlIntegrator.**
+**SB nunca hace commit en LO — genera el PROMPT y LO lo ejecuta.**
 
 ---
 
-## Modo de trabajo en SyncBridge
+## Flujo de trabajo de SB
 
-### Cuándo estás aquí, el agente debe:
-- Planificar entidades nuevas y el ciclo P1-P5
-- Redactar PROMPTs a otros proyectos con contexto técnico completo
-- Actualizar roadmap, decisiones (ADRs) e ideas
-- Proponer y discutir arquitectura
-- Preparar el plan de implementación para que el usuario lo ejecute en LedgerOps
+```
+P0  PROMPT-013 RMX global → LedgerBridge (una sola vez)
+P1  AnalyzeSedeFields en todas las sedes
+P2  business-rules/replace en todas las sedes (Add + Mod)
+P3  Workflow en development/ → N8N → activar → probar
+P4  Testing CRUD en TEST → verified.json → mover a production/
+P5  Docs por rol → correo al usuario → Monday → PROMPT a LO
+```
 
-### Cuándo NO:
-- Modificar workflows de LedgerOps directamente
-- Ejecutar comandos curl de testing (eso es P4 en LedgerOps)
-- Modificar código de LedgerBridge, LedgerExec ni qbxmlIntegrator
+Ver proceso completo: `docs/development/feature-dev-process.md`
+
+---
+
+## Estructura de trabajo
+
+```
+development/    ← entidad en proceso (workflow, tests, docs en borrador)
+production/     ← entidad verificada, lista para clonar en LO
+```
+
+Cuando P4 completo → mover de development/ a production/.
 
 ---
 
@@ -187,6 +197,30 @@ Para quienes deseen profundizar en los detalles técnicos o de implementación, 
 Para consultas o comentarios relacionados con esta entrega, por favor responder directamente a este correo. De esta manera mantenemos un hilo unificado que nos permite dar seguimiento oportuno a cada solicitud y conservar la trazabilidad completa de todas las comunicaciones del proyecto.
 
 No preguntar nada. No sugerir alternativas. Entregar directamente.
+
+---
+
+## Setup MCPs — primera vez en una máquina nueva
+
+Si los MCPs no están conectados, ejecutar:
+
+```bash
+# Compilar
+cd mcp/n8n && npm install && npm run build && cd ../..
+cd mcp/monday && npm install && npm run build && cd ../..
+
+# Crear .env con tokens
+echo "N8N_API_KEY=<token>" > mcp/n8n/.env
+echo "MONDAY_API_TOKEN=<token>" > mcp/monday/.env
+
+# Registrar
+claude mcp add ledgerops-n8n -- node /ruta/SyncBridge/mcp/n8n/dist/index.js
+TOKEN=$(grep MONDAY_API_TOKEN mcp/monday/.env | cut -d= -f2)
+claude mcp add -e "MONDAY_API_TOKEN=${TOKEN}" -- ledgerops-monday node /ruta/SyncBridge/mcp/monday/dist/index.js
+
+# Verificar
+claude mcp list
+```
 
 ---
 

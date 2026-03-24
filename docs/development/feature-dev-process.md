@@ -1,169 +1,189 @@
-# LedgerOps — Proceso estándar de desarrollo por feature QB Desktop
+# SyncBridge — Proceso estándar de desarrollo por feature
 
-> Todo feature de QB Desktop debe seguir este proceso antes de ser considerado completado.
-> Aplica sin excepción a cualquier entidad: Item, Customer, Vendor, SO, PO, Invoice, Bill, etc.
-
----
-
-## Por qué este proceso
-
-Trabajar CRUD "en el vacío" genera errores que no son bugs de desarrollo: campos requeridos
-que la sede siempre llena, valores de referencia inválidos, ListIDs incorrectos.
-
-**La regla:** siempre partir de datos reales de la sede.
-El Query inicial provee todo lo necesario para ejecutar el CRUD completo sin sorpresas.
+> SB es responsable del ciclo completo P0-P5 de cada entidad.
+> LO (LedgerOps) solo recibe el PROMPT final de SB y aplica los archivos al repo.
 
 ---
 
-## Flujo completo P1 → P5
+## Flujo completo
 
 ```
-P1 — AnalyzeSedeFields          Consultar datos reales de la sede
-P2 — Business Rules             Registrar requiredBySede en todas las sedes
-P3 — Workflow                   Crear/activar workflow en N8N + commit al repo
-P4 — Testing                    Ejecutar todos los TCs en sede TEST
-P5 — Cierre formal              Monday + correo de release + "Listo para producción"
+SB ejecuta:
+  P0 — RMX Global       Un solo PROMPT a LedgerBridge para todos los tipos QB pendientes
+  P1 — AnalyzeSedeFields   Datos reales de todas las sedes (TEST · RUS · REC · RBR · RMX)
+  P2 — Business Rules      Registrar requiredBySede en todas las sedes
+  P3 — Workflow            Crear en development/, probar, mover a production/
+  P4 — Testing             CRUD completo en sede TEST
+  P5 — Cierre formal       Monday + correo al usuario + PROMPT a LO
+
+LO aplica:
+  Recibe PROMPT de SB → guarda archivos → hace commit
 ```
 
-> **P5 es la condición de salida.** Solo después de P5 se puede iniciar el siguiente feature.
+---
+
+## Estructura de carpetas en SB
+
+```
+SB/
+├── development/          ← trabajo en curso (borrador, en prueba)
+│   ├── purchasing/
+│   ├── sales/
+│   ├── banking/
+│   ├── contacts/
+│   └── inventory/
+└── production/           ← verificado, listo para clonar en LO
+    ├── purchasing/
+    ├── sales/
+    ├── banking/
+    ├── contacts/
+    └── inventory/
+```
+
+Cuando P4 está completo → mover de `development/` a `production/`.
+
+---
+
+## P0 — RMX Global (una sola vez, antes de la primera entidad nueva)
+
+Emitir un PROMPT a LedgerBridge solicitando que clone **todos** los tipos QB pendientes a v13.0.
+Esto desbloquea RMX para todas las entidades futuras sin PROMPTs individuales.
+
+Ver: `docs/inter-project/ledgerbridge/PROMPT-013-rmx-global-schemas.md`
+
+Una vez confirmado por LedgerBridge → RMX disponible para P1+P2 en todas las entidades.
 
 ---
 
 ## P1 — AnalyzeSedeFields
 
-Obtiene registros reales de la sede, analiza cobertura de campos y extrae datos de prueba.
+Ejecutar para la entidad en **todas las sedes**: TEST · RUS · REC · RBR · RMX
 
 ```bash
 curl -s -X POST https://n8n-development.redsis.ai/webhook/tools/analyze-sede-fields \
   -H "Content-Type: application/json" \
-  -d '{
-    "type": "{TipoAdd}",
-    "sede": "TEST",
-    "version": "17.0",
-    "limit": 20
-  }'
+  -d '{ "type": "{TipoAdd}", "sede": "TEST", "version": "17.0", "limit": 20 }'
 ```
 
 **Output clave:**
-- `data.suggestedRequiredBySede` — paths QBXML obligatorios por negocio de la sede
-- `data.sampleRecord` — registro real con valores válidos (plantilla para Add/Mod)
-- `data.listIDs` — ListIDs reales para usar en Read, Update y Delete
-- `data.fieldCoverage` — cobertura por campo (umbral: 1.0 = 100%)
-
-**Muestra mínima:** 20 registros. Si hay menos, usar todos y documentar en `knownIssues`.
+- `suggestedRequiredBySede` — paths QBXML obligatorios por sede
+- `sampleRecord` — registro real con valores válidos
+- `listIDs` — ListIDs reales para usar en testing
+- `fieldCoverage` — umbral mínimo: 1.0 (100%)
 
 ---
 
-## P2 — Business Rules (requiredBySede)
+## P2 — Business Rules
 
-Registrar los campos requeridos por la sede en LedgerBridge para **todas las sedes**.
-Filtrar siempre: `ListID`, `EditSequence`, `TimeCreated`, `TimeModified`, `FullName`, `Sublevel`.
+Registrar `requiredBySede` en LedgerBridge para todas las sedes (Add + Mod por separado).
 
 ```bash
 curl -s -X POST https://n8n-development.redsis.ai/webhook/business-rules/replace \
   -H "Content-Type: application/json" \
-  -d '{
-    "type":    "{TipoAdd}",
-    "sede":    "TEST",
-    "version": "17.0",
-    "paths":   [ ...paths filtrados de suggestedRequiredBySede... ]
-  }'
+  -d '{ "type": "{TipoAdd}", "sede": "TEST", "version": "17.0", "paths": [...] }'
 ```
 
-Repetir para: **TEST · RUS · REC · RBR** (y para Add + Mod por separado).
+Repetir para: **TEST · RUS · REC · RBR · RMX**
 
-> RMX/TSI/RRC: bloqueados hasta que LedgerBridge soporte su versión QBXML.
+Verificar: `POST /webhook/tools/contract` → `info.requiredBySede` debe mostrar los campos.
 
 ---
 
 ## P3 — Workflow
 
-1. Crear el workflow en N8N siguiendo el patrón estándar de `CLAUDE.md`
-2. Guardar JSON en `workflows/{modulo}/LedgerOps-{EntidadOp}.workflow.json`
-3. Activar desde la **UI de N8N** (el toggle — la API `/activate` no registra el webhook)
-4. Hacer commit al repo
+1. Crear el workflow JSON en `development/{modulo}/`
+2. Subirlo a N8N vía MCP (`n8n_create_workflow`)
+3. Activar desde la UI de N8N (el toggle — no usar API `/activate`)
+4. Probar manualmente que el webhook responde
+5. Cuando P4 esté completo → mover a `production/{modulo}/`
+
+**Patrón estándar:**
+```
+Webhook → Code Validate → IF OK
+  ✅ → HTTP LedgerExec → Respond Result
+  ❌ → Respond Validation Error
+```
+
+**Payload hacia LedgerExec:**
+- Add/Mod: `object: type+'Rq'`, `data: { [type+'Rq']: { [type]: body.data } }`
+- Query: `object: type+'Rq'`, `data: { [type+'Rq']: body.data }`
 
 ---
 
-## P4 — Testing (sede TEST únicamente)
+## P4 — Testing (sede TEST)
 
-Ejecutar todos los casos de uso del catálogo (`docs/development/test-cases.md`).
-Orden mínimo obligatorio:
+Consultar `tests/{modulo}/{Entidad}Add-TEST.verified.json` antes de ejecutar.
 
+Orden obligatorio:
 ```
-TC-ADD-01  →  TC-QRY-01  →  TC-MOD-01  →  TC-DEL-01  →  TC-DEL-02   (flujo positivo)
-TC-ADD-02/03/04/05/06/07                                               (validaciones Add)
-TC-MOD-02/03/04/05/06                                                  (validaciones Mod)
-TC-QRY-03/04                                                           (casos negativos Query)
-TC-DEL-03                                                              (caso negativo Delete)
+TC-ADD-01 → TC-QRY-01 → TC-MOD-01 → TC-DEL-01 → TC-DEL-02   (flujo positivo)
+TC-ADD-02/03/04                                                (negativos Add)
+TC-MOD-02/03/04                                                (negativos Mod)
 ```
 
-**Antes de ejecutar:** consultar `tests/{modulo}/{Entidad}{Op}-TEST.verified.json`.
-**Al obtener éxito:** actualizar `successfulRecords` y `lastSuccessfulResponse` en el archivo.
+Al obtener éxito → actualizar `successfulRecords` y `lastSuccessfulResponse` en el verified.json.
 
 ---
 
 ## P5 — Cierre formal
 
-P5 no es un paso técnico. Es el **cierre formal del feature** que habilita al área de automatización
-para iniciar su propio testing y al equipo para comenzar el siguiente feature.
+### P5.1 — Documentación por rol (6 archivos en LO)
+Preparar los 6 docs para `docs/integration/`:
+quickstart · executive · developer · architect · qa · support
 
-### P5.1 — Registrar en Monday.com
+### P5.2 — Correo de entrega
+Generar ASUNTO + CUERPO siguiendo la sección **"Correo de entrega"** de `CLAUDE.md`.
+Entregar al usuario para envío manual.
+Esperar confirmación del usuario antes de cerrar P5 en Monday.
 
-Crear o actualizar subitems bajo el item de LedgerOps en el board `Quickbooks Tools`:
-- Un subitem por entidad completada
-- Estado: `✅ Listo para producción`
-- Incluir: Add / Mod / Query / Delete completados, sedes con business rules registradas
+### P5.3 — Monday.com
+**Item de trabajo** (ej. "SyncBridge | LedgerOps | {Entidad}"):
+- 7 subitems: P1 · PROMPT-RMX · P2 · P3 · P4 · Documentación por rol · Correo enviado
+- Estado: Listo · Mover a grupo Lanzamiento
 
-### P5.2 — Enviar correo de release
+**Item de entrega formal** (ej. "LedgerOps | Entrega formal · {Entidad}"):
+- 2 subitems: Documentación por rol · Correo enviado
+- Estado: Listo · Grupo Lanzamiento · Comentario de entrega
 
-Usar el workflow `SendReleaseNotification` (`POST /webhook/tools/send-release`):
+### P5.4 — PROMPT a LO
+Generar PROMPT con todo lo producido:
+- Workflow JSON (desde `production/{modulo}/`)
+- Verified payload (`tests/` path)
+- Business rules registradas (sedes + paths)
+- Docs por rol (6 archivos)
+- Known issues
 
-```bash
-curl -s -X POST https://n8n-development.redsis.ai/webhook/tools/send-release \
-  -H "Content-Type: application/json" \
-  -d '{
-    "feature": "{NombreDelFeature}",
-    "entities": ["{TipoAdd}", "{TipoMod}", "{TipoQuery}"],
-    "sedes": ["TEST", "RUS", "REC", "RBR"],
-    "notes": "..."
-  }'
-```
+LO aplica los archivos, hace commit y confirma.
 
-El correo informa al área de automatización qué endpoints están disponibles, qué campos
-son requeridos por sede, y qué pueden empezar a usar.
-
-### P5.3 — Marcar en documentación
-
-- `docs/development/features.md` → todas las operaciones de la entidad en `✅`
-- `docs/development/roadmap.md` → feature marcado como completado
+### P5.5 — Actualizar roadmap
+- `docs/development/features.md` → operaciones en ✅
+- `docs/development/roadmap.md` → entidad en ✅ con fecha de entrega
 
 ---
 
 ## Checklist rápido
 
 ```
-P1  [ ] AnalyzeSedeFields ejecutado (TEST) — suggestedRequiredBySede obtenido
-P2  [ ] business-rules/replace ejecutado para Add en TEST / RUS / REC / RBR
-    [ ] business-rules/replace ejecutado para Mod en TEST / RUS / REC / RBR
-P3  [ ] Workflow creado en N8N
-    [ ] JSON guardado en repo (commit)
-    [ ] Workflow activo en N8N UI
-P4  [ ] TC-ADD-01→07 completos — verified.json creado
-    [ ] TC-QRY-01→04 completos — verified.json creado
-    [ ] TC-MOD-01→06 completos — verified.json creado
-    [ ] TC-DEL-01→03 completos — verified.json actualizado
-P5  [ ] Subitems registrados en Monday.com
-    [ ] Correo de release enviado (SendReleaseNotification)
-    [ ] features.md + roadmap.md actualizados con ✅
+P0  [ ] PROMPT-013 RMX global emitido y confirmado por LedgerBridge
+P1  [ ] AnalyzeSedeFields ejecutado en TEST · RUS · REC · RBR · RMX
+P2  [ ] business-rules/replace ejecutado (Add + Mod) en todas las sedes
+P3  [ ] Workflow en development/ → subido a N8N → activo
+P4  [ ] CRUD completo verificado en TEST → verified.json actualizado
+    [ ] Workflow movido de development/ a production/
+P5  [ ] 6 docs por rol preparados
+    [ ] Correo entregado al usuario → usuario confirma envío
+    [ ] Monday: item de trabajo (7 subitems) + item de entrega (2 subitems)
+    [ ] PROMPT generado y entregado a LO
+    [ ] LO confirma commit
+    [ ] roadmap.md + features.md actualizados
 ```
 
 ---
 
-## Tabla de endpoints por entidad
+## Endpoints por entidad
 
 | Entidad | type (Add) | Add | Mod | Query |
-|---------|------------|-----|-----|-------|
+|---|---|---|---|---|
 | ItemInventory | `ItemInventoryAdd` | `/webhook/inventory/item/add` | `/webhook/inventory/item/mod` | `/webhook/inventory/item/query` |
 | ItemNonInventory | `ItemNonInventoryAdd` | `/webhook/inventory/item/add` | `/webhook/inventory/item/mod` | `/webhook/inventory/item/query` |
 | ItemService | `ItemServiceAdd` | `/webhook/inventory/item/add` | `/webhook/inventory/item/mod` | `/webhook/inventory/item/query` |
