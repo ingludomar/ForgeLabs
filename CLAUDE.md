@@ -115,6 +115,22 @@ LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `methodology/m
 
 ---
 
+## REGLA CRÍTICA — Correo de entrega (P5)
+
+Cuando el usuario pida el correo de entrega de una entidad:
+
+1. **LEER** el archivo `docs/development/release-notification-template.md` ANTES de generar cualquier texto
+2. **COPIAR** la sección "EJEMPLO REAL — Vendor" como base
+3. **REEMPLAZAR** únicamente `Vendor`, `proveedores` y la acción por los valores de la entidad actual
+4. **NUNCA** generar el correo de memoria — siempre leer el template primero
+5. **NUNCA** omitir los links `[texto](URL)` de la tabla de documentación
+6. **NUNCA** reemplazar los separadores `────` por `---` o headers markdown
+7. **NUNCA** agregar texto, preguntas ni comentarios después de "Quedamos atentos ante cualquier consulta."
+
+Entregar ASUNTO y CUERPO listos para copiar y pegar. Nada más.
+
+---
+
 ## Regla de oro
 
 Lo que vive aquí **no va a los proyectos técnicos**. Los proyectos técnicos deben poder operar sin este repositorio. Cuando el contrato termine, SyncBridge desaparece — el ecosistema sigue funcionando.
