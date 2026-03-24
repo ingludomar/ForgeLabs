@@ -1,132 +1,77 @@
-# LedgerOps — Template de notificación de release
+# SyncBridge — Template de notificación de release
 
-> Usar este template cada vez que se termina un feature y está listo para testing.
-> Copiar, rellenar los `{placeholders}` y enviar por correo.
-
----
-
-## Cómo usar este template
-
-1. Copiar la sección **Cuerpo del correo** completa
-2. Reemplazar todos los `{placeholders}` con los valores reales
-3. Adjuntar el `.contract.json` correspondiente si el equipo lo solicita (opcional — ya va inline)
-4. Guardar una copia en `docs/releases/{Type}-{Sede}.md` para historial
+> Usar este template cada vez que se completa P5 de una entidad.
+> Rellenar los `{placeholders}` y entregar al usuario para envío manual.
 
 ---
 
-## Asunto del correo
+## Asunto
 
 ```
-[LedgerOps] ✅ {Entidad} — {Operación} lista para testing ({SEDE})
+[LedgerOps] ✅ {Entidad} — {Op1} · {Op2} · {Op3} lista para testing ({SEDE1} · {SEDE2} · ...)
 ```
 
-Ejemplo: `[LedgerOps] ✅ ItemInventory — Add lista para testing (TEST)`
-
----
-
-## Cuerpo del correo
-
----
-
-**[LedgerOps] ✅ {Entidad} — {Operación} lista para testing**
-
-Hola equipo,
-
-La operación **{Entidad} — {Operación}** ya está disponible en el ecosistema LedgerOps para la sede **{SEDE}**.
-
----
-
-### Inicio rápido
-
-Endpoint: `POST {endpoint_completo}`
-
-Copia este payload y envíalo tal cual — son datos reales verificados en {SEDE}:
-
-```bash
-curl -X POST {endpoint_completo} \
-  -H "Content-Type: application/json" \
-  -d '{
-    "type": "{type}",
-    "sede": "{SEDE}",
-    "version": "{version}",
-    "object": "{object}",
-    "data": {
-      "{type}": {
-        {campos_con_valores_reales}
-      }
-    }
-  }'
+**Ejemplo:**
 ```
-
-**Respuesta esperada:**
-```json
-{
-  "success": true,
-  "data": { ... }
-}
+[LedgerOps] ✅ Vendor — Add · Mod · Query lista para testing (TEST · RUS · REC · RBR · RMX)
 ```
 
 ---
 
-### Campos obligatorios
+## Cuerpo
 
-| Campo | Motivo |
-|-------|--------|
-{tabla_campos_requeridos}
+```
+Buen día @Celia Giraldo Paez,
 
-> Los campos de tipo `Ref` (`IncomeAccountRef`, `COGSAccountRef`, etc.) necesitan el `ListID` de la cuenta correspondiente en esa sede.
-> Los ListIDs varían por sede — ver la sección **Cuentas usadas** al final.
+La integración de {Entidad} ({descripcion_negocio}) ya está disponible en LedgerOps.
+A partir de hoy es posible {accion_negocio} en QuickBooks Desktop desde cualquier sistema
+externo, sin acceso directo a QB.
 
----
+────────────────────────────────────────
+Sedes verificadas y listas para usar
+────────────────────────────────────────
 
-### Contrato de referencia (todos los campos disponibles)
+  • TEST
+  • RUS  (Redsis US)
+  • REC  (Redsis Ecuador)
+  • RBR  (Redsis Brasil)
+  • RMX  (Redsis México)
 
-```json
-{contract_json_completo}
+────────────────────────────────────────
+Documentación
+────────────────────────────────────────
+
+| Rol           | Enlace |
+|---|---|
+| Inicio rápido | [Ver guía](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/quickstart/{Entidad}.md) |
+| Ejecutivo     | [Ver resumen](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/executive/{Entidad}.md) |
+| Desarrollador | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/developer/{Entidad}.md) |
+| Arquitecto    | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/architect/{Entidad}.md) |
+| QA            | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/qa/{Entidad}.md) |
+| Soporte       | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/support/{Entidad}.md) |
+
+────────────────────────────────────────
+
+Quedamos atentos ante cualquier consulta.
 ```
 
 ---
 
-### Cuentas usadas en el ejemplo ({SEDE})
-
-| Campo | ListID | Nombre en QB |
-|-------|--------|--------------|
-{tabla_cuentas}
-
-> ⚠️ Estos ListIDs son específicos de la sede **{SEDE}**.
-> Para otras sedes, solicitar los ListIDs correspondientes antes de hacer pruebas.
-
----
-
-### Notas de testing
-
-- **Sede:** {SEDE}
-- **Registro de prueba creado exitosamente:** `{nombre_item_prueba}` — ListID `{listid_prueba}`
-- **Fecha de testing:** {fecha}
-
-Saludos,
-{firma}
-
----
-
----
-
-## Referencia rápida de placeholders
+## Placeholders
 
 | Placeholder | Qué poner |
-|-------------|-----------|
-| `{Entidad}` | Nombre legible de la entidad (ej: `ItemInventory`) |
-| `{Operación}` | Add / Mod / Query / Delete |
-| `{SEDE}` | Código de sede (ej: `TEST`, `REC`, `MIA`) |
-| `{endpoint_completo}` | URL completa del webhook (ej: `https://n8n-development.redsis.ai/webhook/inventory/item/add`) |
-| `{type}` | Tipo QB (ej: `ItemInventoryAdd`) |
-| `{version}` | Versión QBXML (ej: `17.0`) |
-| `{object}` | Objeto QB — igual que `type` en Add/Mod (ej: `ItemInventoryAdd`) |
-| `{campos_con_valores_reales}` | JSON con los campos tal como se enviaron en el test exitoso |
-| `{tabla_campos_requeridos}` | Filas de la tabla con los campos obligatorios |
-| `{contract_json_completo}` | Contenido del `.contract.json` correspondiente |
-| `{tabla_cuentas}` | ListIDs de las cuentas usadas en el payload de ejemplo |
-| `{nombre_item_prueba}` | Name del ítem/registro creado en el test |
-| `{listid_prueba}` | ListID del registro creado |
-| `{fecha}` | Fecha del testing |
-| `{firma}` | Nombre del desarrollador |
+|---|---|
+| `{Entidad}` | Nombre de la entidad tal como aparece en los docs (ej: `Vendor`, `Customer`, `ItemInventory`) |
+| `{Op1} · {Op2} · {Op3}` | Operaciones entregadas (ej: `Add · Mod · Query`) |
+| `{SEDE1} · {SEDE2}` | Sedes verificadas (ej: `TEST · RUS · REC · RBR · RMX`) |
+| `{descripcion_negocio}` | Nombre legible en español (ej: `proveedores`, `clientes`, `artículos de inventario`) |
+| `{accion_negocio}` | Verbo de negocio (ej: `crear, consultar, modificar y desactivar proveedores`) |
+
+---
+
+## Reglas
+
+- El correo lo envía el usuario manualmente — el agente solo entrega el texto listo
+- Siempre incluir asunto + cuerpo completo
+- No agregar preguntas ni texto adicional después del cuerpo
+- Confirmar con el usuario cuando el correo haya sido enviado para cerrar P5
