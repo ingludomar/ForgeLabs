@@ -1,31 +1,25 @@
 # SyncBridge — Template de notificación de release
 
-> Usar este template cada vez que se completa P5 de una entidad.
-> Rellenar los `{placeholders}` y entregar al usuario para envío manual.
+> Copiar EXACTAMENTE esta estructura. Reemplazar solo los valores entre `{}`. No cambiar separadores, no usar markdown headers, no usar tablas sin links.
 
 ---
 
-## Asunto
+## ASUNTO
 
 ```
-[LedgerOps] ✅ {Entidad} — {Op1} · {Op2} · {Op3} lista para testing ({SEDE1} · {SEDE2} · ...)
-```
-
-**Ejemplo:**
-```
-[LedgerOps] ✅ Vendor — Add · Mod · Query lista para testing (TEST · RUS · REC · RBR · RMX)
+[LedgerOps] ✅ {Entidad} — Add · Mod · Query lista para testing (TEST · RUS · REC · RBR · RMX)
 ```
 
 ---
 
-## Cuerpo
+## CUERPO — copiar exactamente, reemplazar {} únicamente
 
 ```
 Buen día @Celia Giraldo Paez,
 
-La integración de {Entidad} ({descripcion_negocio}) ya está disponible en LedgerOps.
-A partir de hoy es posible {accion_negocio} en QuickBooks Desktop desde cualquier sistema
-externo, sin acceso directo a QB.
+La integración de {Entidad} ({descripcion en español, ej: proveedores}) ya está disponible en LedgerOps.
+A partir de hoy es posible {acción, ej: crear, consultar, modificar y desactivar proveedores}
+en QuickBooks Desktop desde cualquier sistema externo, sin acceso directo a QB.
 
 ────────────────────────────────────────
 Sedes verificadas y listas para usar
@@ -57,21 +51,55 @@ Quedamos atentos ante cualquier consulta.
 
 ---
 
-## Placeholders
+## EJEMPLO REAL — Vendor (referencia)
 
-| Placeholder | Qué poner |
+**ASUNTO:**
+```
+[LedgerOps] ✅ Vendor — Add · Mod · Query lista para testing (TEST · RUS · REC · RBR · RMX)
+```
+
+**CUERPO:**
+```
+Buen día @Celia Giraldo Paez,
+
+La integración de Vendor (proveedores) ya está disponible en LedgerOps.
+A partir de hoy es posible crear, consultar, modificar y desactivar proveedores
+en QuickBooks Desktop desde cualquier sistema externo, sin acceso directo a QB.
+
+────────────────────────────────────────
+Sedes verificadas y listas para usar
+────────────────────────────────────────
+
+  • TEST
+  • RUS  (Redsis US)
+  • REC  (Redsis Ecuador)
+  • RBR  (Redsis Brasil)
+  • RMX  (Redsis México)
+
+────────────────────────────────────────
+Documentación
+────────────────────────────────────────
+
+| Rol           | Enlace |
 |---|---|
-| `{Entidad}` | Nombre de la entidad tal como aparece en los docs (ej: `Vendor`, `Customer`, `ItemInventory`) |
-| `{Op1} · {Op2} · {Op3}` | Operaciones entregadas (ej: `Add · Mod · Query`) |
-| `{SEDE1} · {SEDE2}` | Sedes verificadas (ej: `TEST · RUS · REC · RBR · RMX`) |
-| `{descripcion_negocio}` | Nombre legible en español (ej: `proveedores`, `clientes`, `artículos de inventario`) |
-| `{accion_negocio}` | Verbo de negocio (ej: `crear, consultar, modificar y desactivar proveedores`) |
+| Inicio rápido | [Ver guía](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/quickstart/Vendor.md) |
+| Ejecutivo     | [Ver resumen](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/executive/Vendor.md) |
+| Desarrollador | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/developer/Vendor.md) |
+| Arquitecto    | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/architect/Vendor.md) |
+| QA            | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/qa/Vendor.md) |
+| Soporte       | [Ver doc](https://github.com/redsis-rgh/LedgerOps/blob/main/docs/integration/support/Vendor.md) |
+
+────────────────────────────────────────
+
+Quedamos atentos ante cualquier consulta.
+```
 
 ---
 
-## Reglas
+## REGLAS — nunca violar
 
-- El correo lo envía el usuario manualmente — el agente solo entrega el texto listo
-- Siempre incluir asunto + cuerpo completo
-- No agregar preguntas ni texto adicional después del cuerpo
-- Confirmar con el usuario cuando el correo haya sido enviado para cerrar P5
+1. Entregar siempre ASUNTO + CUERPO completos, listos para copiar y pegar
+2. Los links de la tabla SIEMPRE con formato `[texto](URL)` — nunca URL sola, nunca solo texto
+3. Los separadores `────` se copian exactamente — no reemplazar con `---` ni `###`
+4. No agregar preguntas, comentarios ni texto después de "Quedamos atentos ante cualquier consulta."
+5. El correo lo envía el usuario — el agente solo entrega el texto
