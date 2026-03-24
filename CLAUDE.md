@@ -115,6 +115,22 @@ LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `methodology/m
 
 ---
 
+## REGLA CRÍTICA — Antes de responder cualquier petición
+
+Antes de responder, identificar qué tipo de tarea es y leer el archivo correspondiente. **Nunca responder de memoria.**
+
+| Si el usuario pide... | Leer primero |
+|---|---|
+| Correo de entrega de una entidad | `docs/development/release-notification-template.md` |
+| Estado de una entidad o qué sigue | `docs/development/roadmap.md` |
+| Planificar una entidad nueva | `docs/development/feature-dev-process.md` |
+| Emitir un PROMPT a otro proyecto | `docs/inter-project/README.md` |
+| Casos de prueba o testing | `docs/development/test-cases.md` |
+| Tipos XML disponibles | `docs/development/xml-types.md` |
+| PROMPTs previos a un proyecto | `docs/inter-project/{proyecto}/` |
+
+---
+
 ## REGLA CRÍTICA — Correo de entrega (P5)
 
 Cuando el usuario pida el correo de entrega de una entidad:
