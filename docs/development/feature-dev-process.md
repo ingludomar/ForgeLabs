@@ -44,14 +44,17 @@ Cuando P4 está completo → mover de `development/` a `production/`.
 
 ---
 
-## P0 — RMX Global (una sola vez, antes de la primera entidad nueva)
+## P0 — PROMPT RMX (por entidad, antes de P1)
 
-Emitir un PROMPT a LedgerBridge solicitando que clone **todos** los tipos QB pendientes a v13.0.
-Esto desbloquea RMX para todas las entidades futuras sin PROMPTs individuales.
+Emitir PROMPT a LedgerBridge solicitando los schemas v13.0 para la entidad que se va a trabajar.
+RMX usa QB Desktop 2021 — necesita schemas v13.0 antes de poder ejecutar P1+P2 en esa sede.
 
-Ver: `docs/inter-project/ledgerbridge/PROMPT-013-rmx-global-schemas.md`
+Formato: `docs/inter-project/ledgerbridge/PROMPT-{NNN}-{entidad}-rmx-schema.md`
+Actualizar índice: `docs/inter-project/README.md`
 
-Una vez confirmado por LedgerBridge → RMX disponible para P1+P2 en todas las entidades.
+Entregar al usuario para que lo lleve a LedgerBridge.
+**Esperar confirmación antes de ejecutar P1+P2 en RMX.**
+P1+P2 en TEST · RUS · REC · RBR pueden ejecutarse en paralelo mientras se espera.
 
 ---
 
@@ -164,7 +167,7 @@ LO aplica los archivos, hace commit y confirma.
 ## Checklist rápido
 
 ```
-P0  [ ] PROMPT-013 RMX global emitido y confirmado por LedgerBridge
+P0  [ ] PROMPT-{NNN} RMX emitido para esta entidad → confirmado por LedgerBridge
 P1  [ ] AnalyzeSedeFields ejecutado en TEST · RUS · REC · RBR · RMX
 P2  [ ] business-rules/replace ejecutado (Add + Mod) en todas las sedes
 P3  [ ] Workflow en development/ → subido a N8N → activo
