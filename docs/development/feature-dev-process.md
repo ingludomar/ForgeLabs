@@ -167,6 +167,15 @@ Esperar confirmación del usuario de que el correo fue enviado antes de cerrar e
 - `docs/development/features.md` → operaciones en ✅
 - `docs/development/roadmap.md` → entidad en ✅ con fecha de entrega
 
+### P5.7 — Commit en SyncBridge
+Hacer commit en el repo SyncBridge con todos los artefactos generados durante el flujo:
+- Workflows JSON (`development/` y `production/`)
+- `verified-{entidad}.json`
+- PROMPTs emitidos (`docs/inter-project/`)
+- `docs/development/bitacora.md` actualizada
+- `docs/development/roadmap.md` + `features.md` actualizados
+- `docs/inter-project/README.md` actualizado
+
 ---
 
 ## Checklist rápido
@@ -184,6 +193,7 @@ P5  [ ] 6 docs por rol preparados
     [ ] Correo entregado al usuario → usuario confirma envío
     [ ] Monday: item de trabajo (7 subitems) + item de entrega (2 subitems)
     [ ] roadmap.md + features.md actualizados
+    [ ] Commit en SyncBridge — workflows + verified.json + PROMPTs + bitácora + roadmap
 ```
 
 ---

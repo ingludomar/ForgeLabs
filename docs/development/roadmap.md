@@ -19,8 +19,8 @@
 | 8 | **Invoice** | ✅ P5 completo | Entregado 2026-03-25 |
 | 9 | **Bill** | ✅ P5 completo | Entregado 2026-03-25 — v1.9.0 |
 | 10 | **InventorySite** | ✅ P5 completo | Entregado 2026-03-26 — v1.10.0 |
-| 11 | **InventoryTransfer** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
-| 12 | **Assembly** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
+| 11 | **InventoryTransfer** | ⬜ P0 pendiente | QB Enterprise disponible en TEST |
+| 12 | **Assembly** | ⬜ P0 pendiente | QB Enterprise disponible en TEST |
 | 13 | **CreditCardCharge** | ✅ P5 completo | Entregado 2026-03-26 — v1.11.0 |
 
 ---
@@ -49,4 +49,4 @@
 |---|---|---|
 | PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ⏳ pending |
 | TSI + RRC — configuración LedgerBridge | LedgerBridge | ⏳ bloqueado |
-| InventoryTransfer · Assembly — verificar disponibilidad en sedes | — | ⏳ pendiente |
+| InventoryTransfer · Assembly — QB Enterprise confirmado disponible | — | ✅ desbloqueado |
