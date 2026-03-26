@@ -14,13 +14,13 @@
 | 3 | **ItemService** | ✅ P5 completo | Entregado 2026-03-23 |
 | 4 | **Customer** | ✅ P5 completo | Entregado 2026-03-23 |
 | 5 | **Vendor** | ✅ P5 completo | Entregado 2026-03-23 |
-| 6 | **SalesOrder** | ⬜ | Workflows por crear |
-| 7 | **PurchaseOrder** | 🔨 | Add existe — P1+P2+P4 pendientes |
-| 8 | **Invoice** | 🔨 | Add existe — P1+P2+P4 pendientes |
-| 9 | **Bill** | 🔨 | Add+Mod existen — P1+P2+P4 pendientes |
-| 10 | **InventorySite** | ⬜ | Workflows por crear |
-| 11 | **InventoryTransfer** | ⬜ | Workflows por crear |
-| 12 | **Assembly** | ⬜ | Workflows por crear |
+| 6 | **SalesOrder** | ✅ P5 completo | Entregado 2026-03-24 |
+| 7 | **PurchaseOrder** | ✅ P5 completo | Entregado 2026-03-25 — v1.7.0 |
+| 8 | **Invoice** | ✅ P5 completo | Entregado 2026-03-25 |
+| 9 | **Bill** | ✅ P5 completo | Entregado 2026-03-25 — v1.9.0 |
+| 10 | **InventorySite** | ✅ P5 completo | Entregado 2026-03-26 — v1.10.0 |
+| 11 | **InventoryTransfer** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
+| 12 | **Assembly** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
 | 13 | **CreditCardCharge** | 🔨 | Add existe — P1+P2+P4 pendientes |
 
 ---
@@ -34,6 +34,11 @@
 | ItemService | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | Customer | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | Vendor | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| SalesOrder | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| PurchaseOrder | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| Invoice | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| Bill | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| InventorySite | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 
 ---
 
@@ -43,3 +48,4 @@
 |---|---|---|
 | PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ⏳ pending |
 | TSI + RRC — configuración LedgerBridge | LedgerBridge | ⏳ bloqueado |
+| InventoryTransfer · Assembly — verificar disponibilidad en sedes | — | ⏳ pendiente |

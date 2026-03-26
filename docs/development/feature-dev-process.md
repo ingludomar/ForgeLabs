@@ -14,10 +14,10 @@ SB ejecuta:
   P2 — Business Rules      Registrar requiredBySede en todas las sedes
   P3 — Workflow            Crear en development/, probar, mover a production/
   P4 — Testing             CRUD completo en sede TEST
-  P5 — Cierre formal       Monday + correo al usuario + PROMPT a LO
+  P5 — Cierre formal       Docs por rol → PROMPT a LO → esperar confirmación → correo → Monday
 
 LO aplica:
-  Recibe PROMPT de SB → guarda archivos → hace commit
+  Recibe PROMPT de SB → guarda archivos → hace commit → confirma éxito
 ```
 
 ---
@@ -134,12 +134,27 @@ Al obtener éxito → actualizar `successfulRecords` y `lastSuccessfulResponse` 
 Preparar los 6 docs para `docs/integration/`:
 quickstart · executive · developer · architect · qa · support
 
-### P5.2 — Correo de entrega
+### P5.2 — PROMPT a LO
+Generar PROMPT con todo lo producido:
+- Workflow JSON (desde `production/{modulo}/`)
+- Verified payload (`verified.json`)
+- Business rules registradas (sedes + paths)
+- Docs por rol (6 archivos)
+- Known issues
+
+Entregar al usuario para que LO lo aplique.
+**Esperar confirmación de LO antes de continuar.**
+
+### P5.3 — LO confirma éxito
+LO aplica los archivos, hace commit, activa workflows en producción y confirma.
+Solo cuando LO confirma → proceder con P5.4 y P5.5.
+
+### P5.4 — Correo de entrega
 Generar ASUNTO + CUERPO siguiendo la sección **"Correo de entrega"** de `CLAUDE.md`.
 Entregar al usuario para envío manual.
-Esperar confirmación del usuario antes de cerrar P5 en Monday.
+Esperar confirmación del usuario de que el correo fue enviado antes de cerrar en Monday.
 
-### P5.3 — Monday.com
+### P5.5 — Monday.com
 **Item de trabajo** (ej. "SyncBridge | LedgerOps | {Entidad}"):
 - 7 subitems: P1 · PROMPT-RMX · P2 · P3 · P4 · Documentación por rol · Correo enviado
 - Estado: Listo · Mover a grupo Lanzamiento
@@ -148,17 +163,7 @@ Esperar confirmación del usuario antes de cerrar P5 en Monday.
 - 2 subitems: Documentación por rol · Correo enviado
 - Estado: Listo · Grupo Lanzamiento · Comentario de entrega
 
-### P5.4 — PROMPT a LO
-Generar PROMPT con todo lo producido:
-- Workflow JSON (desde `production/{modulo}/`)
-- Verified payload (`tests/` path)
-- Business rules registradas (sedes + paths)
-- Docs por rol (6 archivos)
-- Known issues
-
-LO aplica los archivos, hace commit y confirma.
-
-### P5.5 — Actualizar roadmap
+### P5.6 — Actualizar roadmap
 - `docs/development/features.md` → operaciones en ✅
 - `docs/development/roadmap.md` → entidad en ✅ con fecha de entrega
 
@@ -174,10 +179,10 @@ P3  [ ] Workflow en development/ → subido a N8N → activo
 P4  [ ] CRUD completo verificado en TEST → verified.json actualizado
     [ ] Workflow movido de development/ a production/
 P5  [ ] 6 docs por rol preparados
+    [ ] PROMPT generado y entregado a LO
+    [ ] LO confirma commit + workflows activos en producción
     [ ] Correo entregado al usuario → usuario confirma envío
     [ ] Monday: item de trabajo (7 subitems) + item de entrega (2 subitems)
-    [ ] PROMPT generado y entregado a LO
-    [ ] LO confirma commit
     [ ] roadmap.md + features.md actualizados
 ```
 

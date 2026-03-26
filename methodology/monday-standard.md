@@ -47,7 +47,13 @@ Monday.com es responsabilidad exclusiva de LedgerOps. Se registran tareas de tod
 
 ## Reglas operativas
 
-- **Siempre incluir owner** (`56420968`) y fecha real en cada subitem
-- **Subitems como Done** cuando el paso está completado
+- **Items** — columnas a completar siempre:
+  - `project_owner` → `{"personsAndTeams":[{"id":56420968,"kind":"person"}]}`
+  - `project_status` → `"Listo"` al completar
+  - `project_timeline` → `{"from":"YYYY-MM-DD","to":"YYYY-MM-DD"}`
+- **Subitems** — columnas a completar siempre:
+  - `person` → `{"personsAndTeams":[{"id":56420968,"kind":"person"}]}`
+  - `status` → `"Done"` al completar
+  - `date0` → `{"date":"YYYY-MM-DD"}`
 - Items completados van al grupo **Lanzamiento** (`topics`)
 - Nunca crear subitems sin owner — queda huérfano en el board

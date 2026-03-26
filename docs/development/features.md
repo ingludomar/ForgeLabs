@@ -43,7 +43,7 @@ Endpoint base: `POST /webhook/inventory/item/{op}`
 | Entidad | Add | Mod | Query |
 |---------|---------|---------|---------|
 | InventoryAdjustment | ⬜ | ⬜ | ⬜ |
-| InventorySite | ⬜ | ⬜ | ⬜ |
+| InventorySite | ✅ | ✅ | ✅ |
 | BuildAssembly | ⬜ | ⬜ | ⬜ |
 | TransferInventory | ⬜ | ⬜ | ⬜ |
 | ItemReceipt | ⬜ | ⬜ | ⬜ |
@@ -66,8 +66,8 @@ Endpoint base: `POST /webhook/sales/{entity}/{op}`
 
 | Entidad | Add | Mod | Query |
 |---------|---------|---------|---------|
-| Invoice | 🔨 | ⬜ | ⬜ |
-| SalesOrder | ⬜ | ⬜ | ⬜ |
+| Invoice | ✅ | ✅ | ✅ |
+| SalesOrder | ✅ | ✅ | ✅ |
 | SalesReceipt | ⬜ | ⬜ | ⬜ |
 | CreditMemo | ⬜ | ⬜ | ⬜ |
 | Estimate | ⬜ | ⬜ | ⬜ |
@@ -94,8 +94,8 @@ Endpoint base: `POST /webhook/purchasing/{entity}/{op}`
 
 | Entidad | Add | Mod | Query |
 |---------|---------|---------|---------|
-| Bill | 🔨 | 🔨 | ⬜ |
-| PurchaseOrder | 🔨 | ⬜ | ⬜ |
+| Bill | ✅ | ✅ | ✅ |
+| PurchaseOrder | ✅ | ✅ | ✅ |
 | VendorCredit | ⬜ | ⬜ | ⬜ |
 | ItemReceipt | ⬜ | ⬜ | ⬜ |
 | BillPaymentCheck | ⬜ | ⬜ | ⬜ |

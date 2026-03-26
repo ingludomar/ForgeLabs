@@ -50,7 +50,7 @@ P1  AnalyzeSedeFields en todas las sedes
 P2  business-rules/replace en todas las sedes (Add + Mod)
 P3  Workflow en development/ → N8N → activar → probar
 P4  Testing CRUD en TEST → verified.json → mover a production/
-P5  Docs por rol → correo al usuario → Monday → PROMPT a LO
+P5  Docs por rol → PROMPT a LO → LO confirma → correo al usuario → Monday
 ```
 
 Ver proceso completo: `docs/development/feature-dev-process.md`
