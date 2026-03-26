@@ -1,0 +1,44 @@
+{
+  "entity": "PurchaseOrder",
+  "verifiedAt": "2026-03-25",
+  "sede": "TEST",
+  "workflows": [
+    {
+      "name": "[Purchasing] LedgerOps — Purchase Order Add",
+      "file": "LedgerOps-PurchaseOrderAdd.workflow.json",
+      "n8nId": "cAQkiczW7gRV5Air",
+      "webhookPath": "purchasing/purchase-order/add",
+      "note": "Workflow existente — payload actualizado de formato antiguo a formato Rq"
+    },
+    {
+      "name": "[Purchasing] LedgerOps — Purchase Order Mod",
+      "file": "LedgerOps-PurchaseOrderMod.workflow.json",
+      "n8nId": "tSDf8lBe6fdGM2ag",
+      "webhookPath": "purchasing/purchase-order/mod"
+    },
+    {
+      "name": "[Purchasing] LedgerOps — Purchase Order Query",
+      "file": "LedgerOps-PurchaseOrderQuery.workflow.json",
+      "n8nId": "svnpXVNzn6SrILNw",
+      "webhookPath": "purchasing/purchase-order/query"
+    }
+  ],
+  "testResults": {
+    "TC-ADD-01": { "result": "pass", "note": "PurchaseOrderAdd created — TxnID: 6264E-1774431678, TxnNumber: 28014, RefNumber: PO-TEST-001, TotalAmount: 100.00" },
+    "TC-ADD-02": { "result": "pass", "note": "Invalid type rejected — INVALID-PO-TYPE" },
+    "TC-ADD-03": { "result": "pass", "note": "Missing sede rejected — MISSING-SEDE" },
+    "TC-ADD-04": { "result": "pass", "note": "Empty data rejected — MISSING-DATA" },
+    "TC-QRY-01": { "result": "pass", "note": "Query by TxnID returned correct record" },
+    "TC-MOD-01": { "result": "pass", "note": "RefNumber updated to PO-TEST-002, DueDate/ExpectedDate updated — EditSequence: 1774431705" },
+    "TC-MOD-02": { "result": "pass", "note": "Missing TxnID/EditSequence rejected — LB-VALIDATION-MISSING_REQUIRED (4 fields)" },
+    "TC-MOD-03": { "result": "pass", "note": "Wrong type rejected — INVALID-PO-TYPE" },
+    "TC-MOD-04": { "result": "pass", "note": "Missing sede rejected — MISSING-SEDE" },
+    "TC-DEL-01": { "result": "pass", "note": "IsManuallyClosed: true applied — logical closure confirmed" },
+    "TC-DEL-02": { "result": "pass", "note": "Query confirmed IsManuallyClosed: true" }
+  },
+  "notes": [
+    "El workflow Add existente usaba formato de payload antiguo (object: type, data: {[type]: body.data}). Actualizado al formato Rq estándar durante P3.",
+    "IsManuallyClosed es válido en PurchaseOrderMod pero NO en PurchaseOrderAdd (Rs-only en Add).",
+    "PROMPT-006 conocido: GenerateContract muestra requiredBySede vacío, pero reglas están registradas y se aplican."
+  ]
+}

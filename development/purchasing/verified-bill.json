@@ -1,0 +1,43 @@
+{
+  "entity": "Bill",
+  "sede": "TEST",
+  "verifiedAt": "2026-03-25",
+  "workflows": {
+    "add": "1u9EIV7WfsRtTHXJ",
+    "mod": "Hp0PR4JgG84sCXYe",
+    "query": "RH3rWis1Oc3D1GeK"
+  },
+  "testCases": {
+    "TC-ADD-01": {
+      "description": "BillAdd — crear factura de proveedor con ItemLineAdd",
+      "result": "pass",
+      "TxnID": "62655-1774452916",
+      "EditSequence": "1774452934",
+      "TxnNumber": "28016",
+      "RefNumber": "BILL-TST01",
+      "VendorRef": "800001F1-1597178964",
+      "APAccountRef": "80000043-1597178856",
+      "ItemRef": "80000003-1597198890",
+      "Amount": "100.00"
+    },
+    "TC-MOD-01": {
+      "description": "BillMod — actualizar DueDate y Memo",
+      "result": "pass",
+      "TxnID": "62655-1774452916",
+      "DueDateBefore": "2026-04-25",
+      "DueDateAfter": "2026-05-25",
+      "note": "RefNumber es requerido por business rule en sede TEST para BillMod"
+    },
+    "TC-QRY-01": {
+      "description": "BillQuery — filtrar por RefNumber (StartsWith)",
+      "result": "pass",
+      "filter": "RefNumberFilter.StartsWith = BILL-TST",
+      "returned": 1
+    }
+  },
+  "notes": [
+    "ExpenseLineAdd con APAccountRef falla con QB-3180 (solo una cuenta AP por transacción) — usar ItemLineAdd",
+    "BillMod requiere RefNumber como campo obligatorio por business rules (sede TEST)",
+    "BillQuery: no usar ActiveStatus (inválido para transacciones) — usar RefNumberFilter o TxnDateRangeFilter"
+  ]
+}

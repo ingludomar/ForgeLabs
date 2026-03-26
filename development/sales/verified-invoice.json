@@ -1,0 +1,40 @@
+{
+  "entity": "Invoice",
+  "verifiedAt": "2026-03-25",
+  "sede": "TEST",
+  "workflows": [
+    {
+      "name": "[Sales] LedgerOps — Invoice Add",
+      "file": "LedgerOps-InvoiceAdd.workflow.json",
+      "n8nId": "PFNtPLjb39KaAOz2",
+      "webhookPath": "sales/invoice/add"
+    },
+    {
+      "name": "[Sales] LedgerOps — Invoice Mod",
+      "file": "LedgerOps-InvoiceMod.workflow.json",
+      "n8nId": "XJ0sJGMINqunYcRl",
+      "webhookPath": "sales/invoice/mod"
+    },
+    {
+      "name": "[Sales] LedgerOps — Invoice Query",
+      "file": "LedgerOps-InvoiceQuery.workflow.json",
+      "n8nId": "L74Bp9vQP2PW2vKy",
+      "webhookPath": "sales/invoice/query"
+    }
+  ],
+  "testResults": {
+    "TC-ADD-01": { "result": "pass", "note": "InvoiceAdd created — TxnID: 62651-1774441034, TxnNumber: 28015, RefNumber: TEST-001, Customer: Lenovo Mexico USD, Amount: 100.00" },
+    "TC-ADD-02": { "result": "pass", "note": "Invalid type rejected — INVALID-INVOICE-TYPE" },
+    "TC-ADD-03": { "result": "pass", "note": "Missing sede rejected — MISSING-SEDE" },
+    "TC-ADD-04": { "result": "pass", "note": "Empty data rejected — MISSING-DATA" },
+    "TC-MOD-01": { "result": "pass", "note": "DueDate updated from 2026-04-25 to 2026-05-25, EditSequence updated to 1774441054" },
+    "TC-QRY-01": { "result": "pass", "note": "Query by RefNumberFilter returned correct record — TxnID: 62651-1774441034, DueDate: 2026-05-25 confirmed" }
+  },
+  "notes": [
+    "RefNumber max length: 11 caracteres (QB error 3070 si se excede)",
+    "ARAccountRef debe corresponder a la moneda del Customer — error QB 3140 si hay mismatch de moneda",
+    "InvoiceQuery: ActiveStatus no es un filtro válido para transacciones — usar RefNumberFilter, TxnDateRangeFilter o MaxReturned",
+    "Para InvoiceAdd se requiere al menos un InvoiceLineAdd — usar item de tipo Service o NonInventory para evitar error de stock negativo",
+    "Hallazgo de N8N: los workflows requieren el campo webhookId en el nodo Webhook para que el path se registre correctamente"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "name": "[Sales] LedgerOps — Invoice Mod",
+  "nodes": [
+    {
+      "id": "invm0001-aa11-aa11-aa11-000000000001",
+      "name": "Webhook — Entry",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 304],
+      "webhookId": "inv-invoice-mod-000000001",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sales/invoice/mod",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "invm0002-aa22-aa22-aa22-000000000002",
+      "name": "Code — Validate Type",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [464, 304],
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body || {};\nconst validTypes = ['InvoiceMod'];\nconst type = body.type || '';\nconst sede = body.sede || '';\nconst version = body.version || '17.0';\n\nif (!type || !validTypes.includes(type)) {\n  return [{ json: { ok: false, httpStatus: 400, code: 'INVALID-INVOICE-TYPE', message: 'type must be one of: ' + validTypes.join(', '), received: type } }];\n}\nif (!sede) {\n  return [{ json: { ok: false, httpStatus: 400, code: 'MISSING-SEDE', message: 'sede is required' } }];\n}\nif (!body.data || Object.keys(body.data).length === 0) {\n  return [{ json: { ok: false, httpStatus: 400, code: 'MISSING-DATA', message: 'data is required and cannot be empty' } }];\n}\nreturn [{ json: { ok: true, payload: { type: type, sede: sede, version: version, object: type + 'Rq', data: { [type + 'Rq']: { [type]: body.data } } } } }];\n"
+      }
+    },
+    {
+      "id": "invm0003-aa33-aa33-aa33-000000000003",
+      "name": "IF — Validation OK",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [688, 304],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-val-ok",
+              "leftValue": "={{ $json.ok }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "invm0004-aa44-aa44-aa44-000000000004",
+      "name": "HTTP — LedgerExec",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [912, 160],
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-development.redsis.ai/webhook/ledgerexec",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.payload }}",
+        "options": { "response": { "response": { "neverError": true } } }
+      }
+    },
+    {
+      "id": "invm0005-aa55-aa55-aa55-000000000005",
+      "name": "Respond — Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1120, 160],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": "={{ $json.httpStatus || 200 }}",
+          "responseHeaders": { "entries": [{ "name": "Content-Type", "value": "application/json" }] }
+        }
+      }
+    },
+    {
+      "id": "invm0006-aa66-aa66-aa66-000000000006",
+      "name": "Respond — Validation Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [912, 448],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": "={{ $json.httpStatus || 400 }}",
+          "responseHeaders": { "entries": [{ "name": "Content-Type", "value": "application/json" }] }
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook — Entry": { "main": [[{ "node": "Code — Validate Type", "type": "main", "index": 0 }]] },
+    "Code — Validate Type": { "main": [[{ "node": "IF — Validation OK", "type": "main", "index": 0 }]] },
+    "IF — Validation OK": {
+      "main": [
+        [{ "node": "HTTP — LedgerExec", "type": "main", "index": 0 }],
+        [{ "node": "Respond — Validation Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "HTTP — LedgerExec": { "main": [[{ "node": "Respond — Result", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

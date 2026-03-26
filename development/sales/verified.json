@@ -1,0 +1,42 @@
+{
+  "entity": "SalesOrder",
+  "verifiedAt": "2026-03-24",
+  "sede": "TEST",
+  "workflows": [
+    {
+      "name": "[Sales] LedgerOps — Sales Order Add",
+      "file": "LedgerOps-SalesOrderAdd.workflow.json",
+      "n8nId": "iItKQ39kGW6v41va",
+      "webhookPath": "sales/order/add"
+    },
+    {
+      "name": "[Sales] LedgerOps — Sales Order Mod",
+      "file": "LedgerOps-SalesOrderMod.workflow.json",
+      "n8nId": "vzVDBs0UeG6TvrrL",
+      "webhookPath": "sales/order/mod"
+    },
+    {
+      "name": "[Sales] LedgerOps — Sales Order Query",
+      "file": "LedgerOps-SalesOrderQuery.workflow.json",
+      "n8nId": "TXU0aqQwh6Lzcihj",
+      "webhookPath": "sales/order/query"
+    }
+  ],
+  "testResults": {
+    "TC-ADD-01": { "result": "pass", "note": "SalesOrderAdd created — TxnID: 6264A-1774370174, TxnNumber: 28013, RefNumber: SO-TEST-001, TotalAmount: 116.00" },
+    "TC-ADD-02": { "result": "pass", "note": "Invalid type rejected — INVALID-SALESORDER-TYPE" },
+    "TC-ADD-03": { "result": "pass", "note": "Missing sede rejected — MISSING-SEDE" },
+    "TC-ADD-04": { "result": "pass", "note": "Empty data rejected — MISSING-DATA" },
+    "TC-QRY-01": { "result": "pass", "note": "Query by TxnID returned correct record" },
+    "TC-MOD-01": { "result": "pass", "note": "RefNumber updated to SO-TEST-002, DueDate/ShipDate updated" },
+    "TC-MOD-02": { "result": "pass", "note": "Missing TxnID/EditSequence rejected — LB-VALIDATION-MISSING_REQUIRED" },
+    "TC-MOD-03": { "result": "pass", "note": "Wrong type rejected — INVALID-SALESORDER-TYPE" },
+    "TC-MOD-04": { "result": "pass", "note": "Missing sede rejected — MISSING-SEDE" },
+    "TC-DEL-01": { "result": "pass", "note": "IsManuallyClosed: true applied — logical closure confirmed" },
+    "TC-DEL-02": { "result": "pass", "note": "Query confirmed IsManuallyClosed: true" }
+  },
+  "notes": [
+    "TC-MOD-02: LedgerBridge returns LB-VALIDATION-MISSING_REQUIRED (not LedgerOps layer) — correct behavior, business rules enforced at LB level",
+    "PROMPT-006 known: GenerateContract shows empty requiredBySede, but rules are registered and enforced (confirmed by TC-MOD-02 listing CustomerRef/ListID and RefNumber as required)"
+  ]
+}

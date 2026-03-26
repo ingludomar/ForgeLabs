@@ -1,0 +1,38 @@
+{
+  "entity": "InventorySite",
+  "sede": "TEST",
+  "verifiedAt": "2026-03-26",
+  "workflows": {
+    "add": "GXRx0908KYn9dQBH",
+    "mod": "PHt2PiZlG6AHw44h",
+    "query": "PS5bxjSD2vFlmZ30"
+  },
+  "testCases": {
+    "TC-ADD-01": {
+      "description": "InventorySiteAdd — crear sitio de inventario",
+      "result": "pass",
+      "ListID": "8000002C-1774524948",
+      "EditSequence": "1774524948",
+      "Name": "SYNCBR-SITE-01"
+    },
+    "TC-MOD-01": {
+      "description": "InventorySiteMod — actualizar SiteDesc",
+      "result": "pass",
+      "ListID": "8000002C-1774524948",
+      "SiteDescAfter": "TC-MOD-01 updated",
+      "note": "Name es requerido por Intuit en InventorySiteMod — incluirlo siempre"
+    },
+    "TC-QRY-01": {
+      "description": "InventorySiteQuery — filtrar por ListID",
+      "result": "pass",
+      "filter": "ListID = 8000002C-1774524948",
+      "returned": 1
+    }
+  },
+  "notes": [
+    "analyze-sede-fields falla para InventorySite — usa MaxReturned internamente, que no es válido para InventorySiteQuery",
+    "InventorySiteQuery filtros válidos: ListID, ActiveStatus — FullName y MaxReturned causan QB-PARSE-ERROR",
+    "InventorySiteAdd requiere Name e IsActive (requerido por Intuit)",
+    "InventorySiteMod requiere Name (requerido por Intuit) además de ListID y EditSequence"
+  ]
+}
