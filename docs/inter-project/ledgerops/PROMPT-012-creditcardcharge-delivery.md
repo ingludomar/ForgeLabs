@@ -5,7 +5,7 @@
 | **Fecha** | 2026-03-26 |
 | **Proyecto destino** | LedgerOps |
 | **Tipo** | delivery |
-| **Estado** | ⏳ pending |
+| **Estado** | ✅ solved — v1.11.0 (2026-03-26) |
 
 ---
 

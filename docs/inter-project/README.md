@@ -43,7 +43,7 @@ a Monday.com.
 | [PROMPT-LO-009](ledgerops/PROMPT-009-invoice-delivery.md) | 2026-03-25 | LedgerOps | delivery | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-010](ledgerops/PROMPT-010-bill-delivery.md) | 2026-03-25 | LedgerOps | delivery | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | 2026-03-26 | LedgerOps | delivery | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
-| [PROMPT-LO-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | 2026-03-26 | LedgerOps | delivery | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
+| [PROMPT-LO-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | 2026-03-26 | LedgerOps | delivery | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 
 ---
 
@@ -82,7 +82,7 @@ a Monday.com.
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 
 ### LedgerOps
-12 prompts · 11 solved · 1 pending
+12 prompts · 12 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -97,7 +97,7 @@ a Monday.com.
 | [PROMPT-009](ledgerops/PROMPT-009-invoice-delivery.md) | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-010](ledgerops/PROMPT-010-bill-delivery.md) | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
-| [PROMPT-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
+| [PROMPT-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

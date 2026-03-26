@@ -115,7 +115,7 @@ Endpoint base: `POST /webhook/banking/{entity}/{op}`
 |---------|---------|---------|---------|
 | Check | ⬜ | ⬜ | ⬜ |
 | Deposit | ⬜ | ⬜ | ⬜ |
-| CreditCardCharge | 🔨 | ⬜ | ⬜ |
+| CreditCardCharge | ✅ | ✅ | ✅ |
 | CreditCardCredit | ⬜ | ⬜ | ⬜ |
 | Transfer | ⬜ | ⬜ | ⬜ |
 | SalesTaxPaymentCheck | ⬜ | ⬜ | ⬜ |

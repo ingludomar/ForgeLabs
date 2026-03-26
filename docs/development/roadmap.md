@@ -21,7 +21,7 @@
 | 10 | **InventorySite** | ✅ P5 completo | Entregado 2026-03-26 — v1.10.0 |
 | 11 | **InventoryTransfer** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
 | 12 | **Assembly** | 🔴 | Requiere QB Enterprise + Advanced Inventory — no disponible en TEST |
-| 13 | **CreditCardCharge** | 🔨 | Add existe — P1+P2+P4 pendientes |
+| 13 | **CreditCardCharge** | ✅ P5 completo | Entregado 2026-03-26 — v1.11.0 |
 
 ---
 
@@ -39,6 +39,7 @@
 | Invoice | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | Bill | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | InventorySite | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| CreditCardCharge | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 
 ---
 

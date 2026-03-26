@@ -145,7 +145,7 @@
 
 ### 2026-03-26 — CreditCardCharge — P1–P5.2 completo
 
-**Resultado:** CreditCardCharge Add · Mod · Query — P1 a P5.2 ejecutados. PROMPT-LO-012 emitido. Esperando confirmación de LO.
+**Resultado:** CreditCardCharge Add · Mod · Query — P5 completo. Versión v1.11.0 entregada. Correo enviado, Monday actualizado.
 
 **Archivos modificados (SyncBridge):**
 - `docs/inter-project/ledgerbridge/PROMPT-017-creditcardcharge-schema.md` (estado → ✅ solved)
@@ -186,7 +186,7 @@
 
 | Entidad | Estado | Bloqueado por |
 |---|---|---|
-| CreditCardCharge | ⏳ P5.3 — esperando confirmación LO | PROMPT-LO-012 pendiente |
+| CreditCardCharge | ✅ P5 completo | Entregado v1.11.0 · 2026-03-26 |
 | InventoryTransfer | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
 | Assembly | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
 | TSI · RRC | ⏳ Pendiente | Configuración LedgerBridge pendiente |
