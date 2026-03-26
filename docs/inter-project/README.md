@@ -23,15 +23,33 @@ a Monday.com.
 | [PROMPT-007](ledgerbridge/PROMPT-007-rmx-sede-schema.md) | 2026-03-20 | LedgerBridge | feature | Sede RMX · ItemInventory | Soporte QBXML v13.0 para QB Desktop 2021 — mapeo sede→versión implementado | ✅ solved |
 | [PROMPT-009](ledgerbridge/PROMPT-009-noninventory-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemNonInventory | Schemas v13.0 para ItemNonInventoryAdd/Mod/Query — mismo patrón que ItemInventory | ✅ solved |
 | [PROMPT-010](ledgerbridge/PROMPT-010-service-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemService | Schemas v13.0 para ItemServiceAdd/Mod/Query | ✅ solved |
-| [PROMPT-011](ledgerbridge/PROMPT-011-customer-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · Customer | Schemas v13.0 para CustomerAdd/Mod/Query | ⏳ pending |
+| [PROMPT-011](ledgerbridge/PROMPT-011-customer-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · Customer | Schemas v13.0 para CustomerAdd/Mod/Query | ✅ solved |
+| [PROMPT-012](ledgerbridge/PROMPT-012-vendor-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · Vendor | Schemas v13.0 para VendorAdd/Mod/Query | ✅ solved |
+| [PROMPT-013](ledgerbridge/PROMPT-013-salesorder-rmx-schema.md) | 2026-03-24 | LedgerBridge | feature | Sede RMX · SalesOrder | Schemas v13.0 para SalesOrderAdd/Mod/Query | ✅ solved |
+| [PROMPT-014](ledgerbridge/PROMPT-014-purchaseorder-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · PurchaseOrder | Schemas v13.0 para PurchaseOrderAdd/Mod/Query | ✅ solved |
+| [PROMPT-015](ledgerbridge/PROMPT-015-invoice-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · Invoice | Schemas v13.0 para InvoiceAdd/Mod/Query | ✅ solved |
+| [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
+| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | 2026-03-26 | LedgerBridge | feature | CreditCardCharge | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ⏳ pending |
+| [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | 2026-03-26 | LedgerBridge | feature | InventorySite | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
+| [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-002](ledgerops/PROMPT-002-itemNonInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemNonInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-003](ledgerops/PROMPT-003-itemService-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemService | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-004](ledgerops/PROMPT-004-customer-delivery.md) | 2026-03-23 | LedgerOps | delivery | Customer | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-005](ledgerops/PROMPT-005-vendor-delivery.md) | 2026-03-23 | LedgerOps | delivery | Vendor | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-006](ledgerops/PROMPT-006-salesorder-delivery.md) | 2026-03-24 | LedgerOps | delivery | SalesOrder | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-007](ledgerops/PROMPT-007-purchaseorder-delivery.md) | 2026-03-25 | LedgerOps | delivery | PurchaseOrder | Entrega Add · Mod · Query — workflows + docs + fix payload Add | ✅ solved |
+| [PROMPT-LO-008](ledgerops/PROMPT-008-purchaseorder-docs-rmx-version.md) | 2026-03-25 | LedgerOps | fix | PurchaseOrder | Corrección docs — versión 13.0 obligatoria para sede RMX | ✅ solved |
+| [PROMPT-LO-009](ledgerops/PROMPT-009-invoice-delivery.md) | 2026-03-25 | LedgerOps | delivery | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-010](ledgerops/PROMPT-010-bill-delivery.md) | 2026-03-25 | LedgerOps | delivery | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | 2026-03-26 | LedgerOps | delivery | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 
 ---
 
 ## Por proyecto
 
 ### LedgerBridge
-12 prompts · 11 solved · 1 pending
+18 prompts · 16 solved · 2 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -47,6 +65,12 @@ a Monday.com.
 | [PROMPT-010](ledgerbridge/PROMPT-010-service-rmx-schema.md) | Sede RMX · ItemService | Schemas v13.0 para Add/Mod/Query | ✅ solved |
 | [PROMPT-011](ledgerbridge/PROMPT-011-customer-rmx-schema.md) | Sede RMX · Customer | Schemas v13.0 para CustomerAdd/Mod/Query | ✅ solved |
 | [PROMPT-012](ledgerbridge/PROMPT-012-vendor-rmx-schema.md) | Sede RMX · Vendor | Schemas v13.0 para VendorAdd/Mod/Query | ✅ solved |
+| [PROMPT-013](ledgerbridge/PROMPT-013-salesorder-rmx-schema.md) | Sede RMX · SalesOrder | Schemas v13.0 para SalesOrderAdd/Mod/Query | ✅ solved |
+| [PROMPT-014](ledgerbridge/PROMPT-014-purchaseorder-rmx-schema.md) | Sede RMX · PurchaseOrder | Schemas v13.0 para PurchaseOrderAdd/Mod/Query | ✅ solved |
+| [PROMPT-015](ledgerbridge/PROMPT-015-invoice-rmx-schema.md) | Sede RMX · Invoice | Schemas v13.0 para InvoiceAdd/Mod/Query | ✅ solved |
+| [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
+| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | CreditCardCharge | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ⏳ pending |
+| [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | InventorySite | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 
 ### LedgerExec
 2 prompts · 2 solved · 0 pending
@@ -55,6 +79,23 @@ a Monday.com.
 |---|---|---|---|
 | [PROMPT-001](ledgerexec/PROMPT-001-semver-versioning.md) | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
+
+### LedgerOps
+11 prompts · 11 solved · 0 pending
+
+| ID | Entidad | Asunto | Estado |
+|---|---|---|---|
+| [PROMPT-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | ItemInventory | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-002](ledgerops/PROMPT-002-itemNonInventory-delivery.md) | ItemNonInventory | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-003](ledgerops/PROMPT-003-itemService-delivery.md) | ItemService | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-004](ledgerops/PROMPT-004-customer-delivery.md) | Customer | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-005](ledgerops/PROMPT-005-vendor-delivery.md) | Vendor | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-006](ledgerops/PROMPT-006-salesorder-delivery.md) | SalesOrder | Entrega Add · Mod · Query | ✅ solved |
+| [PROMPT-007](ledgerops/PROMPT-007-purchaseorder-delivery.md) | PurchaseOrder | Entrega Add · Mod · Query + fix payload | ✅ solved |
+| [PROMPT-008](ledgerops/PROMPT-008-purchaseorder-docs-rmx-version.md) | PurchaseOrder | Corrección docs — versión 13.0 para RMX | ✅ solved |
+| [PROMPT-009](ledgerops/PROMPT-009-invoice-delivery.md) | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-010](ledgerops/PROMPT-010-bill-delivery.md) | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
