@@ -29,7 +29,7 @@ a Monday.com.
 | [PROMPT-014](ledgerbridge/PROMPT-014-purchaseorder-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · PurchaseOrder | Schemas v13.0 para PurchaseOrderAdd/Mod/Query | ✅ solved |
 | [PROMPT-015](ledgerbridge/PROMPT-015-invoice-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · Invoice | Schemas v13.0 para InvoiceAdd/Mod/Query | ✅ solved |
 | [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
-| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | 2026-03-26 | LedgerBridge | feature | CreditCardCharge | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ⏳ pending |
+| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | 2026-03-26 | LedgerBridge | feature | CreditCardCharge | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | 2026-03-26 | LedgerBridge | feature | InventorySite | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -43,6 +43,7 @@ a Monday.com.
 | [PROMPT-LO-009](ledgerops/PROMPT-009-invoice-delivery.md) | 2026-03-25 | LedgerOps | delivery | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-010](ledgerops/PROMPT-010-bill-delivery.md) | 2026-03-25 | LedgerOps | delivery | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | 2026-03-26 | LedgerOps | delivery | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | 2026-03-26 | LedgerOps | delivery | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
 
 ---
 
@@ -69,7 +70,7 @@ a Monday.com.
 | [PROMPT-014](ledgerbridge/PROMPT-014-purchaseorder-rmx-schema.md) | Sede RMX · PurchaseOrder | Schemas v13.0 para PurchaseOrderAdd/Mod/Query | ✅ solved |
 | [PROMPT-015](ledgerbridge/PROMPT-015-invoice-rmx-schema.md) | Sede RMX · Invoice | Schemas v13.0 para InvoiceAdd/Mod/Query | ✅ solved |
 | [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
-| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | CreditCardCharge | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ⏳ pending |
+| [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | CreditCardCharge | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | InventorySite | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 
 ### LedgerExec
@@ -81,7 +82,7 @@ a Monday.com.
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 
 ### LedgerOps
-11 prompts · 11 solved · 0 pending
+12 prompts · 11 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -96,6 +97,7 @@ a Monday.com.
 | [PROMPT-009](ledgerops/PROMPT-009-invoice-delivery.md) | Invoice | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-010](ledgerops/PROMPT-010-bill-delivery.md) | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

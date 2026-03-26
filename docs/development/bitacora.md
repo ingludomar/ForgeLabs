@@ -141,11 +141,52 @@
 
 ---
 
+---
+
+### 2026-03-26 — CreditCardCharge — P1–P5.2 completo
+
+**Resultado:** CreditCardCharge Add · Mod · Query — P1 a P5.2 ejecutados. PROMPT-LO-012 emitido. Esperando confirmación de LO.
+
+**Archivos modificados (SyncBridge):**
+- `docs/inter-project/ledgerbridge/PROMPT-017-creditcardcharge-schema.md` (estado → ✅ solved)
+- `docs/inter-project/ledgerops/PROMPT-012-creditcardcharge-delivery.md` (nuevo)
+- `docs/inter-project/README.md` (actualizado)
+- `development/banking/CreditCardChargeAdd.workflow.json` (nuevo)
+- `development/banking/CreditCardChargeMod.workflow.json` (nuevo)
+- `development/banking/CreditCardChargeQuery.workflow.json` (nuevo)
+- `development/banking/verified-creditcardcharge.json` (nuevo)
+- `production/banking/CreditCardChargeAdd.workflow.json` (nuevo)
+- `production/banking/CreditCardChargeMod.workflow.json` (nuevo)
+- `production/banking/CreditCardChargeQuery.workflow.json` (nuevo)
+- `production/banking/verified-creditcardcharge.json` (nuevo)
+
+**Archivos modificados (LedgerOps):**
+- `docs/integration/developer/CreditCardCharge.md` (nuevo)
+- `docs/integration/quickstart/CreditCardCharge.md` (nuevo)
+- `docs/integration/architect/CreditCardCharge.md` (nuevo)
+- `docs/integration/qa/CreditCardCharge.md` (nuevo)
+- `docs/integration/support/CreditCardCharge.md` (nuevo)
+- `docs/integration/executive/CreditCardCharge.md` (nuevo)
+
+**P2 — Business rules registradas:**
+- Add: TEST/RUS/REC/RBR/RMX — AccountRef/ListID, PayeeEntityRef/ListID (x4), TxnDate, ExchangeRate (x4), RefNumber (x2), Memo (x3)
+- Mod: mismos campos + TxnID + EditSequence
+
+**Hallazgos técnicos:**
+- `CreditCardChargeAdd` requiere al menos un `ItemLineAdd` — sin líneas QB retorna QB-3180
+- `Amount` es campo de solo lectura en Add — incluirlo causa QB-PARSE-ERROR
+- `CurrencyRef/ListID` y `CurrencyRef/FullName` no son paths válidos en el schema (v17.0 ni v13.0)
+- `FullName` en Refs causa QB-PARSE-ERROR si el valor contiene caracteres especiales (|, :, paréntesis)
+
+**P2 corrección:** Eliminado `FullName` de las business rules en todas las sedes — solo ListID requerido.
+
+---
+
 ## Pendientes activos
 
 | Entidad | Estado | Bloqueado por |
 |---|---|---|
-| CreditCardCharge | ⏳ En pausa — P0 pendiente | PROMPT-017 a LedgerBridge (schemas) |
+| CreditCardCharge | ⏳ P5.3 — esperando confirmación LO | PROMPT-LO-012 pendiente |
 | InventoryTransfer | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
 | Assembly | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
 | TSI · RRC | ⏳ Pendiente | Configuración LedgerBridge pendiente |

@@ -1,0 +1,80 @@
+{
+  "entity": "CreditCardCharge",
+  "module": "banking",
+  "testedAt": "2026-03-26",
+  "sede": "TEST",
+  "version": "17.0",
+  "workflows": {
+    "add": "XeEyP8GOvBQP4i5O",
+    "mod": "Rc6dXfkjRDEP8RxQ",
+    "query": "VwL2YQKUzJ3nJ06I"
+  },
+  "endpoints": {
+    "add": "/webhook/banking/credit-card-charge/add",
+    "mod": "/webhook/banking/credit-card-charge/mod",
+    "query": "/webhook/banking/credit-card-charge/query"
+  },
+  "businessRules": {
+    "CreditCardChargeAdd": {
+      "TEST": ["AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "Memo"],
+      "RUS":  ["AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "RefNumber"],
+      "REC":  ["AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "RefNumber", "Memo"],
+      "RBR":  ["AccountRef/ListID", "TxnDate", "ExchangeRate"],
+      "RMX":  ["AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "Memo"]
+    },
+    "CreditCardChargeMod": {
+      "TEST": ["TxnID", "EditSequence", "AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "Memo"],
+      "RUS":  ["TxnID", "EditSequence", "AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "RefNumber"],
+      "REC":  ["TxnID", "EditSequence", "AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "RefNumber", "Memo"],
+      "RBR":  ["TxnID", "EditSequence", "AccountRef/ListID", "TxnDate", "ExchangeRate"],
+      "RMX":  ["TxnID", "EditSequence", "AccountRef/ListID", "PayeeEntityRef/ListID", "TxnDate", "ExchangeRate", "Memo"]
+    }
+  },
+  "knownIssues": [
+    "CreditCardChargeAdd requiere al menos un ItemLineAdd — sin líneas QB retorna QB-3180 'The transaction is empty'",
+    "Amount es campo de sólo lectura en Add (calculado desde líneas) — incluirlo causa QB-PARSE-ERROR",
+    "CurrencyRef/ListID y CurrencyRef/FullName no son paths válidos en el schema v17.0 ni v13.0 — QB los asigna automáticamente por sede"
+  ],
+  "successfulRecords": {
+    "TEST": {
+      "TxnID": "62658-1774529904",
+      "TxnNumber": "28017",
+      "AccountRef": { "ListID": "800000FF-1601048998", "FullName": "Credit Card Purchases (Amount P:MX| American Express 1008" },
+      "PayeeEntityRef": { "ListID": "8000032A-1607638179", "FullName": "AMERICAN EXPRESS" },
+      "TxnDate": "2026-03-26",
+      "Amount": "100.00",
+      "ExchangeRate": "1",
+      "Memo": "SyncBridge P4 Test CreditCardCharge MOD",
+      "ItemLineRet": {
+        "TxnLineID": "6265A-1774529904",
+        "ItemRef": { "ListID": "80000003-1597198890", "FullName": "1007020" },
+        "Amount": "100.00"
+      }
+    }
+  },
+  "testCases": {
+    "TC-ADD-01": { "result": "PASS", "description": "Add con ItemLineAdd — retorna TxnID 62658-1774529904" },
+    "TC-QRY-01": { "result": "PASS", "description": "Query por TxnID — retorna registro completo" },
+    "TC-MOD-01": { "result": "PASS", "description": "Mod con nuevo Memo — EditSequence actualizado a 1774529940" },
+    "TC-ADD-02": { "result": "PASS", "description": "Tipo inválido → INVALID-CC-CHARGE-TYPE" },
+    "TC-ADD-03": { "result": "PASS", "description": "Sede faltante → MISSING-SEDE" },
+    "TC-ADD-04": { "result": "PASS", "description": "Data vacía → MISSING-DATA" },
+    "TC-MOD-02": { "result": "PASS", "description": "TxnID inválido → QB-OPERATION-ERROR" }
+  },
+  "minimalAddPayload": {
+    "type": "CreditCardChargeAdd",
+    "sede": "TEST",
+    "version": "17.0",
+    "data": {
+      "AccountRef": { "ListID": "800000FF-1601048998" },
+      "PayeeEntityRef": { "ListID": "8000032A-1607638179" },
+      "TxnDate": "2026-03-26",
+      "ExchangeRate": 1,
+      "Memo": "Descripcion del cargo",
+      "ItemLineAdd": {
+        "ItemRef": { "ListID": "80000003-1597198890" },
+        "Amount": "100.00"
+      }
+    }
+  }
+}
