@@ -106,6 +106,10 @@
 
 **Versión:** v1.10.0
 
+**Monday:**
+- Item de trabajo: `SyncBridge | LedgerOps | InventorySite` (ID: 11604940789) — 7 subitems, grupo Lanzamiento
+- Item de entrega: `LedgerOps | Entrega formal · InventorySite v1.10.0` (ID: 11604953600) — 2 subitems
+
 ---
 
 ### 2026-03-26 — Docs developer — Sección "Contrato disponible" (9 entidades)

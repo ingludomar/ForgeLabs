@@ -36,4 +36,12 @@ Los 6 archivos ya están escritos en el repo local de LedgerOps.
 
 ## Respuesta esperada
 
-Confirmación de commit aplicado con los 6 archivos de documentación.
+Responder con los siguientes datos una vez aplicado:
+
+| Campo | Valor |
+|---|---|
+| Versión asignada | ej. `v1.10.0` |
+| Commit hash | ej. `abc1234` |
+| Rama | ej. `main` |
+| Archivos aplicados | confirmar los 6 roles |
+| Workflows activos en producción | Add · Mod · Query — confirmar estado |
