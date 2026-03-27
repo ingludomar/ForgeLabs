@@ -249,6 +249,6 @@
 | Entidad | Estado | Bloqueado por |
 |---|---|---|
 | CreditCardCharge | ✅ P5 completo | Entregado v1.11.0 · 2026-03-26 |
-| InventoryTransfer | 🔄 P5 en curso | Esperando confirmación LO (PROMPT-LO-013) |
-| Assembly | 🔄 P5 en curso | Esperando confirmación LO (PROMPT-LO-014) |
+| InventoryTransfer | ✅ P5 completo | Entregado v1.12.0 · 2026-03-27 |
+| Assembly | ✅ P5 completo | Entregado v1.13.0 · 2026-03-27 |
 | TSI · RRC | ⏳ Pendiente | Configuración LedgerBridge pendiente |

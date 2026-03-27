@@ -44,7 +44,7 @@ Endpoint base: `POST /webhook/inventory/item/{op}`
 |---------|---------|---------|---------|
 | InventoryAdjustment | ⬜ | ⬜ | ⬜ |
 | InventorySite | ✅ | ✅ | ✅ |
-| BuildAssembly | ⬜ | ⬜ | ⬜ |
+| BuildAssembly | ✅ | ✅ | ✅ |
 | TransferInventory | ✅ | `-` | ✅ |
 | ItemReceipt | ⬜ | ⬜ | ⬜ |
 

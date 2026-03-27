@@ -157,11 +157,18 @@ Esperar confirmación del usuario de que el correo fue enviado antes de cerrar e
 ### P5.5 — Monday.com
 **Item de trabajo** (ej. "SyncBridge | LedgerOps | {Entidad}"):
 - 7 subitems: P1 · PROMPT-RMX · P2 · P3 · P4 · Documentación por rol · Correo enviado
-- Estado: Listo · Mover a grupo Lanzamiento
+- A nivel de **item**: Estado = `Listo` · Owner = Luis (56420968) · Cronograma = rango derivado de subitems · Grupo = Lanzamiento
+- A nivel de **subitem**: Estado = `Done` · Owner = Luis (56420968) · Fecha = fecha en que se completó esa fase
 
-**Item de entrega formal** (ej. "LedgerOps | Entrega formal · {Entidad}"):
+**Item de entrega formal** (ej. "LedgerOps | Entrega formal · {Entidad} v{version}"):
 - 2 subitems: Documentación por rol · Correo enviado
-- Estado: Listo · Grupo Lanzamiento · Comentario de entrega
+- A nivel de **item**: Estado = `Listo` · Owner = Luis (56420968) · Cronograma = rango derivado de subitems · Grupo = Lanzamiento · Comentario de entrega
+- A nivel de **subitem**: Estado = `Done` · Owner = Luis (56420968) · Fecha = fecha en que se completó esa fase
+
+**Regla de cronograma (project_timeline):**
+- Tomar las fechas de todos los subitems del item
+- Si todas son iguales → `from` = `to` = esa fecha
+- Si son distintas → `from` = fecha mínima · `to` = fecha máxima
 
 ### P5.6 — Actualizar roadmap
 - `docs/development/features.md` → operaciones en ✅

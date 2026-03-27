@@ -20,7 +20,7 @@
 | 9 | **Bill** | ✅ P5 completo | Entregado 2026-03-25 — v1.9.0 |
 | 10 | **InventorySite** | ✅ P5 completo | Entregado 2026-03-26 — v1.10.0 |
 | 11 | **InventoryTransfer** | ✅ P5 completo | Entregado 2026-03-27 — v1.12.0 |
-| 12 | **Assembly** | 🔄 P5 en curso | Entregado a LO — esperando confirmación |
+| 12 | **Assembly** | ✅ P5 completo | Entregado 2026-03-27 — v1.13.0 |
 | 13 | **CreditCardCharge** | ✅ P5 completo | Entregado 2026-03-26 — v1.11.0 |
 
 ---
@@ -41,6 +41,7 @@
 | InventorySite | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | CreditCardCharge | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 | InventoryTransfer | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
+| Assembly | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
 
 ---
 
@@ -50,4 +51,4 @@
 |---|---|---|
 | PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ⏳ pending |
 | TSI + RRC — configuración LedgerBridge | LedgerBridge | ⏳ bloqueado |
-| InventoryTransfer · Assembly — P5 en curso, esperando confirmación LO | — | 🔄 en progreso |
+| InventoryTransfer · Assembly — P5 completo | — | ✅ entregado |
