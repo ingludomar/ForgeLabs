@@ -232,22 +232,39 @@
 
 ---
 
-## Resumen por módulo
+## Estadísticas de avance
 
-| Módulo | Entidades | ✅ Entregadas | ⬜ Pendientes |
-|---|---|---|---|
-| 1 — Inventario · Catálogo | 13 | 3 | 10 |
-| 2 — Inventario · Operaciones | 7 | 3 | 4 |
-| 3 — Ventas | 9 | 2 | 7 |
-| 4 — Compras | 6 | 2 | 4 |
-| 5 — Tesorería y Banca | 7 | 1 | 6 |
-| 6 — Contactos | 5 | 2 | 3 |
-| 7 — Contabilidad | 4 | 0 | 4 |
-| 8 — Configuración y Listas | 19 | 0 | 19 |
-| 9 — Nómina y Tiempo | 4 | 0 | 4 |
-| 10 — Reportes | 13 | 0 | 13 |
-| 11 — Sistema | 28 | 0 | 28 |
-| **Total** | **115** | **13** | **102** |
+### Global
+
+| Métrica | Entidades | % |
+|---|---|---|
+| ✅ Entregadas | 13 | 11% |
+| ⬜ Pendientes | 102 | 89% |
+| **Total** | **115** | **100%** |
+
+> De los ~246 tipos XML individuales (Add/Mod/Query/Del por entidad), **36 están entregados (15%)** y **210 pendientes (85%)**.
+
+---
+
+### Por módulo
+
+| Módulo | Total | ✅ | ⬜ | % Avance |
+|---|---|---|---|---|
+| 1 — Inventario · Catálogo | 13 | 3 | 10 | 23% |
+| 2 — Inventario · Operaciones | 7 | 3 | 4 | 43% |
+| 3 — Ventas | 9 | 2 | 7 | 22% |
+| 4 — Compras | 6 | 2 | 4 | 33% |
+| 5 — Tesorería y Banca | 7 | 1 | 6 | 14% |
+| 6 — Contactos | 5 | 2 | 3 | 40% |
+| 7 — Contabilidad | 4 | 0 | 4 | 0% |
+| 8 — Configuración y Listas | 19 | 0 | 19 | 0% |
+| 9 — Nómina y Tiempo | 4 | 0 | 4 | 0% |
+| 10 — Reportes | 13 | 0 | 13 | 0% |
+| 11 — Sistema | 28 | 0 | 28 | 0% |
+| **Total** | **115** | **13** | **102** | **11%** |
+
+> Módulos con mayor avance: **Inventario Operaciones (43%)** · **Contactos (40%)** · **Compras (33%)**
+> Módulos sin iniciar: Contabilidad · Configuración · Nómina · Reportes · Sistema
 
 ---
 
