@@ -1,0 +1,101 @@
+{
+  "entity": "Assembly",
+  "sede": "TEST",
+  "version": "17.0",
+  "testedAt": "2026-03-27",
+  "workflows": {
+    "add": "lN5uKrOpfLz1Z0wT",
+    "mod": "0iTkdwSH8O6nZ7uV",
+    "query": "dHr98MHz8RXEw7ID"
+  },
+  "endpoints": {
+    "add": "/webhook/inventory/assembly/add",
+    "mod": "/webhook/inventory/assembly/mod",
+    "query": "/webhook/inventory/assembly/query"
+  },
+  "successfulRecords": {
+    "add": {
+      "TxnID": "6265F-1774597585",
+      "TxnNumber": "28019",
+      "RefNumber": "ASM001",
+      "TxnDate": "2026-03-27",
+      "EditSequence": "1774597585",
+      "ItemInventoryAssemblyRef": { "ListID": "80009375-1635546523", "FullName": "FRESHBASE-PLUS-SM" },
+      "InventorySiteRef": { "ListID": "80000001-1607388775", "FullName": "RMEXWH" },
+      "QuantityToBuild": "1"
+    },
+    "mod": {
+      "TxnID": "6265F-1774597585",
+      "EditSequence": "1774599498",
+      "RefNumber": "ASM001-MOD"
+    }
+  },
+  "lastSuccessfulResponse": {
+    "add": {
+      "success": true,
+      "data": {
+        "BuildAssemblyRet": {
+          "TxnID": "6265F-1774597585",
+          "TxnNumber": "28019",
+          "TxnDate": "2026-03-27",
+          "RefNumber": "ASM001",
+          "ItemInventoryAssemblyRef": { "ListID": "80009375-1635546523", "FullName": "FRESHBASE-PLUS-SM" },
+          "InventorySiteRef": { "ListID": "80000001-1607388775", "FullName": "RMEXWH" },
+          "QuantityToBuild": "1",
+          "QuantityCanBuild": "0",
+          "QuantityOnHand": "1",
+          "IsPending": "false"
+        }
+      }
+    },
+    "mod": {
+      "success": true,
+      "data": {
+        "BuildAssemblyRet": {
+          "TxnID": "6265F-1774597585",
+          "EditSequence": "1774599498",
+          "RefNumber": "ASM001-MOD",
+          "QuantityToBuild": "1"
+        }
+      }
+    }
+  },
+  "testCases": [
+    { "id": "TC-ADD-01", "type": "BuildAssemblyAdd", "result": "PASS", "TxnID": "6265F-1774597585" },
+    { "id": "TC-QRY-01", "type": "BuildAssemblyQuery", "result": "PASS" },
+    { "id": "TC-MOD-01", "type": "BuildAssemblyMod", "result": "PASS", "newEditSequence": "1774599498" },
+    { "id": "TC-ADD-02", "description": "invalid type", "result": "PASS", "code": "INVALID-ASSEMBLY-TYPE", "httpStatus": 400 },
+    { "id": "TC-ADD-03", "description": "missing sede", "result": "PASS", "code": "MISSING-SEDE", "httpStatus": 400 },
+    { "id": "TC-MOD-02", "description": "invalid type", "result": "PASS", "code": "INVALID-ASSEMBLY-TYPE", "httpStatus": 400 },
+    { "id": "TC-MOD-03", "description": "missing sede", "result": "PASS", "code": "MISSING-SEDE", "httpStatus": 400 }
+  ],
+  "notes": [
+    "BuildAssemblyAdd requiere MarkPendingIfRequired (required by Intuit) — incluir siempre en payload Add",
+    "MarkPendingIfRequired: 'false' funciona cuando hay suficiente stock para construir",
+    "MarkPendingIfRequired: 'true' cuando no hay stock suficiente — QB acepta con IsPending=true",
+    "QuantityCanBuild puede ser 0 si el assembly ya consumió stock — Add igual funciona",
+    "ItemInventoryAssemblyRef válido en TEST: 80009375-1635546523 (FRESHBASE-PLUS-SM)",
+    "InventorySiteRef válido en TEST: 80000001-1607388775 (RMEXWH)"
+  ],
+  "businessRules": {
+    "add": {
+      "sedes": ["TEST", "RUS", "REC", "RBR", "RMX"],
+      "paths": [
+        "ItemInventoryAssemblyRef/ListID",
+        "TxnDate",
+        "QuantityToBuild",
+        "RefNumber"
+      ]
+    },
+    "mod": {
+      "sedes": ["TEST", "RUS", "REC", "RBR", "RMX"],
+      "paths": [
+        "TxnID",
+        "EditSequence",
+        "TxnDate",
+        "QuantityToBuild",
+        "RefNumber"
+      ]
+    }
+  }
+}

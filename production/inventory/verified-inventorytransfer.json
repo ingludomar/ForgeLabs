@@ -1,0 +1,69 @@
+{
+  "entity": "InventoryTransfer",
+  "sede": "TEST",
+  "version": "17.0",
+  "testedAt": "2026-03-27",
+  "workflows": {
+    "add": "ITk8Dllh3vHInpEH",
+    "query": "LCI7zXYd8d8ozcFq"
+  },
+  "endpoints": {
+    "add": "/webhook/inventory/transfer/add",
+    "query": "/webhook/inventory/transfer/query"
+  },
+  "successfulRecords": {
+    "add": {
+      "TxnID": "6265B-1774597537",
+      "TxnNumber": "28018",
+      "RefNumber": "TRF001",
+      "TxnDate": "2026-03-27",
+      "FromInventorySiteRef": { "ListID": "80000001-1607388775", "FullName": "RMEXWH" },
+      "ToInventorySiteRef": { "ListID": "80000006-1610573894", "FullName": "NATGASWH" },
+      "EditSequence": "1774597537"
+    }
+  },
+  "lastSuccessfulResponse": {
+    "add": {
+      "success": true,
+      "data": {
+        "TransferInventoryRet": {
+          "TxnID": "6265B-1774597537",
+          "TxnNumber": "28018",
+          "TxnDate": "2026-03-27",
+          "RefNumber": "TRF001",
+          "FromInventorySiteRef": { "ListID": "80000001-1607388775", "FullName": "RMEXWH" },
+          "ToInventorySiteRef": { "ListID": "80000006-1610573894", "FullName": "NATGASWH" },
+          "TransferInventoryLineRet": {
+            "TxnLineID": "6265D-1774597537",
+            "ItemRef": { "ListID": "800078CB-1597202979", "FullName": "MC55A0-P70SWRQA7WR" },
+            "QuantityTransferred": "1"
+          }
+        }
+      }
+    }
+  },
+  "testCases": [
+    { "id": "TC-ADD-01", "type": "TransferInventoryAdd", "result": "PASS", "TxnID": "6265B-1774597537" },
+    { "id": "TC-QRY-01", "type": "TransferInventoryQuery", "result": "PASS" },
+    { "id": "TC-ADD-02", "description": "invalid type", "result": "PASS", "code": "INVALID-TRANSFER-TYPE", "httpStatus": 400 },
+    { "id": "TC-ADD-03", "description": "missing sede", "result": "PASS", "code": "MISSING-SEDE", "httpStatus": 400 },
+    { "id": "TC-ADD-04", "description": "empty data", "result": "PASS", "code": "MISSING-DATA", "httpStatus": 400 }
+  ],
+  "notes": [
+    "QB Desktop no expone TransferInventoryMod — solo Add y Query",
+    "RefNumber max ~11 caracteres (QB-3070 si es más largo)",
+    "ItemRef debe ser ItemInventory — ItemService/NonInventory causan QB-3140",
+    "ItemRef válido en TEST: 800078CB-1597202979 (MC55A0-P70SWRQA7WR)"
+  ],
+  "businessRules": {
+    "add": {
+      "sedes": ["TEST", "RUS", "REC", "RBR", "RMX"],
+      "paths": [
+        "TxnDate",
+        "RefNumber",
+        "FromInventorySiteRef/ListID",
+        "ToInventorySiteRef/ListID"
+      ]
+    }
+  }
+}

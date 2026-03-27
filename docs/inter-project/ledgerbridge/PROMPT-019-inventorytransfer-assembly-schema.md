@@ -5,7 +5,7 @@
 | **Fecha** | 2026-03-26 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | feature |
-| **Estado** | ⏳ pending |
+| **Estado** | ✅ solved — v17.0 + v13.0 RMX disponibles (2026-03-26) |
 
 ---
 

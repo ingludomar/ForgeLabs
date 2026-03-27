@@ -31,7 +31,7 @@ a Monday.com.
 | [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | 2026-03-25 | LedgerBridge | feature | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
 | [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | 2026-03-26 | LedgerBridge | feature | CreditCardCharge | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | 2026-03-26 | LedgerBridge | feature | InventorySite | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
-| [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | 2026-03-26 | LedgerBridge | feature | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX para tipos Enterprise | ⏳ pending |
+| [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | 2026-03-26 | LedgerBridge | feature | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX para tipos Enterprise | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-002](ledgerops/PROMPT-002-itemNonInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemNonInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -45,6 +45,8 @@ a Monday.com.
 | [PROMPT-LO-010](ledgerops/PROMPT-010-bill-delivery.md) | 2026-03-25 | LedgerOps | delivery | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | 2026-03-26 | LedgerOps | delivery | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | 2026-03-26 | LedgerOps | delivery | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-013](ledgerops/PROMPT-013-inventorytransfer-delivery.md) | 2026-03-27 | LedgerOps | delivery | InventoryTransfer | Entrega Add · Query — workflows + docs | ✅ solved |
+| [PROMPT-LO-014](ledgerops/PROMPT-014-assembly-delivery.md) | 2026-03-27 | LedgerOps | delivery | Assembly | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
 
 ---
 
@@ -84,7 +86,7 @@ a Monday.com.
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 
 ### LedgerOps
-12 prompts · 12 solved · 0 pending
+14 prompts · 13 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -100,6 +102,8 @@ a Monday.com.
 | [PROMPT-010](ledgerops/PROMPT-010-bill-delivery.md) | Bill | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-011](ledgerops/PROMPT-011-inventorysite-delivery.md) | InventorySite | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-012](ledgerops/PROMPT-012-creditcardcharge-delivery.md) | CreditCardCharge | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
+| [PROMPT-013](ledgerops/PROMPT-013-inventorytransfer-delivery.md) | InventoryTransfer | Entrega Add · Query — workflows + docs | ✅ solved |
+| [PROMPT-014](ledgerops/PROMPT-014-assembly-delivery.md) | Assembly | Entrega Add · Mod · Query — workflows + docs | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

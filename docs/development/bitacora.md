@@ -182,11 +182,73 @@
 
 ---
 
+---
+
+### 2026-03-27 — InventoryTransfer · Assembly — P0–P5.2 completo
+
+**Resultado:** InventoryTransfer (Add · Query) y Assembly (Add · Mod · Query) — P5.2 completo. PROMPTs LO-013 y LO-014 emitidos. Esperando confirmación de LO.
+
+**Flujo seguido:**
+- P0: PROMPT-019 a LedgerBridge — schemas v17.0 + v13.0 RMX confirmados disponibles (sesión anterior)
+- P1: analyze-sede-fields ejecutado para TransferInventoryAdd y BuildAssemblyAdd en TEST
+- P2: business-rules/replace ejecutado para TransferInventoryAdd, BuildAssemblyAdd, BuildAssemblyMod en todas las sedes (TEST · RUS · REC · RBR · RMX)
+- P3: 5 workflows creados en N8N y activados — endpoints respondiendo
+- P4: Testing completo en TEST — verified JSONs generados
+- P5.1: 12 docs por rol creados en LedgerOps (6 por entidad)
+- P5.2: PROMPT-LO-013 y PROMPT-LO-014 emitidos
+
+**Archivos modificados (SyncBridge):**
+- `docs/inter-project/ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md` (estado → ✅ solved)
+- `docs/inter-project/ledgerops/PROMPT-013-inventorytransfer-delivery.md` (nuevo)
+- `docs/inter-project/ledgerops/PROMPT-014-assembly-delivery.md` (nuevo)
+- `docs/inter-project/README.md` (actualizado)
+- `docs/development/roadmap.md` (actualizado)
+- `development/inventory/TransferInventoryAdd.workflow.json` (nuevo)
+- `development/inventory/TransferInventoryQuery.workflow.json` (nuevo)
+- `development/inventory/BuildAssemblyAdd.workflow.json` (nuevo)
+- `development/inventory/BuildAssemblyMod.workflow.json` (nuevo)
+- `development/inventory/BuildAssemblyQuery.workflow.json` (nuevo)
+- `development/inventory/verified-inventorytransfer.json` (nuevo)
+- `development/inventory/verified-assembly.json` (nuevo)
+- `production/inventory/` (5 workflows + 2 verified copiados)
+
+**Archivos preparados (LedgerOps):**
+- `docs/integration/developer/InventoryTransfer.md` (nuevo)
+- `docs/integration/quickstart/InventoryTransfer.md` (nuevo)
+- `docs/integration/architect/InventoryTransfer.md` (nuevo)
+- `docs/integration/qa/InventoryTransfer.md` (nuevo)
+- `docs/integration/support/InventoryTransfer.md` (nuevo)
+- `docs/integration/executive/InventoryTransfer.md` (nuevo)
+- `docs/integration/developer/Assembly.md` (nuevo)
+- `docs/integration/quickstart/Assembly.md` (nuevo)
+- `docs/integration/architect/Assembly.md` (nuevo)
+- `docs/integration/qa/Assembly.md` (nuevo)
+- `docs/integration/support/Assembly.md` (nuevo)
+- `docs/integration/executive/Assembly.md` (nuevo)
+
+**P2 — Business rules registradas:**
+- TransferInventoryAdd: TEST/RUS/REC/RBR (v17.0) + RMX (v13.0) — TxnDate, RefNumber, FromInventorySiteRef/ListID, ToInventorySiteRef/ListID
+- BuildAssemblyAdd: TEST/RUS/REC/RBR (v17.0) + RMX (v13.0) — ItemInventoryAssemblyRef/ListID, TxnDate, QuantityToBuild, RefNumber
+- BuildAssemblyMod: TEST/RUS/REC/RBR (v17.0) + RMX (v13.0) — TxnID, EditSequence, TxnDate, QuantityToBuild, RefNumber
+
+**P3 — Workflows N8N:**
+- TransferInventoryAdd: `ITk8Dllh3vHInpEH`
+- TransferInventoryQuery: `LCI7zXYd8d8ozcFq`
+- BuildAssemblyAdd: `lN5uKrOpfLz1Z0wT`
+- BuildAssemblyMod: `0iTkdwSH8O6nZ7uV`
+- BuildAssemblyQuery: `dHr98MHz8RXEw7ID`
+
+**Hallazgos técnicos:**
+- `BuildAssemblyAdd` requiere `MarkPendingIfRequired` (required by Intuit) — omitirlo causa LB-VALIDATION-MISSING_REQUIRED
+- `TransferInventoryAdd`: RefNumber máx ~11 caracteres (QB-3070 si más largo)
+- `TransferInventoryAdd`: ItemRef debe ser ItemInventory — otros tipos causan QB-3140
+- `BuildAssemblyMod`: `ItemInventoryAssemblyRef/ListID` NO es un path válido en el schema ModRq — paths válidos son TxnID, EditSequence, TxnDate, QuantityToBuild, RefNumber
+
 ## Pendientes activos
 
 | Entidad | Estado | Bloqueado por |
 |---|---|---|
 | CreditCardCharge | ✅ P5 completo | Entregado v1.11.0 · 2026-03-26 |
-| InventoryTransfer | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
-| Assembly | 🔴 Bloqueado | Requiere QB Enterprise + Advanced Inventory |
+| InventoryTransfer | 🔄 P5 en curso | Esperando confirmación LO (PROMPT-LO-013) |
+| Assembly | 🔄 P5 en curso | Esperando confirmación LO (PROMPT-LO-014) |
 | TSI · RRC | ⏳ Pendiente | Configuración LedgerBridge pendiente |
