@@ -244,6 +244,27 @@
 - `TransferInventoryAdd`: ItemRef debe ser ItemInventory — otros tipos causan QB-3140
 - `BuildAssemblyMod`: `ItemInventoryAssemblyRef/ListID` NO es un path válido en el schema ModRq — paths válidos son TxnID, EditSequence, TxnDate, QuantityToBuild, RefNumber
 
+### 2026-03-27 — Documentación estratégica y comunicación ejecutiva
+
+**Resultado:** Creados 3 documentos de roadmap y enviado correo ejecutivo a Mike Habib (CEO, Redsis).
+
+**Archivos creados (SyncBridge):**
+- `docs/development/roadmap-xml.md` — 115 entidades clasificadas por módulo técnico con XML count y % avance
+- `docs/development/roadmap.md` — reestructurado con 115 entidades completas, operaciones individuales y prioridad
+- `docs/development/roadmap-procesos.md` — 9 procesos de negocio con XML count, % avance y dependencias
+
+**Archivos creados (LedgerOps):**
+- `docs/project/roadmap-procesos.md` — versión ejecutiva de la hoja de ruta por procesos (PROMPT-LO-015)
+
+**Decisiones estratégicas:**
+- Inventario unificado como un solo módulo con subgrupos (Catálogo + Operaciones)
+- Priorización por cierre de flujos completos: Order-to-Cash → Purchase-to-Pay → Inventario → Tesorería
+- Regla establecida: ante cualquier sugerencia del usuario, analizar como experto antes de aceptar
+
+**Correo enviado:** Mike Habib — estado del proyecto QB Desktop apertura a automatizaciones
+
+---
+
 ## Pendientes activos
 
 | Entidad | Estado | Bloqueado por |
