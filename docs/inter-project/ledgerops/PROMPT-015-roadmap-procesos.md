@@ -5,7 +5,7 @@
 | **Fecha** | 2026-03-27 |
 | **Proyecto destino** | LedgerOps |
 | **Tipo** | docs |
-| **Estado** | ⏳ pending |
+| **Estado** | ✅ solved — commit 1029f0d (2026-03-27) |
 
 ---
 
