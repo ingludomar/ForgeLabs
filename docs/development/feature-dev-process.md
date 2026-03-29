@@ -92,6 +92,47 @@ Verificar: `POST /webhook/tools/contract` → `info.requiredBySede` debe mostrar
 
 ---
 
+## P2.5 — Verificar diferencias de contrato por versión
+
+Después de registrar las business rules en todas las sedes, comparar el contrato generado entre versiones para identificar y documentar diferencias.
+
+**Ejecutar GenerateContract para ambas versiones:**
+
+```bash
+# v17.0 — sedes TEST · RUS · REC · RBR
+curl -s -X POST https://n8n-development.redsis.ai/webhook/tools/contract \
+  -H "Content-Type: application/json" \
+  -d '{ "type": "{TipoAdd}", "sede": "TEST", "version": "17.0" }'
+
+# v13.0 — sede RMX
+curl -s -X POST https://n8n-development.redsis.ai/webhook/tools/contract \
+  -H "Content-Type: application/json" \
+  -d '{ "type": "{TipoAdd}", "sede": "RMX", "version": "13.0" }'
+```
+
+**Comparar y registrar:**
+- ¿Qué campos existen en v17.0 pero no en v13.0?
+- ¿Qué campos son requeridos en RMX pero opcionales en otras sedes (o viceversa)?
+- ¿El payload mínimo funcional es diferente entre versiones?
+
+**Output:** Las diferencias documentadas se incluyen en el **developer doc (P5.1)** como sección separada por versión:
+
+```
+## Contrato
+
+### QB Desktop 2024 — QBXML v17.0
+> Sedes: TEST · RUS · REC · RBR
+{contrato v17.0}
+
+### QB Desktop 2021 — QBXML v13.0
+> Sede: RMX
+{contrato v13.0 — solo si difiere de v17.0}
+```
+
+> Si los contratos son idénticos entre versiones, documentar una sola sección con nota: "Válido para todas las sedes y versiones."
+
+---
+
 ## P3 — Workflow
 
 1. Crear el workflow JSON en `development/{modulo}/`
@@ -191,6 +232,7 @@ Hacer commit en el repo SyncBridge con todos los artefactos generados durante el
 P0  [ ] PROMPT-{NNN} RMX emitido para esta entidad → confirmado por LedgerBridge
 P1  [ ] AnalyzeSedeFields ejecutado en TEST · RUS · REC · RBR · RMX
 P2  [ ] business-rules/replace ejecutado (Add + Mod) en todas las sedes
+P2.5[ ] Contratos v17.0 vs v13.0 comparados → diferencias documentadas para developer doc
 P3  [ ] Workflow en development/ → subido a N8N → activo
 P4  [ ] CRUD completo verificado en TEST → verified.json actualizado
     [ ] Workflow movido de development/ a production/
