@@ -19,7 +19,7 @@ a Monday.com.
 | [PROMPT-003](ledgerbridge/PROMPT-003-noninventory-schema.md) | 2026-03-17 | LedgerBridge | feature | ItemNonInventoryAdd + roadmap | describe.json faltante — source XML no cargado para tipos del roadmap | ✅ solved |
 | [PROMPT-004](ledgerbridge/PROMPT-004-noninventory-elementorder.md) | 2026-03-19 | LedgerBridge | bug | ItemNonInventoryMod / ItemServiceMod | QB-PARSE-ERROR — asimetría Rq/Rs en nombres de elementos QBXML SDK | ✅ cerrado (no es bug LB) |
 | [PROMPT-005](ledgerbridge/PROMPT-005-semver-versioning.md) | 2026-03-19 | LedgerBridge | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
-| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | 2026-03-19 | LedgerBridge | bug | GenerateContract | requiredBySede vacío aunque reglas estén registradas en business-rules | ⏳ pending |
+| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | 2026-03-19 | LedgerBridge | bug | GenerateContract | requiredBySede vacío y data:{} — bloquea RIQ y P2.5 · escalado 2026-03-30 | 🔴 crítico |
 | [PROMPT-007](ledgerbridge/PROMPT-007-rmx-sede-schema.md) | 2026-03-20 | LedgerBridge | feature | Sede RMX · ItemInventory | Soporte QBXML v13.0 para QB Desktop 2021 — mapeo sede→versión implementado | ✅ solved |
 | [PROMPT-009](ledgerbridge/PROMPT-009-noninventory-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemNonInventory | Schemas v13.0 para ItemNonInventoryAdd/Mod/Query — mismo patrón que ItemInventory | ✅ solved |
 | [PROMPT-010](ledgerbridge/PROMPT-010-service-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemService | Schemas v13.0 para ItemServiceAdd/Mod/Query | ✅ solved |
@@ -48,6 +48,11 @@ a Monday.com.
 | [PROMPT-LO-013](ledgerops/PROMPT-013-inventorytransfer-delivery.md) | 2026-03-27 | LedgerOps | delivery | InventoryTransfer | Entrega Add · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-014](ledgerops/PROMPT-014-assembly-delivery.md) | 2026-03-27 | LedgerOps | delivery | Assembly | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-015](ledgerops/PROMPT-015-roadmap-procesos.md) | 2026-03-27 | LedgerOps | docs | — | Hoja de ruta por procesos de negocio — documento ejecutivo global | ✅ solved |
+| [PROMPT-LO-016](ledgerops/PROMPT-016-sedes-config-contract-endpoint.md) | 2026-03-30 | LedgerOps | feature | — | Endpoints GET /webhook/sedes y GET /webhook/contracts/{type} para RIQ | ⏳ pending |
+| [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | 2026-03-30 | RIQ | integration-spec | QB Playground | Especificación de integración LedgerOps → RIQ — routing, payload transform, respuestas | ✅ solved |
+| [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | 2026-03-30 | RIQ | improvement | QB Playground | Filtrar campos vacíos del payload — solo enviar campos con datos | ✅ solved |
+| [PROMPT-RIQ-003](riq/PROMPT-RIQ-003-ref-field-priority.md) | 2026-03-30 | RIQ | improvement | QB Playground | Prioridad ListID sobre FullName en campos Ref — lógica buildRef | ✅ solved |
+| [PROMPT-RIQ-004](riq/PROMPT-RIQ-004-example-data-test.md) | 2026-03-30 | RIQ | data | QB Playground | Datos de ejemplo reales por entidad (sede TEST) — Fill Examples funcional | ⏳ pending |
 
 ---
 
@@ -107,6 +112,14 @@ a Monday.com.
 | [PROMPT-014](ledgerops/PROMPT-014-assembly-delivery.md) | Assembly | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-015](ledgerops/PROMPT-015-roadmap-procesos.md) | — | Hoja de ruta por procesos — documento ejecutivo global | ✅ solved |
 
+### RIQ (redix-integration-quickbooks)
+1 prompt · 0 solved · 1 pending
+
+| ID | Entidad | Asunto | Estado |
+|---|---|---|---|
+| [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | QB Playground | Especificación de integración con LedgerOps | ✅ solved |
+| [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | QB Playground | Filtrar campos vacíos del payload | ✅ solved |
+
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
 
@@ -129,6 +142,6 @@ docs/inter-project/
 | Símbolo | Significado |
 |---|---|
 | ⏳ pending | Prompt emitido — esperando respuesta |
-| 🔄 in-progress | LedgerBridge/proyecto está trabajando en ello |
+| ✅ solved | LedgerBridge/proyecto está trabajando en ello |
 | ✅ solved | Resuelto y verificado |
 | 🔴 blocked | Bloqueado por dependencia externa |
