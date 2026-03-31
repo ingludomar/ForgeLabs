@@ -237,5 +237,5 @@
 
 | Item | Proyecto | Estado |
 |---|---|---|
-| PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ⏳ pending |
+| PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ✅ solved |
 | TSI + RRC — configuración LedgerBridge | LedgerBridge | ⏳ bloqueado |
