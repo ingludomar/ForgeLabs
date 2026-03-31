@@ -4,7 +4,7 @@
 **De:** SyncBridge
 **Para:** RIQ (redix-integration-quickbooks)
 **Tipo:** data
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
 
 ---
 

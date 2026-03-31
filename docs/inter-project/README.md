@@ -19,7 +19,7 @@ a Monday.com.
 | [PROMPT-003](ledgerbridge/PROMPT-003-noninventory-schema.md) | 2026-03-17 | LedgerBridge | feature | ItemNonInventoryAdd + roadmap | describe.json faltante — source XML no cargado para tipos del roadmap | ✅ solved |
 | [PROMPT-004](ledgerbridge/PROMPT-004-noninventory-elementorder.md) | 2026-03-19 | LedgerBridge | bug | ItemNonInventoryMod / ItemServiceMod | QB-PARSE-ERROR — asimetría Rq/Rs en nombres de elementos QBXML SDK | ✅ cerrado (no es bug LB) |
 | [PROMPT-005](ledgerbridge/PROMPT-005-semver-versioning.md) | 2026-03-19 | LedgerBridge | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
-| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | 2026-03-19 | LedgerBridge | bug | GenerateContract | requiredBySede vacío y data:{} — bloquea RIQ y P2.5 · escalado 2026-03-30 | 🔴 crítico |
+| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | 2026-03-19 | LedgerBridge | bug | GenerateContract | requiredBySede vacío y data:{} — URL corregida en workflow N8N | ✅ solved |
 | [PROMPT-007](ledgerbridge/PROMPT-007-rmx-sede-schema.md) | 2026-03-20 | LedgerBridge | feature | Sede RMX · ItemInventory | Soporte QBXML v13.0 para QB Desktop 2021 — mapeo sede→versión implementado | ✅ solved |
 | [PROMPT-009](ledgerbridge/PROMPT-009-noninventory-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemNonInventory | Schemas v13.0 para ItemNonInventoryAdd/Mod/Query — mismo patrón que ItemInventory | ✅ solved |
 | [PROMPT-010](ledgerbridge/PROMPT-010-service-rmx-schema.md) | 2026-03-23 | LedgerBridge | feature | Sede RMX · ItemService | Schemas v13.0 para ItemServiceAdd/Mod/Query | ✅ solved |
@@ -48,11 +48,16 @@ a Monday.com.
 | [PROMPT-LO-013](ledgerops/PROMPT-013-inventorytransfer-delivery.md) | 2026-03-27 | LedgerOps | delivery | InventoryTransfer | Entrega Add · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-014](ledgerops/PROMPT-014-assembly-delivery.md) | 2026-03-27 | LedgerOps | delivery | Assembly | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-015](ledgerops/PROMPT-015-roadmap-procesos.md) | 2026-03-27 | LedgerOps | docs | — | Hoja de ruta por procesos de negocio — documento ejecutivo global | ✅ solved |
-| [PROMPT-LO-016](ledgerops/PROMPT-016-sedes-config-contract-endpoint.md) | 2026-03-30 | LedgerOps | feature | — | Endpoints GET /webhook/sedes y GET /webhook/contracts/{type} para RIQ | ⏳ pending |
+| [PROMPT-LO-016](ledgerops/PROMPT-016-sedes-config-contract-endpoint.md) | 2026-03-30 | LedgerOps | feature | — | Endpoints GET /webhook/sedes y GET /webhook/contracts?type= para RIQ | ✅ solved |
+| [PROMPT-LO-017](ledgerops/PROMPT-017-p25-contract-version-note.md) | 2026-03-30 | LedgerOps | docs | 13 entidades | P2.5 — nota de versión en contratos · contratos idénticos v17.0 y v13.0 | ✅ solved |
 | [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | 2026-03-30 | RIQ | integration-spec | QB Playground | Especificación de integración LedgerOps → RIQ — routing, payload transform, respuestas | ✅ solved |
 | [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | 2026-03-30 | RIQ | improvement | QB Playground | Filtrar campos vacíos del payload — solo enviar campos con datos | ✅ solved |
 | [PROMPT-RIQ-003](riq/PROMPT-RIQ-003-ref-field-priority.md) | 2026-03-30 | RIQ | improvement | QB Playground | Prioridad ListID sobre FullName en campos Ref — lógica buildRef | ✅ solved |
-| [PROMPT-RIQ-004](riq/PROMPT-RIQ-004-example-data-test.md) | 2026-03-30 | RIQ | data | QB Playground | Datos de ejemplo reales por entidad (sede TEST) — Fill Examples funcional | ⏳ pending |
+| [PROMPT-RIQ-004](riq/PROMPT-RIQ-004-example-data-test.md) | 2026-03-30 | RIQ | data | QB Playground | Datos de ejemplo reales por entidad (sede TEST) — Fill Examples funcional | ✅ solved |
+| [PROMPT-RIQ-005](riq/PROMPT-RIQ-005-dynamic-contracts-migration.md) | 2026-03-30 | RIQ | feature | QB Playground | Migración de contracts.ts estático a contratos dinámicos desde LedgerOps | ✅ solved |
+| [PROMPT-RIQ-006](riq/PROMPT-RIQ-006-remove-companymiddleware-playground.md) | 2026-03-30 | RIQ | bug | QB Playground | Excluir CompanyContextMiddleware de los 3 endpoints del Playground | ✅ solved |
+| [PROMPT-RIQ-007](riq/PROMPT-RIQ-007-billquery-route.md) | 2026-03-30 | RIQ | bug | QB Playground | BillQuery — ruta faltante en qb-endpoints.ts | ✅ solved |
+| [PROMPT-RIQ-008](riq/PROMPT-RIQ-008-playground-test-suite.md) | 2026-03-31 | RIQ | testing | QB Playground | Test suite E2E + guía curl — 15 TCs ejecutables individualmente | ⏳ pending |
 
 ---
 

@@ -4,7 +4,7 @@
 **De:** SyncBridge
 **Para:** LedgerOps
 **Tipo:** feature
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
 
 ---
 
@@ -53,14 +53,14 @@ Retorna la tabla de sedes activas con su configuración QB Desktop.
 
 ## Endpoint 2 — Contrato dinámico por tipo y sede
 
-### `GET /webhook/contracts/{type}?sede={sede}`
+### `GET /webhook/contracts?type={type}&sede={sede}`
 
 Retorna el contrato de campos para la combinación type + sede. LO consulta internamente a LedgerBridge (`business-rules/get`) para obtener los campos requeridos por sede.
 
 **Ejemplo:**
 ```
-GET /webhook/contracts/ItemInventoryAdd?sede=TEST
-GET /webhook/contracts/ItemInventoryAdd?sede=RMX
+GET /webhook/contracts?type=ItemInventoryAdd&sede=TEST
+GET /webhook/contracts?type=ItemInventoryAdd&sede=RMX
 ```
 
 **Response:**

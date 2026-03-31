@@ -4,10 +4,11 @@
 |---|---|
 | **Fecha** | 2026-03-19 |
 | **Escalado** | 2026-03-30 — bloqueante crítico para RIQ |
+| **Resuelto** | 2026-03-30 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | bug |
-| **Estado** | ⏳ pending |
-| **Prioridad** | 🔴 crítica — bloquea integración con Redix |
+| **Estado** | ✅ solved |
+| **Fix** | URL corregida en workflow N8N — `/webhook/jsonin` → `/webhook/tools/jsonin-get` |
 
 ---
 
