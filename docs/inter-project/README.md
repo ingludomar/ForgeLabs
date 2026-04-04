@@ -32,6 +32,9 @@ a Monday.com.
 | [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | 2026-03-26 | LedgerBridge | feature | CreditCardCharge | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | 2026-03-26 | LedgerBridge | feature | InventorySite | Schemas v17.0 + v13.0 RMX para Add/Mod/Query | ✅ solved |
 | [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | 2026-03-26 | LedgerBridge | feature | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX para tipos Enterprise | ✅ solved |
+| [PROMPT-LB-020](ledgerbridge/PROMPT-020-postgresql-architecture.md) | 2026-04-01 | LedgerBridge | research | LedgerBridge completo | Diseño de arquitectura PostgreSQL — tablas, relaciones y constraints para migración completa | ✅ solved |
+| [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | 2026-04-01 | LedgerBridge | delivery | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
+| [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | 2026-04-02 | LedgerBridge | research | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas para referencia de LC | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-002](ledgerops/PROMPT-002-itemNonInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemNonInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -50,6 +53,13 @@ a Monday.com.
 | [PROMPT-LO-015](ledgerops/PROMPT-015-roadmap-procesos.md) | 2026-03-27 | LedgerOps | docs | — | Hoja de ruta por procesos de negocio — documento ejecutivo global | ✅ solved |
 | [PROMPT-LO-016](ledgerops/PROMPT-016-sedes-config-contract-endpoint.md) | 2026-03-30 | LedgerOps | feature | — | Endpoints GET /webhook/sedes y GET /webhook/contracts?type= para RIQ | ✅ solved |
 | [PROMPT-LO-017](ledgerops/PROMPT-017-p25-contract-version-note.md) | 2026-03-30 | LedgerOps | docs | 13 entidades | P2.5 — nota de versión en contratos · contratos idénticos v17.0 y v13.0 | ✅ solved |
+| [PROMPT-LO-018](ledgerops/PROMPT-018-contracts-intuit-required.md) | 2026-03-31 | LedgerOps | bug | Contratos dinámicos | Incluir requiredByIntuit en GET /webhook/contracts — usar LB contract nativo | ✅ solved |
+| [PROMPT-LO-019](ledgerops/PROMPT-019-qb-playground-vendor-docs.md) | 2026-03-31 | LedgerOps | docs | Vendor · QB Playground | Crear docs/qb-playground/Vendor.md — documentación generada por RIQ | ✅ solved |
+| [PROMPT-LO-020](ledgerops/PROMPT-020-qb-playground-customer-docs.md) | 2026-03-31 | LedgerOps | docs | Customer · QB Playground | Crear docs/qb-playground/Customer.md — documentación generada por RIQ | ✅ solved |
+| [PROMPT-LO-021](ledgerops/PROMPT-021-qb-playground-executive-docs.md) | 2026-04-01 | LedgerOps | docs | Vendor · Customer · QB Playground | Resúmenes ejecutivos — docs/qb-playground/Vendor-executive.md y Customer-executive.md | ✅ solved |
+| [PROMPT-LC-001](ledgercore/PROMPT-LC-001-setup-environment.md) | 2026-04-01 | LedgerCore | setup | — | Setup entorno — DB PostgreSQL · MCP Postgres · MCP N8N · stack del API | ✅ solved |
+| [PROMPT-LC-002](ledgercore/PROMPT-LC-002-templates-status-and-api.md) | 2026-04-03 | LedgerCore | feature | Templates | Estado actual de templates en DB + propuesta de API para que LO pueda consultarlos | ✅ solved |
+| [PROMPT-LO-023](ledgerops/PROMPT-LO-023-contracts-template-integration.md) | 2026-04-03 | LedgerOps | feature | Templates | Integrar templates de LC en `/contracts` | ❌ cancelado — templates viven en DB de RIQ, no en LO |
 | [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | 2026-03-30 | RIQ | integration-spec | QB Playground | Especificación de integración LedgerOps → RIQ — routing, payload transform, respuestas | ✅ solved |
 | [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | 2026-03-30 | RIQ | improvement | QB Playground | Filtrar campos vacíos del payload — solo enviar campos con datos | ✅ solved |
 | [PROMPT-RIQ-003](riq/PROMPT-RIQ-003-ref-field-priority.md) | 2026-03-30 | RIQ | improvement | QB Playground | Prioridad ListID sobre FullName en campos Ref — lógica buildRef | ✅ solved |
@@ -57,7 +67,22 @@ a Monday.com.
 | [PROMPT-RIQ-005](riq/PROMPT-RIQ-005-dynamic-contracts-migration.md) | 2026-03-30 | RIQ | feature | QB Playground | Migración de contracts.ts estático a contratos dinámicos desde LedgerOps | ✅ solved |
 | [PROMPT-RIQ-006](riq/PROMPT-RIQ-006-remove-companymiddleware-playground.md) | 2026-03-30 | RIQ | bug | QB Playground | Excluir CompanyContextMiddleware de los 3 endpoints del Playground | ✅ solved |
 | [PROMPT-RIQ-007](riq/PROMPT-RIQ-007-billquery-route.md) | 2026-03-30 | RIQ | bug | QB Playground | BillQuery — ruta faltante en qb-endpoints.ts | ✅ solved |
-| [PROMPT-RIQ-008](riq/PROMPT-RIQ-008-playground-test-suite.md) | 2026-03-31 | RIQ | testing | QB Playground | Test suite E2E + guía curl — 15 TCs ejecutables individualmente | ⏳ pending |
+| [PROMPT-RIQ-008](riq/PROMPT-RIQ-008-playground-test-suite.md) | 2026-03-31 | RIQ | testing | QB Playground | Test suite E2E + guía curl — 15 TCs ejecutables individualmente | ✅ solved |
+| [PROMPT-RIQ-009](riq/PROMPT-RIQ-009-json-output-summary-tab.md) | 2026-03-31 | RIQ | improvement | QB Playground | Pestaña Resumen en JSON Output — vista amigable de campos clave | ✅ solved |
+| [PROMPT-RIQ-010](riq/PROMPT-RIQ-010-fill-examples-editsequence.md) | 2026-03-31 | RIQ | bug | QB Playground | Fill Examples — EditSequence vacío con hint en operaciones Mod | ✅ solved |
+| [PROMPT-RIQ-011](riq/PROMPT-RIQ-011-vendor-playground-docs.md) | 2026-03-31 | RIQ | docs | Vendor | Documentación Vendor en QB Playground — guía de uso y casos de prueba | ✅ solved |
+| [PROMPT-RIQ-012](riq/PROMPT-RIQ-012-vendor-feature-delivery.md) | 2026-03-31 | RIQ | delivery | Vendor | Entrega formal — versión, docs y cuerpo de correo | ✅ solved |
+| [PROMPT-RIQ-013](riq/PROMPT-RIQ-013-customer-playground-docs.md) | 2026-03-31 | RIQ | docs | Customer | Documentación Customer en QB Playground — guía de uso y casos de prueba | ✅ solved |
+| [PROMPT-RIQ-014](riq/PROMPT-RIQ-014-webhook-config-system.md) | 2026-04-02 | RIQ | improvement | Global | Sistema de configuración centralizada de URLs de webhooks N8N | ✅ solved |
+| [PROMPT-RIQ-015](riq/PROMPT-RIQ-015-webhook-admin-ui.md) | 2026-04-02 | RIQ | feature | Global | Panel de administración visual para gestión de URLs de webhooks N8N | ✅ solved |
+| [PROMPT-RIQ-016](riq/PROMPT-RIQ-016-webhook-resolver-singleton.md) | 2026-04-02 | RIQ | bug / security | Global | WebhookResolverService singleton + JWT guard en PUT/DELETE | ✅ solved |
+| [PROMPT-RIQ-017](riq/PROMPT-RIQ-017-template-playground.md) | 2026-04-03 | RIQ | feature | QB Playground | Templates — formulario configurable por sede y operación, consumo adaptativo desde RIQ DB | ✅ solved |
+| [PROMPT-RIQ-018](riq/PROMPT-RIQ-018-item-inventory-playground-docs.md) | 2026-04-03 | RIQ | docs | Item Inventory | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ⏳ pending |
+| [PROMPT-RIQ-019](riq/PROMPT-RIQ-019-template-management.md) | 2026-04-04 | RIQ | feature | Templates | Gestión completa de templates en DB de RIQ — Prisma, seed via LO, panel admin | ✅ solved |
+| [PROMPT-LO-025](ledgerops/PROMPT-LO-025-qb-playground-templates-docs.md) | 2026-04-04 | LedgerOps | docs | QB Playground Templates | Crear docs/platform/QBPlaygroundTemplates/ con 5 archivos por rol | ✅ solved |
+| [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
+| [PROMPT-LO-024](ledgerops/PROMPT-LO-024-webhook-admin-platform-docs.md) | 2026-04-04 | LedgerOps | docs | N8N Webhook Administration | Crear docs/platform/WebhookAdmin/ con 5 archivos por rol | ✅ solved |
+| [PROMPT-LO-022](ledgerops/PROMPT-LO-022-qb-playground-item-inventory-docs.md) | 2026-04-03 | LedgerOps | docs | Item Inventory | Crear docs/qb-playground/ItemInventory.md — contenido generado por RIQ | ⏳ pending |
 
 ---
 
@@ -118,12 +143,25 @@ a Monday.com.
 | [PROMPT-015](ledgerops/PROMPT-015-roadmap-procesos.md) | — | Hoja de ruta por procesos — documento ejecutivo global | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-1 prompt · 0 solved · 1 pending
+15 prompts · 15 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
 | [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | QB Playground | Especificación de integración con LedgerOps | ✅ solved |
 | [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | QB Playground | Filtrar campos vacíos del payload | ✅ solved |
+| [PROMPT-RIQ-003](riq/PROMPT-RIQ-003-ref-field-priority.md) | QB Playground | Prioridad ListID sobre FullName en campos Ref | ✅ solved |
+| [PROMPT-RIQ-004](riq/PROMPT-RIQ-004-example-data-test.md) | QB Playground | Datos de ejemplo reales por entidad (sede TEST) | ✅ solved |
+| [PROMPT-RIQ-005](riq/PROMPT-RIQ-005-dynamic-contracts-migration.md) | QB Playground | Migración de contracts.ts estático a contratos dinámicos | ✅ solved |
+| [PROMPT-RIQ-006](riq/PROMPT-RIQ-006-remove-companymiddleware-playground.md) | QB Playground | Excluir CompanyContextMiddleware de endpoints Playground | ✅ solved |
+| [PROMPT-RIQ-007](riq/PROMPT-RIQ-007-billquery-route.md) | QB Playground | BillQuery — ruta faltante en qb-endpoints.ts | ✅ solved |
+| [PROMPT-RIQ-008](riq/PROMPT-RIQ-008-playground-test-suite.md) | QB Playground | Test suite E2E + guía curl — 15 TCs | ✅ solved |
+| [PROMPT-RIQ-009](riq/PROMPT-RIQ-009-json-output-summary-tab.md) | QB Playground | Pestaña Resumen en JSON Output | ✅ solved |
+| [PROMPT-RIQ-010](riq/PROMPT-RIQ-010-fill-examples-editsequence.md) | QB Playground | Fill Examples — EditSequence vacío con hint en Mod | ✅ solved |
+| [PROMPT-RIQ-011](riq/PROMPT-RIQ-011-vendor-playground-docs.md) | Vendor | Documentación Vendor en QB Playground | ✅ solved |
+| [PROMPT-RIQ-012](riq/PROMPT-RIQ-012-vendor-feature-delivery.md) | Vendor | Entrega formal — versión, docs y correo | ✅ solved |
+| [PROMPT-RIQ-013](riq/PROMPT-RIQ-013-customer-playground-docs.md) | Customer | Documentación Customer en QB Playground | ✅ solved |
+| [PROMPT-RIQ-014](riq/PROMPT-RIQ-014-webhook-config-system.md) | Global | Sistema de configuración centralizada de webhooks N8N | ✅ solved |
+| [PROMPT-RIQ-015](riq/PROMPT-RIQ-015-webhook-admin-ui.md) | Global | Panel de administración visual de URLs de webhooks N8N | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

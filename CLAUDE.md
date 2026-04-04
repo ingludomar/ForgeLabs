@@ -2,9 +2,17 @@
 
 ## Qué es este proyecto
 
-SyncBridge (SB) es el responsable del ciclo completo de desarrollo de cada entidad QB Desktop — desde el análisis hasta el cierre formal. Ejecuta P0-P5, produce todos los artefactos, y al final genera un PROMPT para que LO (LedgerOps) aplique los archivos al repo.
+SyncBridge (SB) es el responsable del ciclo completo de desarrollo de todo el ecosistema — desde el análisis hasta el cierre formal. Gestiona tres tipos de features:
 
-**SB hace todo. LO solo recibe y commitea.**
+| Tipo | Descripción | Flujo |
+|---|---|---|
+| **Tipo 1 — Entidad QB** | Integración QB Desktop (ItemInventory, Vendor, etc.) | P0-P5 · correo a Celia Giraldo |
+| **Tipo 2 — Feature de plataforma** | Funcionalidad Redix visible al usuario (QB Playground, Webhook Admin) | F1-F8 · correo a Luis Potte CC Mike Habib |
+| **Tipo 3 — Infraestructura** | Mejora interna sin entrega al usuario (singleton, DB migration) | I1-I4 · sin correo |
+
+Ver proceso completo: `docs/development/feature-dev-process.md`
+
+**SB hace todo. Los proyectos técnicos reciben PROMPTs y ejecutan.**
 
 ---
 
@@ -15,7 +23,7 @@ SyncBridge (SB) es el responsable del ciclo completo de desarrollo de cada entid
 
 ---
 
-## El ecosistema — 4 componentes
+## El ecosistema — 5 componentes
 
 | Proyecto | Rol | Repo local |
 |---|---|---|
@@ -23,6 +31,7 @@ SyncBridge (SB) es el responsable del ciclo completo de desarrollo de cada entid
 | **LedgerExec** | Orquestador N8N genérico. Recibe de LedgerOps, invoca LedgerBridge vía SSH. Sin lógica de negocio. | — |
 | **LedgerBridge** | Fuente de verdad. Construye QBXML, valida schemas, aplica business rules, parsea respuestas QB. | `/opt/LedgerBridge` |
 | **qbxmlIntegrator** | Interfaz COM. Recibe QBXML de LedgerBridge, lo ejecuta en QB Desktop via win32com. | `/Users/luisdominguez/Documents/GitHub/qbxmlIntegrator` |
+| **LedgerCore** | Evolución de LedgerBridge como producto multi-empresa. Reemplaza archivos por PostgreSQL. Incluye templates de formulario configurables por sede. LedgerBridge sigue operando sin cambios. | `/Users/luisdominguez/Documents/GitHub/LedgerCore` |
 
 ---
 
@@ -44,16 +53,35 @@ SB
 
 ## Flujo de trabajo de SB
 
+**Tipo 1 — Entidad QB:**
 ```
-P0  PROMPT-013 RMX global → LedgerBridge (una sola vez)
+P0  PROMPT RMX global → LedgerBridge (una sola vez por entidad)
 P1  AnalyzeSedeFields en todas las sedes
 P2  business-rules/replace en todas las sedes (Add + Mod)
 P3  Workflow en development/ → N8N → activar → probar
 P4  Testing CRUD en TEST → verified.json → mover a production/
-P5  Docs por rol → PROMPT a LO → LO confirma → correo al usuario → Monday
+P5  Docs por rol → PROMPT a LO → LO confirma → correo Celia → Monday
 ```
 
-Ver proceso completo: `docs/development/feature-dev-process.md`
+**Tipo 2 — Feature de plataforma:**
+```
+F1  PROMPT con propuesta de diseño → SB aprueba
+F2  Implementación confirmada en el PROMPT
+F3  E2E desde el UI de Redix (no solo API)
+F4  Docs 5 roles → PROMPT a LO → LO confirma
+F5  Push del proyecto responsable confirmado
+F6  Correo Luis Potte CC Mike Habib → usuario confirma
+F7  Monday (work item + delivery item)
+F8  Commit en SyncBridge
+```
+
+**Tipo 3 — Infraestructura:**
+```
+I1  PROMPT con propuesta → SB aprueba
+I2  Implementación confirmada
+I3  Verificación técnica E2E
+I4  Push confirmado → commit en SyncBridge
+```
 
 ---
 
@@ -131,9 +159,10 @@ Antes de responder, identificar qué tipo de tarea es y leer el archivo correspo
 
 | Si el usuario pide... | Leer primero |
 |---|---|
-| Correo de entrega de una entidad | `docs/development/release-notification-template.md` |
+| Correo de entrega de una entidad QB (Tipo 1) | `docs/development/release-notification-template.md` |
+| Correo de entrega de un feature de plataforma (Tipo 2) | `docs/development/feature-dev-process.md` → sección F6 |
 | Estado de una entidad o qué sigue | `docs/development/roadmap.md` |
-| Planificar una entidad nueva | `docs/development/feature-dev-process.md` |
+| Planificar cualquier tipo de feature | `docs/development/feature-dev-process.md` |
 | Emitir un PROMPT a otro proyecto | `docs/inter-project/README.md` |
 | Casos de prueba o testing | `docs/development/test-cases.md` |
 | Tipos XML disponibles | `docs/development/xml-types.md` |
