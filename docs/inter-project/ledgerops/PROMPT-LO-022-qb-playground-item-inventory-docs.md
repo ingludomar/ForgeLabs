@@ -2,7 +2,7 @@
 
 **Fecha:** 2026-04-03
 **Tipo:** docs
-**Estado:** ⏳ pending — esperando contenido de RIQ (PROMPT-RIQ-018)
+**Estado:** ⏳ pending — contenido recibido de RIQ · esperando creación en LO
 
 ## PROMPTs relacionados
 
@@ -20,9 +20,9 @@ Crear el archivo `docs/qb-playground/ItemInventory.md` en el repositorio de Ledg
 
 ## Acción requerida
 
-Crear el archivo `docs/qb-playground/ItemInventory.md` con el contenido que se adjuntará cuando RIQ complete PROMPT-RIQ-018.
+Crear el archivo `docs/qb-playground/ItemInventory.md` con el contenido adjunto (generado por RIQ — PROMPT-RIQ-018).
 
-*Contenido pendiente — se actualizará este PROMPT una vez RIQ entregue el Markdown.*
+El contenido completo está disponible en SyncBridge: `docs/qb-playground/ItemInventory.md`
 
 ---
 
@@ -41,3 +41,4 @@ Confirmar a SyncBridge:
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-03 | Emisión | PROMPT emitido a LedgerOps — pendiente de contenido de RIQ (PROMPT-RIQ-018) |
+| 2026-04-06 | Contenido recibido | RIQ entregó Markdown completo — PROMPT-RIQ-018 cerrado · enviando a LO para publicar |
