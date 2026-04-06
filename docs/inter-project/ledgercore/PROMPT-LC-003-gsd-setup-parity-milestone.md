@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-04-06
 **Tipo:** setup + planning
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
+**Fecha de resolución:** 2026-04-06
 
 ## PROMPTs relacionados
 
@@ -133,3 +134,8 @@ T5.1: port de `lb-xml-build.py` (379 líneas Python) a TypeScript — orden de t
 | 2026-04-06 | Emisión | PROMPT emitido a LedgerCore — instalar GSD y planificar milestone de paridad con LedgerBridge |
 | 2026-04-06 | Primera entrega | GSD v1.32.0 instalado · Plan 5 Slices / 15 Tasks entregado · commit 9301464 |
 | 2026-04-06 | Aprobación SyncBridge | Plan aprobado · orden P0→P1→P2→P3 confirmado · luz verde para ejecutar P0 |
+| 2026-04-06 | P0 aprobado | T4.1 Contracts + T4.2 validate + T5.1 XML Build — paridad exacta con LB verificada |
+| 2026-04-06 | P1 aprobado | T1.1 Types + T1.2 Describe + T1.3 XML Catalog — XML Catalog completo |
+| 2026-04-06 | P2 aprobado | T2.1/T2.2 Sedes read + T3.1 Rules GET — resolve_version() consistente |
+| 2026-04-06 | P3 aprobado | T2.3–T2.5 Sedes CRUD + T3.2–T3.5 Rules write — CRUD completo + batch UPDATE |
+| 2026-04-06 | Cierre formal | 15/15 tasks · 5/5 slices · 19 endpoints en main · HEAD 88463c6 · PROMPT cerrado |
