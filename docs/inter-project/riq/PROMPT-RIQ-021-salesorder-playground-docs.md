@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-04-06
 **Tipo:** docs
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
+**Fecha de resolución:** 2026-04-06
 
 ## PROMPTs relacionados
 
@@ -82,3 +83,5 @@ Incluir los errores QB más frecuentes para esta entidad (3100, 3120, 3200, 3240
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-06 | Emisión | PROMPT emitido a RIQ — testing Sales Order en 5 sedes + generar contenido Markdown para QB Playground |
+| 2026-04-06 | Entrega | Testing completo: Query 5 sedes ✅ · Add/Mod TEST ✅ · Hallazgos: ActiveStatus no válido en Query, RefNumber máx. 11 chars |
+| 2026-04-06 | Aprobación SyncBridge | PROMPT cerrado — contenido enviado a LO via PROMPT-LO-026 |
