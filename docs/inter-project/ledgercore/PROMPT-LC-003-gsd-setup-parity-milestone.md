@@ -138,4 +138,5 @@ T5.1: port de `lb-xml-build.py` (379 líneas Python) a TypeScript — orden de t
 | 2026-04-06 | P1 aprobado | T1.1 Types + T1.2 Describe + T1.3 XML Catalog — XML Catalog completo |
 | 2026-04-06 | P2 aprobado | T2.1/T2.2 Sedes read + T3.1 Rules GET — resolve_version() consistente |
 | 2026-04-06 | P3 aprobado | T2.3–T2.5 Sedes CRUD + T3.2–T3.5 Rules write — CRUD completo + batch UPDATE |
-| 2026-04-06 | Cierre formal | 15/15 tasks · 5/5 slices · 19 endpoints en main · HEAD 88463c6 · PROMPT cerrado |
+| 2026-04-06 | Cierre formal | 15/15 tasks · 5/5 slices · 18 endpoints en main · HEAD 88463c6 · PROMPT cerrado |
+| 2026-04-06 | Swagger | @nestjs/swagger@8.1.1 + @fastify/static@6.12.0 — 18 ops en 7 tags · /api/docs · commit en main |
