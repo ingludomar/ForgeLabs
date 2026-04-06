@@ -4,6 +4,10 @@
 **Tipo:** bug
 **Estado:** ⏳ pending
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — endpoints del Playground bloqueados por el middleware
+
 ---
 
 ## Problema
@@ -35,3 +39,9 @@ La exclusión se aplica en la configuración del middleware, no modificando los 
 ## Verificación
 
 Una vez aplicado, re-ejecutar los 15 TCs del PROMPT-RIQ-004 y reportar la tabla de resultados completa a SyncBridge.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — excluir endpoints del QB Playground del `CompanyContextMiddleware` |

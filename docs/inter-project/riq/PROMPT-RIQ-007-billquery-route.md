@@ -4,6 +4,11 @@
 **Tipo:** bug
 **Estado:** ✅ solved
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — tabla de routing donde BillQuery estaba ausente
+- [PROMPT-RIQ-006](PROMPT-RIQ-006-remove-companymiddleware-playground.md) — bloqueante de middleware resuelto en paralelo; este fix completa el TC-PUR-04 que quedó pendiente
+
 ---
 
 ## Problema
@@ -31,3 +36,10 @@ Para TC-PUR-04, usar el `TxnID` obtenido en TC-PUR-03 (BillAdd) una vez que ese 
 Confirmar a SyncBridge:
 1. `BillQuery` aparece en el routing table
 2. TC-PUR-04 ejecuta correctamente y retorna `BillRet.VendorRef.ListID = "800001F1-1597178964"`
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — BillQuery sin ruta en `qb-endpoints.ts`; TC-PUR-04 fallaba |
+| 2026-03-30 | Resolución | BillQuery registrado en routing table; TC-PUR-04 pasa |

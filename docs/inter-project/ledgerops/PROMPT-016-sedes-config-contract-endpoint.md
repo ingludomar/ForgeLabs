@@ -6,6 +6,10 @@
 **Tipo:** feature
 **Estado:** ✅ solved
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-005](../riq/PROMPT-RIQ-005-dynamic-contracts-migration.md) — RIQ consume los endpoints de este PROMPT para migrar de contratos estáticos a dinámicos
+
 ---
 
 ## Contexto
@@ -142,3 +146,10 @@ POST /webhook/inventory/item/add
 ## Verificación esperada
 
 LO confirma a SyncBridge cuando ambos endpoints estén activos. SyncBridge emitirá PROMPT-RIQ-005 para que RIQ implemente la migración de estático a dinámico.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a LedgerOps — crear endpoints `GET /webhook/sedes` y `GET /webhook/contracts` para RIQ |
+| 2026-03-30 | Resolución | Ambos endpoints activos y verificados |

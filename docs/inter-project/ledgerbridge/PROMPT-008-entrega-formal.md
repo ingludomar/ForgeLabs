@@ -117,3 +117,10 @@ LedgerBridge marcó pendiente el E2E de ItemInventory contra RMX. **Cerrado por 
 | Item | ID |
 |---|---|
 | LedgerBridge \| Entrega formal | `11559198938` |
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-21 | Emisión | PROMPT emitido a LedgerBridge — estándar de documentación por rol para entrega formal v1.0.x |
+| 2026-03-21 | Resolución | Docs `integration/` creados (6 roles), RELEASE-v1.0.1.md generado (commit `b16d72e`) |

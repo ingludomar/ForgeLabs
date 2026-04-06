@@ -7,6 +7,10 @@
 | **Tipo** | fix |
 | **Estado** | ✅ solved (2026-03-25) |
 
+## PROMPTs relacionados
+
+- [PROMPT-007](PROMPT-007-purchaseorder-delivery.md) — entrega de PurchaseOrder a la que pertenece esta corrección de docs
+
 ---
 
 ## Contexto
@@ -65,3 +69,10 @@ Reemplazar la fila RMX en la tabla "QBXML version por sede":
 ## Respuesta esperada
 
 Confirmación de commit aplicado con los 3 archivos corregidos.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-25 | Emisión | PROMPT emitido a LedgerOps — corrección de docs PurchaseOrder para indicar `"version": "13.0"` en sede RMX |
+| 2026-03-25 | Resolución | 3 archivos de documentación actualizados con nota de versión RMX |

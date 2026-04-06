@@ -7,6 +7,10 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved |
 
+## PROMPTs relacionados
+
+- [PROMPT-012](PROMPT-012-vendor-rmx-schema.md) — misma lógica RMX; Vendor fue la entidad inmediatamente anterior en la cadena de schemas RMX
+
 ---
 
 ## Contexto
@@ -54,3 +58,10 @@ LedgerBridge es el experto — aplicar el enfoque que considere más apropiado.
 2. Cualquier diferencia respecto a entidades anteriores
 
 LedgerOps ejecuta P2 RMX (business-rules/replace) al confirmar disponibilidad.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-24 | Emisión | PROMPT emitido a LedgerBridge — schemas v13.0 para SalesOrder en sede RMX |
+| 2026-03-24 | Resolución | Schemas generados con `lb-xml-version-clone`; patrón idéntico a entidades anteriores |

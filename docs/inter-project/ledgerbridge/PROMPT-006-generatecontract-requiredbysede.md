@@ -10,6 +10,10 @@
 | **Estado** | ✅ solved |
 | **Fix** | URL corregida en workflow N8N — `/webhook/jsonin` → `/webhook/tools/jsonin-get` |
 
+## PROMPTs relacionados
+
+- [PROMPT-LO-016](../ledgerops/PROMPT-LO-016-sedes-config-contract-endpoint.md) — endpoint de contratos dinámicos en LedgerOps que consume GenerateContract; fue desbloqueado cuando este PROMPT se resolvió
+
 ---
 
 ## Descripción
@@ -108,3 +112,10 @@ POST /webhook/tools/contract
 2. **Corregir** para que `data` exponga los campos del schema con sus tipos.
 3. **Corregir** para que `requiredBySede.fields` exponga las business rules registradas para el type+sede+version.
 4. **Confirmar** con SyncBridge una vez resuelto — se emitirá PROMPT-RIQ-005 para que RIQ migre de estático a dinámico.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-19 | Emisión | PROMPT emitido a LedgerBridge — GenerateContract retornaba `data: {}` y `requiredBySede.fields: []` |
+| 2026-03-30 | Resolución | URL del workflow N8N corregida (`/webhook/jsonin` → `/webhook/tools/jsonin-get`); GenerateContract operativo |

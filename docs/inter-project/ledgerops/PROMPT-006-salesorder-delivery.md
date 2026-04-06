@@ -17,3 +17,10 @@
 
 - RefNumber límite ~11 caracteres (QB-3070)
 - PROMPT-006 LedgerBridge: requiredBySede vacío en GenerateContract (pendiente)
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-24 | Emisión | PROMPT emitido a LedgerOps — entrega de workflows y docs de integración para SalesOrder |
+| 2026-03-24 | Resolución | Workflows y docs aplicados al repo; business rules registradas en 5 sedes |

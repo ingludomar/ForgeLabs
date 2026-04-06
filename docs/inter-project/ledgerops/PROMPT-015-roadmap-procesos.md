@@ -50,3 +50,10 @@ Copiar ese contenido exactamente en `docs/project/roadmap-procesos.md` de Ledger
 ```
 https://github.com/redsis-rgh/LedgerOps/blob/main/docs/project/roadmap-procesos.md
 ```
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-27 | Emisión | PROMPT emitido a LedgerOps — publicar hoja de ruta por procesos de negocio en `docs/project/` |
+| 2026-03-27 | Resolución | Archivo publicado (commit `1029f0d`) |

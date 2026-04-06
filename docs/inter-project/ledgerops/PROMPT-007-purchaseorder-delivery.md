@@ -86,3 +86,10 @@ VendorRef/ListID · RefNumber · DueDate · ExpectedDate
 ## Respuesta esperada
 
 Confirmación de commit aplicado y workflows activos en N8N producción.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-25 | Emisión | PROMPT emitido a LedgerOps — entrega de PurchaseOrder (Add · Mod · Query) con corrección de payload y docs |
+| 2026-03-25 | Resolución | Workflows actualizados y nuevos aplicados al repo; docs de 6 roles publicados (v1.7.0) |

@@ -10,6 +10,10 @@
 | **Monday** | `[BUG] 11546040457` |
 | **Índice** | [← Volver al índice maestro](../README.md) |
 
+## PROMPTs relacionados
+
+- [PROMPT-003](PROMPT-003-noninventory-schema.md) — ItemNonInventoryMod fue cargado al servidor en PROMPT-003 mediante git sync; este bug surgió a raíz de ese evento
+
 ---
 
 ## Observación
@@ -119,3 +123,10 @@ VERIFICACIÓN:
 **Acción en LedgerOps:** Corregir los payloads de NonInventoryMod y ServiceMod para usar `SalesOrPurchaseMod`. Documentar como `knownIssue` en los verified.json de estas entidades.
 
 **Commits LedgerBridge:** Ninguno — no requirió cambios.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-19 | Emisión | PROMPT emitido a LedgerBridge — QB-PARSE-ERROR en ItemNonInventoryMod después del git sync de PROMPT-003 |
+| 2026-03-19 | Resolución | Cerrado — no es bug de LedgerBridge; asimetría del QBXML SDK entre Rq (`SalesOrPurchaseMod`) y Rs (`SalesOrPurchase`). Acción correctiva en LedgerOps — [ver resolución](#resolución--2026-03-19) |

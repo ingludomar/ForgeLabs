@@ -159,3 +159,10 @@ POST /webhook/tools/analyze-sede-fields
 |---|---|
 | Sedes bloqueadas \| P2 pendiente (RMX · TSI · RRC) | `11548144020` |
 | ItemInventory — P2 RMX · TSI · RRC | `11548130964` |
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-20 | Emisión | PROMPT emitido a LedgerBridge — primer schema RMX (ItemInventory); sede RMX requiere QBXML v13.0 |
+| 2026-03-20 | Resolución | Schemas v13.0 registrados; mapeo `sede-version-map.json` implementado (commit `65f1c46`) |

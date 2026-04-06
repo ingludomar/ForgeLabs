@@ -4,6 +4,11 @@
 **Tipo:** feature
 **Estado:** ✅ solved
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — integración base que este PROMPT evoluciona hacia contratos dinámicos
+- [PROMPT-LO-016](../ledgerops/PROMPT-LO-016-sedes-config-contract-endpoint.md) — endpoints `GET /webhook/sedes` y `GET /webhook/contracts` que este PROMPT consume
+
 ---
 
 ## Contexto
@@ -166,3 +171,10 @@ Confirmar a SyncBridge cuando:
 3. Los campos `required: true` quedan marcados visualmente
 4. Los campos Ref renderizan sub-campos ListID / FullName
 5. Una operación completa (ej. VendorAdd sede TEST) ejecuta correctamente de inicio a fin con el formulario dinámico
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — migrar `contracts.ts` estático a llamadas dinámicas a LedgerOps |
+| 2026-03-30 | Resolución | Formulario construido dinámicamente desde `/webhook/sedes` y `/webhook/contracts`; campos `required` marcados visualmente |

@@ -118,3 +118,10 @@ respeta el orden del spec. El problema era exclusivo de LedgerBridge.
 **Verificación post-fix:**
 - ItemInventoryAdd con todos los campos opcionales → `statusCode="0"` ✅
 - P4 ItemInventoryAdd sede TEST completado exitosamente ✅
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-13 | Emisión | PROMPT emitido a LedgerBridge — QB rechazaba campos opcionales por orden incorrecto en XML |
+| 2026-03-14 | Resolución | `lb-xml-build.py` y `lb-jsonin.py` corregidos para respetar `elementOrder` del schema — [ver resolución](#resolución) |

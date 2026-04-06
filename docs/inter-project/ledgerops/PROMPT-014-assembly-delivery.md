@@ -98,3 +98,10 @@ TxnID resultado: `6265F-1774597585`
 1. Guardar los 6 archivos en `docs/integration/`
 2. Hacer commit en rama `main`
 3. Confirmar versión de tag y commit hash
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-27 | Emisión | PROMPT emitido a LedgerOps — entrega de Assembly/BuildAssembly (Add · Mod · Query) con docs de 6 roles |
+| 2026-03-27 | Resolución | Docs aplicados al repo (v1.13.0) |

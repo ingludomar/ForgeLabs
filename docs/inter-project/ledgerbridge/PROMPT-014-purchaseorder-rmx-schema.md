@@ -7,6 +7,10 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved |
 
+## PROMPTs relacionados
+
+- [PROMPT-013](PROMPT-013-salesorder-rmx-schema.md) — misma lógica RMX; SalesOrder fue la entidad inmediatamente anterior en la cadena
+
 ---
 
 ## Contexto
@@ -56,3 +60,10 @@ LedgerBridge es el experto — aplicar el enfoque que considere más apropiado.
 2. Cualquier diferencia respecto a entidades anteriores
 
 LedgerOps ejecuta P1+P2 RMX al confirmar disponibilidad.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-25 | Emisión | PROMPT emitido a LedgerBridge — schemas v13.0 para PurchaseOrder en sede RMX |
+| 2026-03-25 | Resolución | Schemas generados con `lb-xml-version-clone`; patrón idéntico a entidades anteriores |

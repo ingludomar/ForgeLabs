@@ -7,6 +7,10 @@
 | **Tipo** | convention |
 | **Estado** | ✅ solved |
 
+## PROMPTs relacionados
+
+- [PROMPT-LB-005](../ledgerbridge/PROMPT-005-semver-versioning.md) — misma convención SemVer aplicada simultáneamente a LedgerBridge
+
 ---
 
 ## Contexto
@@ -66,3 +70,10 @@ Cada vez que LedgerExec complete una versión, debe informar a LedgerOps:
 - Fecha de cierre
 
 LedgerOps se encarga de actualizar Monday.com.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-19 | Emisión | PROMPT emitido a LedgerExec — adopción formal de SemVer para releases y Monday.com |
+| 2026-03-19 | Resolución | Convención adoptada; v1.0.0 cerrado, v1.0.1 en curso (ID Monday `11548866872`) |

@@ -7,6 +7,11 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved — v17.0 + v13.0 RMX disponibles (2026-03-26) |
 
+## PROMPTs relacionados
+
+- [PROMPT-017](PROMPT-017-creditcardcharge-schema.md) — misma lógica de auditoría + carga v17.0 + clonado v13.0 RMX
+- [PROMPT-018](PROMPT-018-inventorysite-schema.md) — misma lógica aplicada a InventorySite (entidad anterior en el mismo sprint)
+
 ---
 
 ## Contexto
@@ -55,3 +60,10 @@ Reporte de auditoría con:
 - Confirmación de los tipos QBXML exactos disponibles en el SDK
 - Acciones tomadas
 - Confirmación de que los endpoints responden correctamente para todos los tipos
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-26 | Emisión | PROMPT emitido a LedgerBridge — auditoría y carga de schemas InventoryTransfer + Assembly en v17.0 + v13.0 RMX |
+| 2026-03-26 | Resolución | Schemas auditados y resueltos; v17.0 + v13.0 RMX disponibles para ambas entidades |

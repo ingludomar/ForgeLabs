@@ -7,6 +7,11 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved |
 
+## PROMPTs relacionados
+
+- [PROMPT-007](PROMPT-007-rmx-sede-schema.md) — primer schema RMX; infraestructura de mapeo usada en este PROMPT
+- [PROMPT-009](PROMPT-009-noninventory-rmx-schema.md) — misma lógica RMX aplicada a ItemNonInventory, entidad anterior en la misma cadena
+
 ---
 
 ## Contexto
@@ -66,3 +71,10 @@ LedgerOps ejecuta P2 (AnalyzeSedeFields + business-rules/replace) al confirmar d
 - **Nota:** en Mod, usar `SalesOrPurchaseMod` (no `SalesOrPurchase`) — aplica igual en v13.0
 
 P2 RMX completado por LedgerOps — 2026-03-23.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-23 | Emisión | PROMPT emitido a LedgerBridge — schemas v13.0 para ItemService en sede RMX |
+| 2026-03-23 | Resolución | Schemas generados con `lb-xml-version-clone`; 3/3 tipos disponibles en RMX |

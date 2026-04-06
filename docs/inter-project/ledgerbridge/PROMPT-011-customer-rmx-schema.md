@@ -7,6 +7,12 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved |
 
+## PROMPTs relacionados
+
+- [PROMPT-007](PROMPT-007-rmx-sede-schema.md) — primer schema RMX; infraestructura de mapeo usada en este PROMPT
+- [PROMPT-009](PROMPT-009-noninventory-rmx-schema.md) — misma lógica RMX aplicada a ItemNonInventory
+- [PROMPT-010](PROMPT-010-service-rmx-schema.md) — misma lógica RMX aplicada a ItemService
+
 ---
 
 ## Contexto
@@ -51,3 +57,10 @@ LedgerBridge es el experto — aplicar el enfoque que considere más apropiado.
 3. Cualquier diferencia respecto a entidades anteriores
 
 LedgerOps ejecuta P2 RMX (business-rules/replace) al confirmar disponibilidad.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-23 | Emisión | PROMPT emitido a LedgerBridge — schemas v13.0 para Customer en sede RMX |
+| 2026-03-23 | Resolución | Schemas generados con `lb-xml-version-clone`; patrón idéntico a entidades anteriores |

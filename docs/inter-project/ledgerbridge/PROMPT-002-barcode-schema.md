@@ -10,6 +10,10 @@
 | **Monday** | `[HALLAZGO] 11526269541` · `[FIX] 11526261311` · `[DOC] 11526286103` |
 | **Índice** | [← Volver al índice maestro](../README.md) |
 
+## PROMPTs relacionados
+
+- [PROMPT-001](PROMPT-001-xml-field-ordering.md) — mismo tipo XML (ItemInventory/ItemNonInventory), campo BarCode también presente en el schema afectado por PROMPT-001
+
 ---
 
 ## Hallazgo
@@ -152,3 +156,10 @@ VERIFICACIÓN:
 
 ### Nota
 La corrección se aplicó de forma masiva a todos los tipos afectados por el mismo patrón — no solo a `ItemNonInventoryAdd`. Esto convierte el hallazgo en una mejora sistémica del motor de LedgerBridge.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-17 | Emisión | PROMPT emitido a LedgerBridge — BarCode marcado incorrectamente como `requiredByIntuit` en ItemNonInventoryAdd |
+| 2026-03-17 | Resolución | Nueva regla aplicada a 41 tipos QBXML: contenedor con todos los hijos opcionales clasifica como opcional — [ver resolución](#resolución) |

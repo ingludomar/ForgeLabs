@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QB Playground Templates — Proceso completo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fb;
+      color: #1a1a2e;
+      padding: 48px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* PORTADA */
+    .cover {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      border-radius: 16px;
+      padding: 64px 56px;
+      color: white;
+      margin-bottom: 48px;
+      page-break-after: always;
+    }
+
+    .cover .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .cover h1 {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cover h1 span {
+      color: #e94560;
+    }
+
+    .cover p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .cover .meta {
+      display: flex;
+      gap: 32px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 28px;
+    }
+
+    .cover .meta-item label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 4px;
+    }
+
+    .cover .meta-item span {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+    }
+
+    /* RESUMEN EJECUTIVO */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e8eaf0;
+    }
+
+    .summary-card .number {
+      font-size: 32px;
+      font-weight: 700;
+      color: #e94560;
+      margin-bottom: 4px;
+    }
+
+    .summary-card .label {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+
+    /* SECCIONES */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: #1a1a2e;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .section-header .subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .description-box {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e8eaf0;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .description-box p {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .screenshot-placeholder {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+
+    .screenshot-placeholder img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .screenshot-caption {
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* FLUJO */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 48px;
+    }
+
+    .flow-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .flow-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .flow-dot {
+      width: 12px;
+      height: 12px;
+      background: #e94560;
+      border-radius: 50%;
+      margin-top: 4px;
+    }
+
+    .flow-connector {
+      width: 2px;
+      background: #e8eaf0;
+      flex: 1;
+      min-height: 32px;
+    }
+
+    .flow-content {
+      background: white;
+      border: 1px solid #e8eaf0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .flow-content strong {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .flow-content p {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* TABLA */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e8eaf0;
+      margin-bottom: 24px;
+    }
+
+    th {
+      background: #1a1a2e;
+      color: white;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-top: 1px solid #f0f2f7;
+      color: #374151;
+      vertical-align: top;
+    }
+
+    tr:hover td { background: #fafbff; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .tag-red { background: #fef2f2; color: #dc2626; }
+    .tag-blue { background: #eff6ff; color: #2563eb; }
+    .tag-green { background: #f0fdf4; color: #16a34a; }
+    .tag-gray { background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb; }
+
+    /* BENEFICIOS */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .benefit-card {
+      background: white;
+      border: 1px solid #e8eaf0;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .benefit-card .icon-wrap {
+      width: 40px;
+      height: 40px;
+      background: #fef2f2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .benefit-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .benefit-card p {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: #e8eaf0;
+      margin: 40px 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      padding-top: 24px;
+      border-top: 1px solid #e8eaf0;
+    }
+
+    /* PRINT */
+    @media print {
+      body { background: white; padding: 0; }
+      .cover { page-break-after: always; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <div class="cover">
+    <div class="badge">Redix · Platform Feature</div>
+    <h1>QB Playground<br><span>Templates</span></h1>
+    <p>
+      Sistema de vistas configurables para el QB Playground. Un administrador define qué campos
+      aparecen por operación y sede — los usuarios ven solo lo que necesitan, con efecto inmediato
+      y sin tocar código.
+    </p>
+    <div class="meta">
+      <div class="meta-item">
+        <label>Fecha de entrega</label>
+        <span>2026-04-04</span>
+      </div>
+      <div class="meta-item">
+        <label>Proyecto</label>
+        <span>Redix (RIQ)</span>
+      </div>
+      <div class="meta-item">
+        <label>Tipo</label>
+        <span>Feature de plataforma</span>
+      </div>
+      <div class="meta-item">
+        <label>Estado</label>
+        <span>✅ Entregado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMEN -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="number">32 → N</div>
+      <div class="label">Campos visibles reducidos a solo los necesarios por operación</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">5 sedes</div>
+      <div class="label">TEST · RUS · REC · RBR · RMX — templates independientes por sede</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">0 código</div>
+      <div class="label">El administrador crea y edita templates sin intervención técnica</div>
+    </div>
+  </div>
+
+  <!-- BENEFICIOS -->
+  <div class="benefits">
+    <div class="benefit-card">
+      <div class="icon-wrap">⚡</div>
+      <h3>Efecto inmediato</h3>
+      <p>Los cambios en un template se reflejan en el Playground sin reiniciar la aplicación.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon-wrap">🔒</div>
+      <h3>Campos requeridos protegidos</h3>
+      <p>Los campos obligatorios de QB Desktop no pueden desmarcarse — el sistema los bloquea.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon-wrap">👤</div>
+      <h3>Preferencia por usuario</h3>
+      <p>Cada usuario elige su template preferido y el sistema lo recuerda entre sesiones.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon-wrap">🔄</div>
+      <h3>Formulario completo siempre disponible</h3>
+      <p>La opción "Todos los campos" permite volver al contrato completo en cualquier momento.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PASO 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">1</div>
+      <div>
+        <h2>Panel de administración — QB Templates</h2>
+        <div class="subtitle">Settings → Integrations → QB Templates</div>
+      </div>
+    </div>
+    <div class="description-box">
+      <p>
+        El panel centraliza todos los templates del sistema. Cada template está asociado a una
+        operación QB y una sede. El badge <strong>Default</strong> indica el template que el
+        Playground aplica automáticamente al seleccionar esa combinación. Desde aquí el
+        administrador puede crear, editar, marcar como default o eliminar templates.
+      </p>
+    </div>
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/08-lista-templates-3.png" alt="Lista de templates — tpePartNumberTest (Default) · tpeNewItemAdd · tpeTestItemAdd" />
+    </div>
+    <div class="screenshot-caption">Panel QB Templates — 3 templates para ItemInventoryAdd · TEST. Badge Default indica el template activo por defecto.</div>
+  </div>
+
+  <!-- PASO 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">2</div>
+      <div>
+        <h2>Crear template — Paso 1: Selección de tipo, sede y nombre</h2>
+        <div class="subtitle">Modal "Generar Template Base" — primera pantalla</div>
+      </div>
+    </div>
+    <div class="description-box">
+      <p>
+        Al hacer clic en <strong>+ Generar template base</strong>, el administrador selecciona
+        el tipo de operación QB (ej. <em>Item — Add</em>), la sede (TEST · RUS · REC · RBR · RMX)
+        y asigna un nombre descriptivo al template. El dropdown de sede muestra únicamente las
+        sedes registradas en el sistema.
+      </p>
+    </div>
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/02-modal-paso1-vacio.png" alt="Modal paso 1 vacío" />
+    </div>
+    <div class="screenshot-caption">Formulario inicial — dropdowns Tipo de Operación y Sede, campo Nombre del Template</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/03-modal-dropdown-tipo.png" alt="Dropdown Tipo de Operación abierto" />
+    </div>
+    <div class="screenshot-caption">Dropdown Tipo de Operación — Item Add/Mod/Query, Customer, Vendor, Invoice, PO, Bill, CC Charge y más</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/04-modal-dropdown-sede.png" alt="Dropdown Sede abierto" />
+    </div>
+    <div class="screenshot-caption">Dropdown Sede — TEST · RUS (Redsis USA) · REC (Redsis Ecuador) · RBR (Redsis Brasil) · RMX (Redsis México)</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/05-modal-paso1-completado.png" alt="Modal paso 1 completado" />
+    </div>
+    <div class="screenshot-caption">Paso 1 completado — Item — Add (ItemInventoryAdd) · TEST — Test Environment · nombre tpeNewItemAdd</div>
+  </div>
+
+  <!-- PASO 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">3</div>
+      <div>
+        <h2>Crear template — Paso 2: Selección de campos</h2>
+        <div class="subtitle">Editor de checkboxes con todos los campos del contrato QB</div>
+      </div>
+    </div>
+    <div class="description-box">
+      <p>
+        El sistema carga automáticamente todos los campos disponibles en el contrato QB para esa
+        operación. Los campos marcados con <strong style="color:#dc2626">req</strong> están
+        pre-chequeados y bloqueados — son obligatorios para QB Desktop y no pueden desmarcarse.
+        Los campos opcionales pueden activarse o desactivarse libremente. El label de cualquier
+        campo puede editarse haciendo clic sobre el texto.
+      </p>
+    </div>
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/06-modal-paso2-campos-req.png" alt="Checklist campos requeridos" />
+    </div>
+    <div class="screenshot-caption">Campos req pre-chequeados y bloqueados — Item Name, Sales Description, Sales Price, Purchase Description, Purchase Cost, Income Account, COGS Account, Asset Account</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/07-modal-paso2-campos-opcionales.png" alt="Checklist campos opcionales" />
+    </div>
+    <div class="screenshot-caption">Campos opcionales — Quantity On Hand e Inventory Date seleccionados; Reorder Point, Manufacturer Part Number, Preferred Vendor, Class disponibles</div>
+  </div>
+
+  <!-- PASO 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">4</div>
+      <div>
+        <h2>QB Playground con template activo</h2>
+        <div class="subtitle">Formulario reducido — solo los campos del template seleccionado</div>
+      </div>
+    </div>
+    <div class="description-box">
+      <p>
+        Al seleccionar una operación y sede que tiene template, el Playground muestra
+        automáticamente el selector en el action bar. El formulario se adapta al template activo —
+        en lugar de los 32 campos del contrato completo, el usuario ve únicamente los campos
+        definidos en el template. El endpoint, versión y sede siguen visibles para referencia.
+      </p>
+    </div>
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/09-playground-template-activo.png" alt="Playground con template activo" />
+    </div>
+    <div class="screenshot-caption">Selector tpeTestItemAdd activo — formulario reducido a 10 campos (vs 32 del contrato completo)</div>
+  </div>
+
+  <!-- PASO 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number">5</div>
+      <div>
+        <h2>Formulario completo — opción "Todos los campos"</h2>
+        <div class="subtitle">El usuario puede volver al contrato completo en cualquier momento</div>
+      </div>
+    </div>
+    <div class="description-box">
+      <p>
+        El selector incluye siempre la opción <strong>"Todos los campos"</strong>. Al seleccionarla,
+        el Playground muestra el contrato completo de QB Desktop con todos sus campos disponibles
+        — incluyendo campos de referencia (Income Account, COGS Account, Asset Account, Preferred
+        Vendor, Class, Parent Item, Unit of Measure, etc.). La preferencia guardada del usuario
+        no se sobrescribe al usar esta opción.
+      </p>
+    </div>
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/10-playground-todos-campos.png" alt="Formulario completo - Todos los campos" />
+    </div>
+    <div class="screenshot-caption">Selector "Todos los campos" activo — formulario completo con datos de ejemplo: Item Name, Is Active, Sales Description, Sales Price, Purchase Cost, Quantity On Hand, Inventory Date, Reorder Point, Max Quantity…</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/11-playground-campos-ref-1.png" alt="Campos de referencia parte 1" />
+    </div>
+    <div class="screenshot-caption">Campos de referencia — COGS Account · Asset Account · Preferred Vendor · Class · Parent Item · Unit of Measure</div>
+
+    <div class="screenshot-placeholder">
+      <img src="ImgsTemplate/12-playground-campos-ref-2.png" alt="Campos de referencia parte 2" />
+    </div>
+    <div class="screenshot-caption">Campos de referencia adicionales — Class · Parent Item · Unit of Measure · Sales Tax Code · Purchase Tax Code</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TABLA ENDPOINTS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number" style="background:#374151">★</div>
+      <div>
+        <h2>Endpoints disponibles</h2>
+        <div class="subtitle">API REST del módulo de templates — Redix backend (NestJS)</div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>Ruta</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-blue">GET</span></td>
+          <td><code>/api/integration/qb-template</code></td>
+          <td>Template activo + lista disponibles para un type+sede</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-blue">GET</span></td>
+          <td><code>/api/integration/qb-template/list</code></td>
+          <td>Lista todos los templates activos (uso admin)</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-green">POST</span></td>
+          <td><code>/api/integration/qb-template/generate</code></td>
+          <td>Crear template con campos seleccionados</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-gray">PUT</span></td>
+          <td><code>/api/integration/qb-template/:publicId</code></td>
+          <td>Actualizar nombre y/o campos de un template</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-gray">PUT</span></td>
+          <td><code>/api/integration/qb-template/:publicId/set-default</code></td>
+          <td>Marcar como default para su type+sede</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-red">DELETE</span></td>
+          <td><code>/api/integration/qb-template/:publicId</code></td>
+          <td>Soft-delete — is_active = false</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FLUJO TÉCNICO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="step-number" style="background:#374151">⟳</div>
+      <div>
+        <h2>Flujo de resolución en el Playground</h2>
+        <div class="subtitle">Secuencia de llamadas al seleccionar tipo + sede</div>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <strong>GET /api/integration/template-preference</strong>
+          <p>Obtiene el templateId guardado para el usuario actual (sede + operación). Respuesta en ~5ms desde DB local.</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <strong>Promise.all — llamadas en paralelo</strong>
+          <p>
+            → <code>GET /api/integration/qb-template?type=X&sede=Y[&templateId=UUID]</code> — campos del template desde DB de Redix<br>
+            → <code>GET /api/integration/qb-contracts?type=X&sede=Y</code> — requiredFields overlay desde LedgerOps
+          </p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <strong>Resolución en el frontend</strong>
+          <p>Si template ≠ null → formulario reducido con los campos del template.<br>Si template = null → formulario completo con todos los campos del contrato.</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-line"><div class="flow-dot"></div></div>
+        <div class="flow-content">
+          <strong>Selector visible</strong>
+          <p>Aparece cuando existe al menos un template para la combinación activa. Incluye "Todos los campos" como opción siempre disponible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    QB Playground Templates · Redix Operations Platform · 2026-04-04
+  </div>
+
+</body>
+</html>

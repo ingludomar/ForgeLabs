@@ -7,6 +7,10 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved (2026-03-26) |
 
+## PROMPTs relacionados
+
+- [PROMPT-017](PROMPT-017-creditcardcharge-schema.md) — misma lógica de auditoría y carga de schemas v17.0 + clonado v13.0 RMX
+
 ---
 
 ## Contexto
@@ -32,3 +36,10 @@ Inicio de desarrollo de la entidad **InventorySite** (posición 10 en roadmap). 
 ## Respuesta esperada
 
 Reporte de auditoría con el estado encontrado y las acciones tomadas. Confirmación de que `/webhook/tools/describe` responde correctamente para los 3 tipos en todas las sedes requeridas.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-26 | Emisión | PROMPT emitido a LedgerBridge — auditoría y carga de schemas InventorySite en v17.0 + v13.0 RMX |
+| 2026-03-26 | Resolución | Schemas auditados y resueltos; describe responde correctamente en todas las sedes |

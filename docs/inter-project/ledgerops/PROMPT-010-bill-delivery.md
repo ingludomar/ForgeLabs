@@ -47,3 +47,10 @@ Los 6 archivos ya están escritos en el repo local de LedgerOps.
 ## Respuesta esperada
 
 Confirmación de commit aplicado con los 6 archivos de documentación.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-25 | Emisión | PROMPT emitido a LedgerOps — entrega de Bill (Add · Mod · Query) con docs de 6 roles |
+| 2026-03-25 | Resolución | Docs aplicados al repo (v1.9.0) |

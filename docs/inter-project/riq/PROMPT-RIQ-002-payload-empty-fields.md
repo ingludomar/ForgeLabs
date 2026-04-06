@@ -6,6 +6,10 @@
 **Tipo:** improvement
 **Estado:** ✅ solved — 2026-03-30 · pruneEmpty implementado · 4 reglas verificadas
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — integración base sobre la que este filtro opera
+
 ---
 
 ## Problema identificado
@@ -97,3 +101,10 @@ Después de implementar el filtro, repetir el test `ItemInventoryAdd` con el for
 3. LedgerBridge retorna `LB-VALIDATION-MISSING_REQUIRED` si falta un campo requerido (no QB-PARSE-ERROR por campo vacío)
 
 Reportar el JSON Output resultante a SyncBridge para verificación.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — filtrar campos vacíos del payload antes de enviarlo a LedgerOps |
+| 2026-03-30 | Resolución | `pruneEmpty` implementado con 4 reglas verificadas |

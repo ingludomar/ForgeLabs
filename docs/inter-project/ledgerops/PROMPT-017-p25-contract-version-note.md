@@ -4,6 +4,10 @@
 **Tipo:** docs
 **Estado:** ✅ solved
 
+## PROMPTs relacionados
+
+- [PROMPT-016](PROMPT-016-sedes-config-contract-endpoint.md) — endpoint de contratos dinámicos cuya invarianza v17.0/v13.0 documenta este PROMPT
+
 ---
 
 ## Contexto
@@ -67,3 +71,10 @@ Sin modificar ningún otro contenido del archivo.
 ## Verificación
 
 Confirmar commit con los 13 archivos modificados.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a LedgerOps — agregar nota de versión en contratos para 13 entidades (contratos idénticos en v17.0 y v13.0) |
+| 2026-03-30 | Resolución | 13 archivos de developer docs actualizados con la nota de versión |

@@ -7,6 +7,11 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved (2026-03-25) |
 
+## PROMPTs relacionados
+
+- [PROMPT-013](PROMPT-013-salesorder-rmx-schema.md) — misma lógica RMX aplicada a SalesOrder
+- [PROMPT-014](PROMPT-014-purchaseorder-rmx-schema.md) — misma lógica RMX aplicada a PurchaseOrder
+
 ---
 
 ## Contexto
@@ -30,3 +35,10 @@ Clonar los schemas v17.0 → v13.0 para los siguientes tipos en sede RMX:
 ## Respuesta esperada
 
 Confirmación de que los schemas v13.0 están disponibles para InvoiceAdd · InvoiceMod · InvoiceQuery en sede RMX.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-25 | Emisión | PROMPT emitido a LedgerBridge — schemas v13.0 para Invoice en sede RMX |
+| 2026-03-25 | Resolución | Schemas generados con `lb-xml-version-clone`; InvoiceAdd · InvoiceMod · InvoiceQuery disponibles en RMX |

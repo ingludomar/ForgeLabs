@@ -7,6 +7,13 @@
 | **Tipo** | feature |
 | **Estado** | ✅ solved — v17.0 + v13.0 RMX disponibles (2026-03-26) |
 
+## PROMPTs relacionados
+
+- [PROMPT-013](PROMPT-013-salesorder-rmx-schema.md) — misma lógica RMX; parte de la cadena de schemas para todas las entidades
+- [PROMPT-014](PROMPT-014-purchaseorder-rmx-schema.md) — misma lógica RMX aplicada a PurchaseOrder
+- [PROMPT-015](PROMPT-015-invoice-rmx-schema.md) — misma lógica RMX aplicada a Invoice
+- [PROMPT-016](PROMPT-016-bill-rmx-schema.md) — misma lógica RMX aplicada a Bill
+
 ---
 
 ## Contexto
@@ -40,3 +47,10 @@ El endpoint `/webhook/tools/describe` retorna 404 para `CreditCardChargeAdd`, `C
 ## Respuesta esperada
 
 Confirmación de que describe retorna 200 para los 3 tipos en sede TEST (v17.0) y sede RMX (v13.0).
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-26 | Emisión | PROMPT emitido a LedgerBridge — schemas v17.0 + v13.0 RMX para CreditCardCharge (no tenía schemas previos) |
+| 2026-03-26 | Resolución | Schemas v17.0 cargados desde SDK y v13.0 clonados; describe responde 200 para los 3 tipos en todas las sedes |

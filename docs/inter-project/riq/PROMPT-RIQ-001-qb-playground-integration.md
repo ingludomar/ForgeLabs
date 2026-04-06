@@ -6,6 +6,10 @@
 **Tipo:** integration-spec
 **Estado:** ✅ solved — 2026-03-30 · TC-01/02/03 pasados · endpoint operativo en TEST
 
+## PROMPTs relacionados
+
+- [PROMPT-LO-016](../ledgerops/PROMPT-LO-016-sedes-config-contract-endpoint.md) — LO expone los endpoints que RIQ consume según la spec de este PROMPT
+
 ---
 
 ## Contexto
@@ -310,3 +314,10 @@ POST https://n8n-development.redsis.ai/webhook/inventory/item/query
 
 - **Contratos por entidad** (campos disponibles por tipo): bloqueado por PROMPT-006 en LedgerBridge. Cuando se resuelva, SyncBridge emitirá PROMPT-RIQ-002 con contratos completos por entidad y sede.
 - **Sedes TSI y RRC**: pendientes de configuración en LedgerBridge — no operativas aún.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — spec de integración del QB Playground con LedgerOps (routing, transformación, respuestas) |
+| 2026-03-30 | Resolución | Endpoint `POST /api/integration/qb-playground` operativo; TC-01/02/03 pasados en TEST |

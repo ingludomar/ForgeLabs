@@ -6,6 +6,11 @@
 **Tipo:** improvement
 **Estado:** ✅ solved — 2026-03-30 · buildRef implementado · 4 casos verificados
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — integración base donde los campos Ref se envían a LedgerOps
+- [PROMPT-RIQ-002](PROMPT-RIQ-002-payload-empty-fields.md) — complementario: pruneEmpty excluye Refs vacíos; buildRef resuelve prioridad cuando hay datos
+
 ---
 
 ## Problema identificado
@@ -103,3 +108,10 @@ Después de implementar, repetir el test `ItemInventoryAdd` con el siguiente cas
 ```
 
 Ningún Ref debe incluir `FullName` si tiene `ListID`. Reportar JSON Output completo a SyncBridge para verificación antes de hacer Send.
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — lógica de prioridad `ListID > FullName` en campos Ref del payload |
+| 2026-03-30 | Resolución | `buildRef` implementado; 4 casos verificados |

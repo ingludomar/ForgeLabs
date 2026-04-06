@@ -6,6 +6,10 @@
 **Tipo:** data
 **Estado:** ✅ solved
 
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — integración base que este PROMPT ejercita con datos reales de TEST
+
 ---
 
 ## Objetivo
@@ -429,3 +433,10 @@ Ejecutar cada test case desde el QB Playground usando `Fill Examples` + Send. Re
 | TC-BNK-01 | CreditCardChargeAdd | ⬜ | | |
 
 **Entregar tabla completa a SyncBridge con resultado ✅ / ❌ y el TxnID o ListID obtenido en cada operación de Add.**
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-30 | Emisión | PROMPT emitido a RIQ — actualizar datos de ejemplo en `contracts.ts` con IDs reales de TEST y ejecutar 15 TCs |
+| 2026-03-30 | Resolución | Datos actualizados; 15/15 TCs pasados en TEST |

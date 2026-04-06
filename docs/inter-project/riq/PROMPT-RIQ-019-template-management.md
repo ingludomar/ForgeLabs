@@ -227,3 +227,4 @@ Sin template en DB → `{ template: null }` → `activeTemplate = null` → form
 | 2026-04-04 | E2E | ✅ 7 pasos + selector A/B/C/D verificados desde el UI de Redix |
 | 2026-04-04 | Resolución | PROMPT cerrado — [ver implementación](#implementación-riq--2026-04-04) |
 | 2026-04-04 | Push | Rama `feature/redix-integration-quickbooks-playground` — último commit ff9a898 |
+| 2026-04-04 | Fix post-cierre | `generateBaseTemplate` captura P2002 (unique constraint `entity_type+sede+name`) y retorna 409 Conflict con mensaje descriptivo — antes propagaba 500 genérico |

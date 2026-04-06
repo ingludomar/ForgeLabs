@@ -2,7 +2,11 @@
 
 **Fecha:** 2026-03-31
 **Tipo:** testing
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
+
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-001](PROMPT-RIQ-001-qb-playground-integration.md) — integración base que los tests ejercitan de punta a punta
 
 ---
 
@@ -102,3 +106,10 @@ Confirmar a SyncBridge:
 1. Archivo curl con los 15 TCs listo
 2. Test suite con los 5 archivos e2e creados
 3. Resultado de `npx jest test/e2e/qb-playground/` — tabla con pass/fail por TC
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-31 | Emisión | PROMPT emitido a RIQ — guía manual curl + test suite E2E para los 15 TCs del QB Playground |
+| 2026-03-31 | Resolución | Guía curl y 5 archivos e2e creados; suite completa ejecutable por TC |

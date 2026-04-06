@@ -116,3 +116,10 @@ v1.0.1 — Normalize Input node + fix unwrap + documentación formal + SemVer
 | Item | ID |
 |---|---|
 | LedgerExec \| Entrega formal | `11559199010` |
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-21 | Emisión | PROMPT emitido a LedgerExec — estándar de documentación por rol para entrega formal |
+| 2026-03-21 | Resolución | Docs `integration/` creados (6 roles), RELEASE-v1.0.0.md generado (commit `bf011b0`) |

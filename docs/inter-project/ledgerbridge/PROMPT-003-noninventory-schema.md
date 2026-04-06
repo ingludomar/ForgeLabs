@@ -134,3 +134,10 @@ VERIFICACIÓN:
 | BillAdd | ✅ | 10 — VendorRef/ListID, líneas expense/items |
 | BillMod | ✅ | 2 — TxnID, EditSequence |
 | CreditCardChargeAdd | ✅ | 9 — AccountRef/ListID, líneas expense/items |
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-03-17 | Emisión | PROMPT emitido a LedgerBridge — schemas faltantes para 12 tipos del roadmap sin source XML cargado |
+| 2026-03-18 | Resolución | Git sync + workflow temporal cargó source XMLs; 12/12 tipos con `hasDescribe: true` — [ver resolución parcial](#resolución-parcial--lb-audit-2026-03-18) |
