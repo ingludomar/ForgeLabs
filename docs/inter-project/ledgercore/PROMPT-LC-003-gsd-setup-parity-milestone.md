@@ -98,8 +98,38 @@ Cada categoría = un Slice. Cada endpoint del catálogo LB-022 = una Task.
 
 ---
 
+## Primera entrega — LC · 2026-04-06
+
+**GSD v1.32.0 instalado** — 60 skills en `.claude/skills/`, hooks configurados (context-monitor, prompt-guard, read-guard, update-check). Config: modo interactivo, 3 agentes concurrentes, gates activos.
+
+**Plan — Milestone 1: 5 Slices · 15 Tasks**
+
+| Slice | Módulo | Tasks | Endpoints | Prioridad |
+|---|---|---|---|---|
+| 1 | XML Catalog | T1.1–T1.3 | `GET /types` · `GET /describe` · `POST /xml` | P1 |
+| 2 | Sedes CRUD | T2.1–T2.5 | `GET/POST/PATCH/DELETE /sedes` | P2–P3 |
+| 3 | Business Rules | T3.1–T3.5 | `GET /rules` · `/add` · `/replace` · `/remove` · `/discover` | P2–P3 |
+| 4 | Contracts | T4.1–T4.2 | `POST /contracts` · `POST /contracts/validate` | **P0** |
+| 5 | XML Build | T5.1 | `POST /xml/build` | **P0** |
+
+Orden: P0 (T4.1 + T5.1) → P1 (T4.2 + T1.x) → P2 (T2.1–2.2 + T3.1) → P3 (CRUD completo)
+
+T5.1: port de `lb-xml-build.py` (379 líneas Python) a TypeScript — orden de tags via `qbxml_field.ordinal` de la DB. Validación condicional documentada y correcta.
+
+## Aprobación SyncBridge · 2026-04-06
+
+✅ Plan aprobado sin cambios.
+
+**Orden de entrega: P0 → P1 → P2 → P3** — cada grupo se entrega, se verifica con SyncBridge y se aprueba antes de continuar al siguiente. No entregar todo junto al final.
+
+**Proceder con `/gsd:execute-phase 1` comenzando por P0 (T4.1 Contracts + T5.1 XML Build).**
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-06 | Emisión | PROMPT emitido a LedgerCore — instalar GSD y planificar milestone de paridad con LedgerBridge |
+| 2026-04-06 | Primera entrega | GSD v1.32.0 instalado · Plan 5 Slices / 15 Tasks entregado · commit 9301464 |
+| 2026-04-06 | Aprobación SyncBridge | Plan aprobado · orden P0→P1→P2→P3 confirmado · luz verde para ejecutar P0 |
