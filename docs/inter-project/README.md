@@ -83,7 +83,7 @@ a Monday.com.
 | [PROMPT-RIQ-019](riq/PROMPT-RIQ-019-template-management.md) | 2026-04-04 | RIQ | feature | Templates | Gestión completa de templates en DB de RIQ — Prisma, seed via LO, panel admin | ✅ solved |
 | [PROMPT-LO-025](ledgerops/PROMPT-LO-025-qb-playground-templates-docs.md) | 2026-04-04 | LedgerOps | docs | QB Playground Templates | Crear docs/platform/QBPlaygroundTemplates/ con 5 archivos por rol | ✅ solved |
 | [PROMPT-RIQ-021](riq/PROMPT-RIQ-021-salesorder-playground-docs.md) | 2026-04-06 | RIQ | docs | Sales Order | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ⏳ pending |
-| [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ⏳ pending |
+| [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ✅ solved |
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
 | [PROMPT-LO-024](ledgerops/PROMPT-LO-024-webhook-admin-platform-docs.md) | 2026-04-04 | LedgerOps | docs | N8N Webhook Administration | Crear docs/platform/WebhookAdmin/ con 5 archivos por rol | ✅ solved |
 | [PROMPT-LO-022](ledgerops/PROMPT-LO-022-qb-playground-item-inventory-docs.md) | 2026-04-03 | LedgerOps | docs | Item Inventory | Crear docs/qb-playground/ItemInventory.md — contenido generado por RIQ | ✅ solved |

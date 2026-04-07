@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-04-06
 **Tipo:** docs
-**Estado:** ⏳ pending — contenido recibido de RIQ · esperando creación en LO
+**Estado:** ✅ solved
+**Fecha de resolución:** 2026-04-07
 
 ## PROMPTs relacionados
 
@@ -39,3 +40,4 @@ Confirmar a SyncBridge:
 |---|---|---|
 | 2026-04-06 | Emisión | PROMPT emitido a LedgerOps — pendiente de contenido de RIQ (PROMPT-RIQ-021) |
 | 2026-04-06 | Contenido recibido | RIQ entregó Markdown completo — PROMPT-RIQ-021 cerrado · enviando a LO para publicar |
+| 2026-04-07 | Resolución | LO creó docs/qb-playground/SalesOrder.md — commit efdbbb5 · PROMPT cerrado |
