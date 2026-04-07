@@ -85,3 +85,4 @@ Incluir los errores QB más frecuentes para esta entidad (3100, 3120, 3200, 3240
 | 2026-04-06 | Emisión | PROMPT emitido a RIQ — testing Sales Order en 5 sedes + generar contenido Markdown para QB Playground |
 | 2026-04-06 | Entrega | Testing completo: Query 5 sedes ✅ · Add/Mod TEST ✅ · Hallazgos: ActiveStatus no válido en Query, RefNumber máx. 11 chars |
 | 2026-04-06 | Aprobación SyncBridge | PROMPT cerrado — contenido enviado a LO via PROMPT-LO-026 |
+| 2026-04-07 | Fix post-cierre | Botón inactivo en SalesOrderQuery — causa: fetch sin timeout en handleSend. Fix: AbortSignal.timeout(20_000) en frontend (backend ya tenía 15s). Push confirmado. |
