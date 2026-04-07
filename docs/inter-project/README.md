@@ -87,6 +87,7 @@ a Monday.com.
 | [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | 2026-04-07 | RIQ | convention + docs | QB Playground · SalesOrder | Estándar 5 docs por rol al cerrar entidad Playground + backfill SalesOrder | ✅ solved |
 | [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | 2026-04-07 | RIQ | docs | Purchase Order | Testing Add·Mod·Query en 5 sedes + 6 docs por rol QB Playground | ✅ solved |
 | [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | 2026-04-07 | LedgerOps | docs | Purchase Order | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-RIQ-025](riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) | 2026-04-07 | RIQ | docs | Vendor · Customer · ItemInventory | Backfill 5 docs por rol para las 3 entidades en paralelo | ⏳ pending |
 | [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ✅ solved |
 | [PROMPT-LO-027](ledgerops/PROMPT-LO-027-qb-playground-salesorder-role-docs.md) | 2026-04-07 | LedgerOps | docs | Sales Order | Crear 5 docs por rol — executive · developer · architect · qa · support | ✅ solved |
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
@@ -152,7 +153,7 @@ a Monday.com.
 | [PROMPT-015](ledgerops/PROMPT-015-roadmap-procesos.md) | — | Hoja de ruta por procesos — documento ejecutivo global | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-23 prompts · 22 solved · 1 pending
+25 prompts · 24 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -181,6 +182,7 @@ a Monday.com.
 | [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | QB Playground · SalesOrder | Estándar 5 docs por rol + backfill SalesOrder | ✅ solved |
 | [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | Purchase Order | Testing + 6 docs por rol QB Playground | ✅ solved |
 | [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | Purchase Order | Publicar 6 docs en docs/qb-playground/ | ✅ solved |
+| [PROMPT-RIQ-025](riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) | Vendor · Customer · ItemInventory | Backfill 5 docs por rol — 15 archivos en paralelo | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
