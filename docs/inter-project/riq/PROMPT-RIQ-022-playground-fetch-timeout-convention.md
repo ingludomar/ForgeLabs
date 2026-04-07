@@ -49,3 +49,4 @@ Antes de hacer push de cualquier feature que modifique `handleSend` o agregue un
 |---|---|---|
 | 2026-04-07 | Emisión y resolución | Fix ya aplicado en RIQ · convención establecida como checklist de cierre de features Playground |
 | 2026-04-07 | Bug adicional | requiredOverlay de entidad anterior persistía ~3s al navegar → botón bloqueado en Add/Mod. Fix: setRequiredOverlay(new Set()) + setSending(false) en handleActionChange · commits db68f09 · c20160d |
+| 2026-04-07 | Estabilización completa | 9 issues resueltos en sesión post-RIQ-021: timeout, sending SPA, overlay, contractLoading, fillFields line contamination, Mod hydration desde QB, QB objeto/array líneas, checkFields ref containers, Fill Examples SalesOrder con datos reales TEST · commits db68f09 → e9e0460 |
