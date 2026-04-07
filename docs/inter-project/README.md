@@ -79,12 +79,14 @@ a Monday.com.
 | [PROMPT-RIQ-015](riq/PROMPT-RIQ-015-webhook-admin-ui.md) | 2026-04-02 | RIQ | feature | Global | Panel de administración visual para gestión de URLs de webhooks N8N | ✅ solved |
 | [PROMPT-RIQ-016](riq/PROMPT-RIQ-016-webhook-resolver-singleton.md) | 2026-04-02 | RIQ | bug / security | Global | WebhookResolverService singleton + JWT guard en PUT/DELETE | ✅ solved |
 | [PROMPT-RIQ-017](riq/PROMPT-RIQ-017-template-playground.md) | 2026-04-03 | RIQ | feature | QB Playground | Templates — formulario configurable por sede y operación, consumo adaptativo desde RIQ DB | ✅ solved |
-| [PROMPT-RIQ-018](riq/PROMPT-RIQ-018-item-inventory-playground-docs.md) | 2026-04-03 | RIQ | docs | Item Inventory | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ⏳ pending |
+| [PROMPT-RIQ-018](riq/PROMPT-RIQ-018-item-inventory-playground-docs.md) | 2026-04-03 | RIQ | docs | Item Inventory | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ✅ solved |
 | [PROMPT-RIQ-019](riq/PROMPT-RIQ-019-template-management.md) | 2026-04-04 | RIQ | feature | Templates | Gestión completa de templates en DB de RIQ — Prisma, seed via LO, panel admin | ✅ solved |
 | [PROMPT-LO-025](ledgerops/PROMPT-LO-025-qb-playground-templates-docs.md) | 2026-04-04 | LedgerOps | docs | QB Playground Templates | Crear docs/platform/QBPlaygroundTemplates/ con 5 archivos por rol | ✅ solved |
 | [PROMPT-RIQ-021](riq/PROMPT-RIQ-021-salesorder-playground-docs.md) | 2026-04-06 | RIQ | docs | Sales Order | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ✅ solved |
 | [PROMPT-RIQ-022](riq/PROMPT-RIQ-022-playground-fetch-timeout-convention.md) | 2026-04-07 | RIQ | convention | QB Playground | fetch timeout obligatorio en handleSend — AbortSignal.timeout(20s) + checklist de cierre | ✅ solved |
+| [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | 2026-04-07 | RIQ | convention + docs | QB Playground · SalesOrder | Estándar 5 docs por rol al cerrar entidad Playground + backfill SalesOrder | ⏳ pending |
 | [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ✅ solved |
+| [PROMPT-LO-027](ledgerops/PROMPT-LO-027-qb-playground-salesorder-role-docs.md) | 2026-04-07 | LedgerOps | docs | Sales Order | Crear 5 docs por rol — executive · developer · architect · qa · support | ✅ solved |
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
 | [PROMPT-LO-024](ledgerops/PROMPT-LO-024-webhook-admin-platform-docs.md) | 2026-04-04 | LedgerOps | docs | N8N Webhook Administration | Crear docs/platform/WebhookAdmin/ con 5 archivos por rol | ✅ solved |
 | [PROMPT-LO-022](ledgerops/PROMPT-LO-022-qb-playground-item-inventory-docs.md) | 2026-04-03 | LedgerOps | docs | Item Inventory | Crear docs/qb-playground/ItemInventory.md — contenido generado por RIQ | ✅ solved |
@@ -148,7 +150,7 @@ a Monday.com.
 | [PROMPT-015](ledgerops/PROMPT-015-roadmap-procesos.md) | — | Hoja de ruta por procesos — documento ejecutivo global | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-15 prompts · 15 solved · 0 pending
+23 prompts · 22 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -167,6 +169,14 @@ a Monday.com.
 | [PROMPT-RIQ-013](riq/PROMPT-RIQ-013-customer-playground-docs.md) | Customer | Documentación Customer en QB Playground | ✅ solved |
 | [PROMPT-RIQ-014](riq/PROMPT-RIQ-014-webhook-config-system.md) | Global | Sistema de configuración centralizada de webhooks N8N | ✅ solved |
 | [PROMPT-RIQ-015](riq/PROMPT-RIQ-015-webhook-admin-ui.md) | Global | Panel de administración visual de URLs de webhooks N8N | ✅ solved |
+| [PROMPT-RIQ-016](riq/PROMPT-RIQ-016-webhook-resolver-singleton.md) | Global | WebhookResolverService singleton + JWT guard | ✅ solved |
+| [PROMPT-RIQ-017](riq/PROMPT-RIQ-017-template-playground.md) | QB Playground | Templates — formulario configurable por sede y operación | ✅ solved |
+| [PROMPT-RIQ-018](riq/PROMPT-RIQ-018-item-inventory-playground-docs.md) | Item Inventory | Testing + documentación QB Playground | ✅ solved |
+| [PROMPT-RIQ-019](riq/PROMPT-RIQ-019-template-management.md) | Templates | Gestión completa de templates en DB de RIQ | ✅ solved |
+| [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | Webhook Admin | Documentación por rol — 5 archivos | ✅ solved |
+| [PROMPT-RIQ-021](riq/PROMPT-RIQ-021-salesorder-playground-docs.md) | Sales Order | Testing + documentación QB Playground | ✅ solved |
+| [PROMPT-RIQ-022](riq/PROMPT-RIQ-022-playground-fetch-timeout-convention.md) | QB Playground | fetch timeout + checklist de cierre | ✅ solved |
+| [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | QB Playground · SalesOrder | Estándar 5 docs por rol + backfill SalesOrder | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
