@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-04-07
 **Tipo:** docs
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
+**Fecha de resolución:** 2026-04-07
 
 ## PROMPTs relacionados
 
@@ -145,4 +146,5 @@ Antes de entregar, verificar:
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-07 | Emisión | PROMPT emitido a RIQ — testing PurchaseOrder en 5 sedes + 6 docs por rol |
+| 2026-04-07 | Resolución | Testing completo ✅ · 6 docs entregados · commit RIQ dc0be7a · commit SyncBridge c5f598a · Hallazgo: ExpectedDate requerido por regla de negocio sede TEST |
 

@@ -85,7 +85,8 @@ a Monday.com.
 | [PROMPT-RIQ-021](riq/PROMPT-RIQ-021-salesorder-playground-docs.md) | 2026-04-06 | RIQ | docs | Sales Order | Testing Add·Mod·Query en 5 sedes + documentación QB Playground | ✅ solved |
 | [PROMPT-RIQ-022](riq/PROMPT-RIQ-022-playground-fetch-timeout-convention.md) | 2026-04-07 | RIQ | convention | QB Playground | fetch timeout obligatorio en handleSend — AbortSignal.timeout(20s) + checklist de cierre | ✅ solved |
 | [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | 2026-04-07 | RIQ | convention + docs | QB Playground · SalesOrder | Estándar 5 docs por rol al cerrar entidad Playground + backfill SalesOrder | ✅ solved |
-| [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | 2026-04-07 | RIQ | docs | Purchase Order | Testing Add·Mod·Query en 5 sedes + 6 docs por rol QB Playground | ⏳ pending |
+| [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | 2026-04-07 | RIQ | docs | Purchase Order | Testing Add·Mod·Query en 5 sedes + 6 docs por rol QB Playground | ✅ solved |
+| [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | 2026-04-07 | LedgerOps | docs | Purchase Order | Publicar 6 docs por rol en docs/qb-playground/ | ⏳ pending |
 | [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ✅ solved |
 | [PROMPT-LO-027](ledgerops/PROMPT-LO-027-qb-playground-salesorder-role-docs.md) | 2026-04-07 | LedgerOps | docs | Sales Order | Crear 5 docs por rol — executive · developer · architect · qa · support | ✅ solved |
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
@@ -178,7 +179,8 @@ a Monday.com.
 | [PROMPT-RIQ-021](riq/PROMPT-RIQ-021-salesorder-playground-docs.md) | Sales Order | Testing + documentación QB Playground | ✅ solved |
 | [PROMPT-RIQ-022](riq/PROMPT-RIQ-022-playground-fetch-timeout-convention.md) | QB Playground | fetch timeout + checklist de cierre | ✅ solved |
 | [PROMPT-RIQ-023](riq/PROMPT-RIQ-023-playground-entity-docs-standard.md) | QB Playground · SalesOrder | Estándar 5 docs por rol + backfill SalesOrder | ✅ solved |
-| [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | Purchase Order | Testing + 6 docs por rol QB Playground | ⏳ pending |
+| [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | Purchase Order | Testing + 6 docs por rol QB Playground | ✅ solved |
+| [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | Purchase Order | Publicar 6 docs en docs/qb-playground/ | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
