@@ -1,26 +1,48 @@
-# SyncBridge
+# Forge Labs Hub
 
-SyncBridge es el timón del ecosistema. No es un componente técnico — es el espacio donde se diseña, se decide y se dirige.
+Espacio central de trabajo de **Forge Labs** — el estudio de desarrollo formado por Luis Domínguez y Claude.
 
-Aquí vive la metodología, la arquitectura, las convenciones y el roadmap. Cuando alguien nuevo llegue a operar el ecosistema, encontrará los 4 proyectos técnicos funcionando. Este repositorio es el mapa de cómo se construyeron.
+Aquí se visualizan los ecosistemas y proyectos que desarrollamos, se define la metodología, se investiga y se coordina el trabajo entre proyectos.
 
 ---
 
-## El ecosistema
+## Ecosistemas y proyectos
+
+### LedgerGateway
+> Convierte QuickBooks Desktop en un ERP moderno con APIs abiertas. Permite a cualquier sistema externo realizar operaciones en QB Desktop sin acceso directo.
 
 ```
-Sistema origen (CRM / portal / ERP)
+Sistema externo
     ↓ POST /webhook/{module}/{entity}/{op}
-[LedgerOps]       N8N — capa de aplicación, webhooks, reglas de negocio
-    ↓ POST /webhook/ledgerexec
-[LedgerExec]      N8N — orquestador genérico, sin lógica de negocio propia
-    ↓ SSH                          ↓ HTTP :{sede-ip}:8600
-[LedgerBridge]               [qbxmlIntegrator]
-Linux /opt/LedgerBridge/     Windows — FastAPI, interfaz COM
-FUENTE DE VERDAD             Ejecuta el QBXML en QB Desktop
+[LedgerOps]       Capa de aplicación — webhooks, validaciones, reglas de negocio
+    ↓
+[LedgerExec]      Orquestador genérico — sin lógica de negocio propia
+    ↓ SSH
+[LedgerBridge]    Fuente de verdad — schemas QBXML, business rules, construcción XML
+    ↓ HTTP
+[qbxmlIntegrator] Interfaz COM — ejecuta QBXML en QB Desktop vía win32com
 ```
 
-**4 componentes. Ninguno funciona solo.**
+| Proyecto | Rol | Repo |
+|---|---|---|
+| LedgerOps | Capa de aplicación N8N | [LedgerOps](https://github.com/redsis-rgh/LedgerOps) |
+| LedgerExec | Orquestador N8N genérico | — |
+| LedgerBridge | Fuente de verdad QBXML | `/opt/LedgerBridge` |
+| LedgerCore | Evolución multi-tenant de LedgerBridge | [LedgerCore](https://github.com/ingDesarrollo10/LedgerCore) |
+| qbxmlIntegrator | Interfaz COM Windows | [qbxmlIntegrator](https://github.com/ingDesarrollo10/qbxmlIntegrator) |
+
+Ver detalle: [`ecosystems/ledgergateway.md`](ecosystems/ledgergateway.md)
+
+---
+
+### Redix
+> ERP personalizado para la empresa. Plataforma de usuario en evolución continua.
+
+| Proyecto | Descripción | Rama activa |
+|---|---|---|
+| RIQ | Redix-Integration-Quickbooks — integración de Redix con LedgerGateway | QB Playground |
+
+Ver detalle: [`ecosystems/redix.md`](ecosystems/redix.md)
 
 ---
 
@@ -28,7 +50,11 @@ FUENTE DE VERDAD             Ejecuta el QBXML en QB Desktop
 
 | Sección | Contenido |
 |---|---|
-| [`ecosystem/`](ecosystem/) | Arquitectura, roles de cada componente, decisiones |
-| [`methodology/`](methodology/) | P1-P5, estándar de entrega, PROMPTs a proyectos |
-| [`roadmap/`](roadmap/) | Estado actual y próximas entidades |
-| [`ideas/`](ideas/) | Experimentos, conversaciones, propuestas |
+| [`ecosystems/`](ecosystems/) | Detalle de cada ecosistema y sus proyectos |
+| [`methodology/`](methodology/) | WF Tipo 1 · 2 · 3 — cómo trabajamos |
+| [`research/`](research/) | Investigaciones por proyecto y generales |
+| [`docs/inter-project/`](docs/inter-project/) | PROMPTs emitidos a cada proyecto |
+| [`docs/development/`](docs/development/) | Guías técnicas y casos de prueba |
+| [`roadmap/`](roadmap/) | Estado de entidades y próximos pasos |
+| [`production/`](production/) | Entidades verificadas y entregadas |
+| [`development/`](development/) | Trabajo en progreso |

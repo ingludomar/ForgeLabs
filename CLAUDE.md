@@ -1,8 +1,8 @@
-# SyncBridge — Instrucciones para Claude Code
+# Forge Labs Hub — Instrucciones para Claude Code
 
 ## Qué es este proyecto
 
-SyncBridge (SB) es el responsable del ciclo completo de desarrollo de todo el ecosistema — desde el análisis hasta el cierre formal. Gestiona tres tipos de features:
+Forge Labs Hub (FLH) es el espacio central de trabajo de **Forge Labs** — el estudio de desarrollo formado por Luis Domínguez y Claude. Es el responsable del ciclo completo de desarrollo de todos los ecosistemas y proyectos — desde el análisis hasta el cierre formal. Gestiona tres tipos de features:
 
 | Tipo | Descripción | Flujo |
 |---|---|---|
@@ -12,7 +12,7 @@ SyncBridge (SB) es el responsable del ciclo completo de desarrollo de todo el ec
 
 Ver proceso completo: `docs/development/feature-dev-process.md`
 
-**SB hace todo. Los proyectos técnicos reciben PROMPTs y ejecutan.**
+**FLH hace todo. Los proyectos técnicos reciben PROMPTs y ejecutan.**
 
 ---
 
