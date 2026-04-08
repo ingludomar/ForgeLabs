@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(cp /Users/luisdominguez/Documents/GitHub/SyncBridge/development/sales/LedgerOps-SalesOrderAdd.workflow.json /Users/luisdominguez/Documents/GitHub/SyncBridge/production/sales/)",
+      "Bash(cp /Users/luisdominguez/Documents/GitHub/SyncBridge/development/sales/LedgerOps-SalesOrderMod.workflow.json /Users/luisdominguez/Documents/GitHub/SyncBridge/production/sales/)",
+      "Bash(cp /Users/luisdominguez/Documents/GitHub/SyncBridge/development/sales/LedgerOps-SalesOrderQuery.workflow.json /Users/luisdominguez/Documents/GitHub/SyncBridge/production/sales/)"
     ]
   }
 }

@@ -58,8 +58,8 @@ SB
 P0  PROMPT RMX global → LedgerBridge (una sola vez por entidad)
 P1  AnalyzeSedeFields en todas las sedes
 P2  business-rules/replace en todas las sedes (Add + Mod)
-P3  Workflow en development/ → N8N → activar → probar
-P4  Testing CRUD en TEST → verified.json → mover a production/
+P3  Workflow en LedgerGateway/development/ → N8N → activar → probar
+P4  Testing CRUD en TEST → verified.json → mover a LedgerGateway/production/
 P5  Docs por rol → PROMPT a LO → LO confirma → correo Celia → Monday
 ```
 
@@ -72,15 +72,15 @@ F4  Docs 5 roles → PROMPT a LO → LO confirma
 F5  Push del proyecto responsable confirmado
 F6  Correo Luis Potte CC Mike Habib → usuario confirma
 F7  Monday (work item + delivery item)
-F8  Commit en SyncBridge
+F8  Commit en ForgeLabs Hub
 ```
 
 **Tipo 3 — Infraestructura:**
 ```
-I1  PROMPT con propuesta → SB aprueba
+I1  PROMPT con propuesta → FLH aprueba
 I2  Implementación confirmada
 I3  Verificación técnica E2E
-I4  Push confirmado → commit en SyncBridge
+I4  Push confirmado → commit en ForgeLabs Hub
 ```
 
 ---
@@ -88,11 +88,11 @@ I4  Push confirmado → commit en SyncBridge
 ## Estructura de trabajo
 
 ```
-development/    ← entidad en proceso (workflow, tests, docs en borrador)
-production/     ← entidad verificada, lista para clonar en LO
+LedgerGateway/development/    ← entidad en proceso (workflow, tests, docs en borrador)
+LedgerGateway/production/     ← entidad verificada, lista para clonar en LO
 ```
 
-Cuando P4 completo → mover de development/ a production/.
+Cuando P4 completo → mover de `LedgerGateway/development/` a `LedgerGateway/production/`.
 
 ---
 
@@ -144,10 +144,11 @@ LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `methodology/m
 
 | Carpeta | Contenido |
 |---|---|
-| `ecosystem/` | Arquitectura, roles de los 4 componentes, convenciones, ADRs |
-| `methodology/` | P1-P5, estándar de entrega, PROMPTs, Monday |
+| `LedgerGateway/` | Ecosistema QB Desktop — development, production, architecture |
+| `Redix/` | Ecosistema Redix ERP — RIQ y proyectos futuros |
+| `methodology/` | WF Tipo 1/2/3, estándar de entrega, PROMPTs, Monday |
+| `research/` | Investigaciones por proyecto y generales |
 | `roadmap/` | Estado actual de entidades y sedes |
-| `ideas/` | Borradores, experimentos, conversaciones |
 | `docs/inter-project/` | PROMPTs emitidos a otros proyectos (fuente de verdad) |
 | `docs/development/` | Proceso de desarrollo, tipos XML, casos de prueba |
 
