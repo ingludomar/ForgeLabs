@@ -2,7 +2,8 @@
 
 **Fecha:** 2026-04-08
 **Tipo:** docs
-**Estado:** ⏳ pending
+**Estado:** ✅ solved
+**Fecha de resolución:** 2026-04-08
 
 ## PROMPTs relacionados
 
@@ -44,3 +45,4 @@ Confirmar a SyncBridge con los commits de cada archivo creado.
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-08 | Emisión | PROMPT emitido — publicar 5 docs por rol Vendor QB Playground en LO |
+| 2026-04-08 | Resolución | Docs ya existían — LO actualizó support/Vendor.md con QB-3170 name merge en Mod · commit b54c0f4 |

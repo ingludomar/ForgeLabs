@@ -88,9 +88,9 @@ a Monday.com.
 | [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | 2026-04-07 | RIQ | docs | Purchase Order | Testing Add·Mod·Query en 5 sedes + 6 docs por rol QB Playground | ✅ solved |
 | [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | 2026-04-07 | LedgerOps | docs | Purchase Order | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-RIQ-025](riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) | 2026-04-07 | RIQ | docs | Vendor · Customer · ItemInventory | Backfill 5 docs por rol para las 3 entidades en paralelo | ✅ solved |
-| [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | 2026-04-08 | LedgerOps | docs | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
-| [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | 2026-04-08 | LedgerOps | docs | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
-| [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | 2026-04-08 | LedgerOps | docs | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
+| [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | 2026-04-08 | LedgerOps | docs | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | 2026-04-08 | LedgerOps | docs | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | 2026-04-08 | LedgerOps | docs | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-026](ledgerops/PROMPT-LO-026-qb-playground-salesorder-docs.md) | 2026-04-06 | LedgerOps | docs | Sales Order | Crear docs/qb-playground/SalesOrder.md — contenido generado por RIQ | ✅ solved |
 | [PROMPT-LO-027](ledgerops/PROMPT-LO-027-qb-playground-salesorder-role-docs.md) | 2026-04-07 | LedgerOps | docs | Sales Order | Crear 5 docs por rol — executive · developer · architect · qa · support | ✅ solved |
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
@@ -135,7 +135,7 @@ a Monday.com.
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 
 ### LedgerOps
-18 prompts · 15 solved · 3 pending
+18 prompts · 18 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -154,9 +154,9 @@ a Monday.com.
 | [PROMPT-013](ledgerops/PROMPT-013-inventorytransfer-delivery.md) | InventoryTransfer | Entrega Add · Query — workflows + docs | ✅ solved |
 | [PROMPT-014](ledgerops/PROMPT-014-assembly-delivery.md) | Assembly | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-015](ledgerops/PROMPT-015-roadmap-procesos.md) | — | Hoja de ruta por procesos — documento ejecutivo global | ✅ solved |
-| [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
-| [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
-| [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ⏳ pending |
+| [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
 25 prompts · 25 solved · 0 pending
