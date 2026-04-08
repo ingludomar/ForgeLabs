@@ -159,7 +159,7 @@ a Monday.com.
 | [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-25 prompts · 25 solved · 0 pending
+26 prompts · 25 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -189,6 +189,8 @@ a Monday.com.
 | [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | Purchase Order | Testing + 6 docs por rol QB Playground | ✅ solved |
 | [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | Purchase Order | Publicar 6 docs en docs/qb-playground/ | ✅ solved |
 | [PROMPT-RIQ-025](riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) | Vendor · Customer · ItemInventory | Backfill 5 docs por rol — 15 archivos en paralelo | ✅ solved |
+| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ⏳ pending |
+| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ⏳ pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
