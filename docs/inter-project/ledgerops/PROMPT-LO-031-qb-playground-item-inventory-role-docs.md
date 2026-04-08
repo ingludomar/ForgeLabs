@@ -11,6 +11,10 @@
 
 ---
 
+## Nota
+
+> **Entidad ya entregada y cerrada.** La entrega formal de ItemInventory en el QB Playground se realizó con el user guide base (`ItemInventory.md`). Estos 5 docs son un **backfill retroactivo** para cumplir con el estándar PROMPT-RIQ-023 establecido después del cierre. No se requiere nuevo correo de entrega.
+
 ## Objetivo
 
 Publicar los **5 archivos de documentación por rol** para la entidad **ItemInventory** en el QB Playground.
