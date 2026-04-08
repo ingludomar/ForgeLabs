@@ -1,0 +1,42 @@
+# PROMPT-LO-031 — QB Playground · ItemInventory · 5 docs por rol
+
+**Fecha:** 2026-04-08
+**Tipo:** docs
+**Estado:** ⏳ pending
+
+## PROMPTs relacionados
+
+- [PROMPT-RIQ-025](../riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) — generación de los 5 docs
+- [PROMPT-LO-022](PROMPT-LO-022-qb-playground-item-inventory-docs.md) — user guide ItemInventory ya publicado
+
+---
+
+## Objetivo
+
+Publicar los **5 archivos de documentación por rol** para la entidad **ItemInventory** en el QB Playground.
+
+## Archivos a crear
+
+| Archivo | Ruta en LO |
+|---|---|
+| `ItemInventory-executive.md` | `docs/qb-playground/ItemInventory-executive.md` |
+| `ItemInventory-developer.md` | `docs/qb-playground/ItemInventory-developer.md` |
+| `ItemInventory-architect.md` | `docs/qb-playground/ItemInventory-architect.md` |
+| `ItemInventory-qa.md` | `docs/qb-playground/ItemInventory-qa.md` |
+| `ItemInventory-support.md` | `docs/qb-playground/ItemInventory-support.md` |
+
+El contenido completo de cada archivo está en el repositorio SyncBridge bajo `docs/qb-playground/ItemInventory-*.md` (commit c2fd6f5).
+
+---
+
+## Verificación requerida de LO
+
+Confirmar a SyncBridge con los commits de cada archivo creado.
+
+---
+
+## Historial
+
+| Fecha | Evento | Resumen |
+|---|---|---|
+| 2026-04-08 | Emisión | PROMPT emitido — publicar 5 docs por rol ItemInventory QB Playground en LO |
