@@ -128,29 +128,52 @@ Code — Fix XML
 ### Nota técnica
 Se corrigió `cleanPayloadForUpdate` en `mcp-n8n/index.js` para excluir el campo `description` del payload PUT — la API de N8N lo rechazaba como "additional property" en la versión actual del servidor.
 
-### Verificación — hallazgo en flujo
+### Verificación — diagnóstico completo
 
-QB Desktop responde correctamente — XML directo a `http://192.168.0.51:8600/qbxml` devuelve `statusCode="0"`.
-El problema está en el flujo de LE después del PROMPT-003.
+**QB Desktop:** OK — XML directo a `http://192.168.0.51:8600/qbxml` devuelve `statusCode="0"` con datos reales.
 
-**Error observado:** `QB-PARSE-ERROR — QB found an error when parsing the provided XML text stream`
+**Error en flujo completo:** Todas las entidades fallan — Invoice, Customer, y otras ya verificadas anteriormente. Esto confirma que el problema es **global y ocurrió con el PROMPT-003**, no es específico de Invoice ni de LedgerBridge.
 
-**Hipótesis:** El nodo `Execute — Config Sede Routes` está reemplazando o alterando el payload original. Cuando llega a `Code — Resolve Sede Target` ya no tiene el QBXML correcto para enviar a qbxmlIntegrator.
-
-**Acción requerida a LE:** Ejecutar el workflow en modo test en N8N y revisar el output de cada nodo después de `Execute — Config Sede Routes`. Verificar que los campos `object`, `data`, `sede`, `version` del payload original siguen intactos después del sub-workflow.
-
-El flujo debe producir exactamente este XML válido hacia qbxmlIntegrator:
+**XML malformado que llega a qbxmlIntegrator:**
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<?qbxml version="17.0"?>
-<QBXML>
-  <QBXMLMsgsRq onError="stopOnError">
-    <InvoiceQueryRq requestID="1">
-      <MaxReturned>1</MaxReturned>
-    </InvoiceQueryRq>
-  </QBXMLMsgsRq>
-</QBXML>
+<InvoiceQueryRq>
+  <InvoiceQuery>        ← tag extra incorrecto — no debe existir
+    <MaxReturned>1</MaxReturned>
+  </InvoiceQuery>
+</InvoiceQueryRq>
 ```
+
+**XML correcto que debe llegar:**
+```xml
+<InvoiceQueryRq>
+  <MaxReturned>1</MaxReturned>
+</InvoiceQueryRq>
+```
+
+**Causa probable:** El nodo `Execute — Config Sede Routes` devuelve solo el mapa de URLs como output. Cuando `Code — Resolve Sede Target` lee `$input.first().json`, obtiene el output del sub-workflow (solo URLs) en lugar del payload original completo (`object`, `data`, `sede`, `version`, `xml`). El payload llega incompleto o mal estructurado a qbxmlIntegrator.
+
+**Acción requerida:**
+
+1. Ejecutar el workflow en modo test en N8N con un InvoiceQuery a TEST
+2. Revisar el output de `Execute — Config Sede Routes` — confirmar si el payload original está o no en el output
+3. En `Code — Resolve Sede Target`: el mapa de URLs debe mergearse con el payload original, no reemplazarlo. Ejemplo:
+
+```javascript
+// El payload original viene de $('Code — Fix XML').first().json
+// El mapa de URLs viene de $input.first().json (output del sub-workflow)
+const sedeRoutes = $input.first().json;
+const original = $('Code — Fix XML').first().json;
+
+const sede = original.sede;
+const url = sedeRoutes[sede];
+
+if (!url) throw new Error(`Sede no configurada: ${sede}`);
+
+return [{ json: { ...original, targetUrl: url } }];
+```
+
+4. Verificar que el XML que llega a qbxmlIntegrator es correcto antes del POST
+5. Confirmar con InvoiceQuery a TEST desde LedgerOps que devuelve datos reales
 
 ---
 
