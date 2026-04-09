@@ -1,4 +1,4 @@
-# PROMPT-003 — Configuración de URLs de sedes en archivo JSON externo
+# PROMPT-003 — Configuración de URLs de sedes · Sub-workflow de configuración
 
 | Campo | Detalle |
 |---|---|
@@ -23,47 +23,49 @@ const sedeRoutes = {
 };
 ```
 
-**Problema:** Cuando una VM cambia de IP (por reinicio, reconfiguración o nueva sede), hay que entrar al workflow en N8N y modificar el código manualmente. Esto es frágil, no trazable y requiere acceso al editor de N8N.
+**Problema:** Cuando una VM cambia de IP hay que entrar al workflow y modificar el código manualmente. Frágil, no trazable.
 
-**Caso concreto que originó este PROMPT:** La VM de la sede TEST cambió de IP tras un reinicio del servidor. La IP hardcodeada quedó inválida y el testing de Invoice quedó bloqueado hasta que se actualizara el workflow manualmente.
+**Caso concreto:** La VM de TEST cambió de IP tras un reinicio. IP anterior `192.168.0.27` quedó inválida. Nueva IP: `192.168.0.51`.
 
 ---
 
-## Solución propuesta
+## Solución — Sub-workflow de configuración
 
-Mover el mapa de URLs a un archivo JSON externo en el servidor donde corre N8N. El nodo de código lee ese archivo en tiempo de ejecución en lugar de tener las URLs embebidas.
+Crear un workflow dedicado `[Config] Sede Routes` que centraliza el mapa de URLs. LedgerExec lo invoca como sub-workflow antes de resolver la sede.
 
-**Archivo:** `sedes.json` (ruta a definir por LedgerExec, sugerida: `/opt/ledgerexec/sedes.json`)
-
-```json
-{
-  "TEST": "http://192.168.0.51:8600/qbxml",
-  "RUS":  "http://192.168.0.74:8600/qbxml",
-  "REC":  "http://192.168.0.66:8600/qbxml",
-  "RBR":  "http://192.168.3.205:8600/qbxml",
-  "RMX":  "http://192.168.4.216:8600/qbxml"
-}
-```
-
-Cuando una VM cambia de IP → solo se edita el JSON. El workflow no se toca.
+**Ventajas:**
+- 100% dentro de N8N — sin disco, sin variables de entorno, sin reinicio
+- Cambio de IP → editar solo `[Config] Sede Routes`, LedgerExec no se toca
+- Cuando LedgerCore esté listo, este sub-workflow se reemplaza por una llamada a la BD
 
 ---
 
 ## Acción requerida
 
-### Paso 1 — Crear `sedes.json`
+### Paso 1 — Crear workflow `[Config] Sede Routes`
 
-Crear el archivo en el servidor con las URLs actuales de todas las sedes. Confirmar la ruta exacta donde quedará alojado.
-
-### Paso 2 — Modificar el nodo "Code — Resolve Sede to qbxml Target"
-
-Reemplazar el objeto hardcodeado por una lectura del archivo JSON:
+Workflow con un único nodo de código que devuelve el mapa de URLs actualizado:
 
 ```javascript
-const fs = require('fs');
-const sedes = JSON.parse(fs.readFileSync('/opt/ledgerexec/sedes.json', 'utf8'));
+return [{
+  json: {
+    TEST: "http://192.168.0.51:8600/qbxml",
+    RUS:  "http://192.168.0.74:8600/qbxml",
+    REC:  "http://192.168.0.66:8600/qbxml",
+    RBR:  "http://192.168.3.205:8600/qbxml",
+    RMX:  "http://192.168.4.216:8600/qbxml"
+  }
+}];
+```
 
+### Paso 2 — Modificar el nodo "Code — Resolve Sede to qbxml Target" en LedgerExec
+
+Reemplazar el objeto hardcodeado por una llamada al sub-workflow y resolución de la URL:
+
+```javascript
 const sede = $input.first().json.sede;
+const sedes = $input.first().json.sedeRoutes; // viene del sub-workflow
+
 const url = sedes[sede];
 
 if (!url) {
@@ -73,21 +75,20 @@ if (!url) {
 return [{ json: { ...($input.first().json), targetUrl: url } }];
 ```
 
-> **Nota:** Si N8N corre en un entorno que no permite `fs` directamente, usar el nodo `Read Binary File` de N8N antes del nodo de código y parsear el contenido ahí.
-
 ### Paso 3 — Verificar
 
-Ejecutar un InvoiceQuery a TEST tras el cambio y confirmar que resuelve correctamente con la nueva IP.
+Ejecutar un InvoiceQuery a TEST con la nueva IP (`192.168.0.51`) y confirmar respuesta correcta.
 
-### Paso 4 — Documentar la ruta del archivo
+### Paso 4 — Documentar
 
-Incluir en `docs/integration/architect/` la ruta del `sedes.json` y cómo actualizarlo cuando una VM cambie de IP.
+Incluir en `docs/integration/architect/` cómo actualizar el sub-workflow cuando una VM cambie de IP.
 
 ---
 
 ## Referencia
 
-- IP actual de TEST (tras reinicio de servidor): `192.168.0.51` → URL: `http://192.168.0.51:8600/qbxml`
+- IP anterior de TEST: `192.168.0.27` (inválida tras reinicio)
+- IP actual de TEST: `192.168.0.51` → `http://192.168.0.51:8600/qbxml`
 - Workflow afectado: `LedgerExec.workflow.json` — nodo "Code — Resolve Sede to qbxml Target"
 
 ---
@@ -96,8 +97,8 @@ Incluir en `docs/integration/architect/` la ruta del `sedes.json` y cómo actual
 
 Reportar a ForgeLabs Hub:
 
-1. Ruta definitiva de `sedes.json` en el servidor
-2. Confirmación de que el nodo fue actualizado
+1. ID/nombre del sub-workflow `[Config] Sede Routes` creado en N8N
+2. Confirmación de que LedgerExec fue actualizado para invocar el sub-workflow
 3. Resultado del InvoiceQuery a TEST con la nueva IP
 4. Commit con los cambios
 
@@ -107,4 +108,5 @@ Reportar a ForgeLabs Hub:
 
 | Fecha | Evento | Resumen |
 |---|---|---|
-| 2026-04-09 | Emisión | PROMPT emitido — URLs de sedes hardcodeadas → archivo JSON externo |
+| 2026-04-09 | Emisión | PROMPT emitido — URLs hardcodeadas → sub-workflow `[Config] Sede Routes` |
+| 2026-04-09 | Corrección | Solución actualizada de archivo JSON en disco a sub-workflow N8N nativo |
