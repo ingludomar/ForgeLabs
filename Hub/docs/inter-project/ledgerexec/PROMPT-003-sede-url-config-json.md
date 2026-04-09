@@ -152,28 +152,71 @@ Se corrigió `cleanPayloadForUpdate` en `mcp-n8n/index.js` para excluir el campo
 
 **Causa probable:** El nodo `Execute — Config Sede Routes` devuelve solo el mapa de URLs como output. Cuando `Code — Resolve Sede Target` lee `$input.first().json`, obtiene el output del sub-workflow (solo URLs) en lugar del payload original completo (`object`, `data`, `sede`, `version`, `xml`). El payload llega incompleto o mal estructurado a qbxmlIntegrator.
 
-**Acción requerida:**
+**Diagnóstico final confirmado:**
 
-1. Ejecutar el workflow en modo test en N8N con un InvoiceQuery a TEST
-2. Revisar el output de `Execute — Config Sede Routes` — confirmar si el payload original está o no en el output
-3. En `Code — Resolve Sede Target`: el mapa de URLs debe mergearse con el payload original, no reemplazarlo. Ejemplo:
+Prueba directa a LE con el payload correcto → `success: true` con datos reales:
 
-```javascript
-// El payload original viene de $('Code — Fix XML').first().json
-// El mapa de URLs viene de $input.first().json (output del sub-workflow)
-const sedeRoutes = $input.first().json;
-const original = $('Code — Fix XML').first().json;
-
-const sede = original.sede;
-const url = sedeRoutes[sede];
-
-if (!url) throw new Error(`Sede no configurada: ${sede}`);
-
-return [{ json: { ...original, targetUrl: url } }];
+```bash
+POST https://n8n-development.redsis.ai/webhook/ledgerexec
+{
+  "type": "InvoiceQuery",
+  "sede": "TEST",
+  "version": "17.0",
+  "object": "InvoiceQueryRq",
+  "data": {
+    "InvoiceQueryRq": {
+      "MaxReturned": "1"
+    }
+  }
+}
 ```
 
-4. Verificar que el XML que llega a qbxmlIntegrator es correcto antes del POST
-5. Confirmar con InvoiceQuery a TEST desde LedgerOps que devuelve datos reales
+**LE funciona.** El problema está en cómo LE recibe y transforma el payload que viene de LedgerOps.
+
+LO envía a LE con `data: { "InvoiceQueryRq": { ... } }` — con el `Rq`. Pero LB recibe `data: { "InvoiceQuery": { ... } }` — sin el `Rq`. Algún nodo de LE está modificando el key de `data` y perdiendo el `Rq` en el proceso.
+
+El nodo más probable: `Code — Resolve Sede Target` — fue reescrito en el PROMPT-003 y puede estar reconstruyendo el payload incorrectamente.
+
+**Acción requerida:**
+
+1. Ejecutar el workflow en modo test en N8N — enviar exactamente este payload desde LedgerOps:
+```json
+{
+  "type": "InvoiceQuery",
+  "sede": "TEST",
+  "version": "17.0",
+  "object": "InvoiceQueryRq",
+  "data": { "InvoiceQueryRq": { "MaxReturned": "1" } }
+}
+```
+
+2. Revisar nodo por nodo qué tiene el campo `data` después de `Execute — Config Sede Routes` y después de `Code — Resolve Sede Target`
+
+3. El `data` debe llegar a qbxmlIntegrator con el key `InvoiceQueryRq` — si llega como `InvoiceQuery` el nodo está perdiendo el `Rq`
+
+4. Corregir el nodo que transforma el key y verificar que el output de LE es `success: true` con datos reales
+
+**Referencia de input/output exitoso probado directamente en LE:**
+
+Input:
+```json
+{
+  "type": "InvoiceQuery",
+  "sede": "TEST",
+  "version": "17.0",
+  "object": "InvoiceQueryRq",
+  "data": { "InvoiceQueryRq": { "MaxReturned": "1" } }
+}
+```
+
+Output esperado:
+```json
+{
+  "success": true,
+  "data": { "InvoiceRet": { "TxnID": "12B8-1597547050", ... } },
+  "metadata": { "operationType": "InvoiceQueryRs", "itemsProcessed": 1 }
+}
+```
 
 ---
 
