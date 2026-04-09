@@ -23,15 +23,14 @@ Sistema externo
 [qbxmlIntegrator] Interfaz COM — ejecuta QBXML en QB Desktop vía win32com
 ```
 
-| Proyecto | Rol | Repo |
+| Proyecto | Rol | Fuente de verdad |
 |---|---|---|
-| LedgerOps | Capa de aplicación N8N | [LedgerOps](https://github.com/redsis-rgh/LedgerOps) |
+| LedgerOps | Capa de aplicación N8N | [GitHub](https://github.com/redsis-rgh/LedgerOps) |
 | LedgerExec | Orquestador N8N genérico | — |
 | LedgerBridge | Fuente de verdad QBXML | `/opt/LedgerBridge` |
-| LedgerCore | Evolución multi-tenant de LedgerBridge | [LedgerCore](https://github.com/ingDesarrollo10/LedgerCore) |
-| qbxmlIntegrator | Interfaz COM Windows | [qbxmlIntegrator](https://github.com/ingDesarrollo10/qbxmlIntegrator) |
+| qbxmlIntegrator | Interfaz COM Windows | VM por sede (repo = prototipo multiempresa) |
 
-Ver detalle: [`ecosystems/ledgergateway.md`](ecosystems/ledgergateway.md)
+Ver detalle: [`LedgerGateway/architecture/components.md`](LedgerGateway/architecture/components.md)
 
 ---
 
@@ -42,7 +41,18 @@ Ver detalle: [`ecosystems/ledgergateway.md`](ecosystems/ledgergateway.md)
 |---|---|---|
 | RIQ | Redix-Integration-Quickbooks — integración de Redix con LedgerGateway | QB Playground |
 
-Ver detalle: [`ecosystems/redix.md`](ecosystems/redix.md)
+Ver detalle: [`Redix/`](Redix/)
+
+---
+
+## En evolución
+
+Proyectos en desarrollo activo, fuera del ecosistema operativo. Pueden pausarse sin afectar LedgerGateway.
+
+| Proyecto | Estado | Descripción |
+|---|---|---|
+| LedgerCore | En desarrollo | Evolución de LedgerBridge como producto multi-empresa con PostgreSQL |
+| qbxmlIntegrator multiempresa | Pendiente testing | Una instancia por VM atiende RUS · TSI · RRC. Cuando pase testing, las VMs individuales de TSI y RRC se eliminan. |
 
 ---
 
