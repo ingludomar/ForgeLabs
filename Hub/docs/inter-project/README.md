@@ -136,7 +136,7 @@ a Monday.com.
 | [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes hardcodeadas → archivo JSON externo | ⏳ pending |
 
 ### LedgerOps
-18 prompts · 18 solved · 0 pending
+19 prompts · 18 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -158,6 +158,7 @@ a Monday.com.
 | [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-032](ledgerops/PROMPT-LO-032-invoicequery-payload-fix.md) | InvoiceQuery | Bug payload — tag extra en data genera XML inválido en QB | ⏳ pending |
 
 ### RIQ (redix-integration-quickbooks)
 26 prompts · 25 solved · 1 pending
