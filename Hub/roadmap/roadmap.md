@@ -1,38 +1,17 @@
-# Roadmap del ecosistema
+# Roadmap — Forge Labs Hub
 
-## Prioridad de entidades — LedgerOps
+Índice de roadmaps por ecosistema.
 
-| # | Entidad | Módulo | Estado | Notas |
-|---|---|---|---|---|
-| 1 | ItemInventory | inventory | ✅ P4 completo | P5 pendiente |
-| 2 | ItemNonInventory | inventory | ✅ P4 completo | P5 pendiente |
-| 3 | ItemService | inventory | ✅ P5 completo | Entregado |
-| 4 | Customer | contacts | ✅ P5 completo | Entregado 2026-03-23 |
-| 5 | Vendor | contacts | ✅ P5 completo | Entregado 2026-03-23 |
-| 6 | SalesOrder | sales | ⬜ Pendiente | — |
-| 7 | PurchaseOrder | purchasing | 🔨 P3 workflow existe | P1+P2+P4 pendientes |
-| 8 | Invoice | sales | 🔨 P3 workflow existe | P1+P2+P4 pendientes |
-| 9 | Bill | purchasing | 🔨 P3 workflow existe | P1+P2+P4 pendientes |
-| 10 | InventorySite | inventory | ⬜ Pendiente | — |
-| 11 | InventoryTransfer | inventory | ⬜ Pendiente | — |
-| 12 | Assembly | inventory | ⬜ Pendiente | — |
-| 13 | CreditCardCharge | banking | 🔨 P3 workflow existe | P1+P2+P4 pendientes |
-
-## Sedes — Estado por entidad
-
-| Entidad | TEST | RUS | REC | RBR | RMX | TSI | RRC |
-|---|---|---|---|---|---|---|---|
-| ItemInventory | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
-| ItemNonInventory | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
-| ItemService | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
-| Customer | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
-| Vendor | ✅ | ✅ | ✅ | ✅ | ✅ | ⏳ | ⏳ |
-
-## Pendientes técnicos
-
-| Item | Proyecto | Estado |
+| Ecosistema | Archivo | Descripción |
 |---|---|---|
-| PROMPT-006 — requiredBySede vacío en GenerateContract | LedgerBridge | ⏳ pending |
-| P5 ItemInventory | LedgerOps | ⏳ pendiente |
-| P5 ItemNonInventory | LedgerOps | ⏳ pendiente |
-| TSI + RRC — configuración LedgerBridge | LedgerBridge | ⏳ bloqueado |
+| **LedgerGateway** | [`roadmap-LG.md`](roadmap-LG.md) | Entidades QB Desktop — flujo P0-P5 |
+| **Redix** | [`roadmap-RX.md`](roadmap-RX.md) | QB Playground en Redix — flujo F1-F8 |
+
+---
+
+## Estado global
+
+| Ecosistema | Entidades P1 entregadas | Siguiente |
+|---|---|---|
+| LedgerGateway | 13 / 13 ✅ | TSI · RRC pendientes qbxmlIntegrator multiempresa |
+| Redix QB Playground | 5 entregadas | Invoice |
