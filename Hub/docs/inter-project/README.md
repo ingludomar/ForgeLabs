@@ -127,13 +127,14 @@ a Monday.com.
 | [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX — tipos Enterprise | ⏳ pending |
 
 ### LedgerExec
-3 prompts · 2 solved · 1 pending
+4 prompts · 2 solved · 2 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
 | [PROMPT-001](ledgerexec/PROMPT-001-semver-versioning.md) | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
-| [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes hardcodeadas → archivo JSON externo | ⏳ pending |
+| [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes → sub-workflow · implementación rota | ⏳ pending |
+| [PROMPT-004](ledgerexec/PROMPT-004-sede-url-subworkflow-fix.md) | — | Revert + reimplementación correcta del sub-workflow | ⏳ pending |
 
 ### LedgerOps
 19 prompts · 18 solved · 1 pending
