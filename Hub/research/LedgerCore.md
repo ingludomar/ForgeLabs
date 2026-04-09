@@ -240,5 +240,5 @@ python3 seed_templates.py --lb-root /opt/LedgerBridge --dsn "postgresql://..."
 
 ## Referencia
 
-- PROMPT-LB-020: `docs/inter-project/ledgerbridge/PROMPT-020-postgresql-architecture.md` ✅ solved
+- PROMPT-LB-020: `Hub/docs/inter-project/ledgerbridge/PROMPT-020-postgresql-architecture.md` ✅ solved
 - Repo: `/Users/luisdominguez/Documents/GitHub/LedgerCore`

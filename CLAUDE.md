@@ -10,7 +10,7 @@ Forge Labs Hub (FLH) es el espacio central de trabajo de **Forge Labs** — el e
 | **Tipo 2 — Feature de plataforma** | Funcionalidad Redix visible al usuario (QB Playground, Webhook Admin) | F1-F8 · correo a Luis Potte CC Mike Habib |
 | **Tipo 3 — Infraestructura** | Mejora interna sin entrega al usuario (singleton, DB migration) | I1-I4 · sin correo |
 
-Ver proceso completo: `docs/development/feature-dev-process.md`
+Ver proceso completo: `Hub/docs/development/feature-dev-process.md`
 
 **FLH hace todo. Los proyectos técnicos reciben PROMPTs y ejecutan.**
 
@@ -23,15 +23,25 @@ Ver proceso completo: `docs/development/feature-dev-process.md`
 
 ---
 
-## El ecosistema — 5 componentes
+## El ecosistema — 4 componentes
 
 | Proyecto | Rol | Repo local |
 |---|---|---|
 | **LedgerOps** | Capa de aplicación N8N. Expone webhooks, valida, aplica reglas de negocio, delega a LedgerExec. | `/Users/luisdominguez/Documents/GitHub/LedgerOps` |
 | **LedgerExec** | Orquestador N8N genérico. Recibe de LedgerOps, invoca LedgerBridge vía SSH. Sin lógica de negocio. | — |
 | **LedgerBridge** | Fuente de verdad. Construye QBXML, valida schemas, aplica business rules, parsea respuestas QB. | `/opt/LedgerBridge` |
-| **qbxmlIntegrator** | Interfaz COM. Recibe QBXML de LedgerBridge, lo ejecuta en QB Desktop via win32com. | `/Users/luisdominguez/Documents/GitHub/qbxmlIntegrator` |
-| **LedgerCore** | Evolución de LedgerBridge como producto multi-empresa. Reemplaza archivos por PostgreSQL. Incluye templates de formulario configurables por sede. LedgerBridge sigue operando sin cambios. | `/Users/luisdominguez/Documents/GitHub/LedgerCore` |
+| **qbxmlIntegrator** | Interfaz COM. Recibe QBXML de LedgerBridge, lo ejecuta en QB Desktop via win32com. Fuente de verdad: VMs de cada sede (no el repo). GitHub contiene el prototipo multiempresa, no la versión desplegada. | VM por sede |
+
+---
+
+## En evolución
+
+Proyectos en desarrollo activo que no forman parte del ecosistema operativo actual. Pueden entrar en pausa sin afectar LedgerGateway.
+
+| Proyecto | Estado | Descripción | Repo local |
+|---|---|---|---|
+| **LedgerCore** | En desarrollo | Evolución de LedgerBridge como producto multi-empresa. Reemplaza archivos por PostgreSQL. Incluye templates de formulario configurables por sede. LedgerBridge sigue operando sin cambios. | `/Users/luisdominguez/Documents/GitHub/LedgerCore` |
+| **qbxmlIntegrator multiempresa** | Pendiente testing | Una sola instancia atiende múltiples empresas QB en la misma VM. Necesario para consolidar RUS + TSI + RRC. Código completo en GitHub. Cuando pase testing, reemplaza las VMs individuales de RUS · TSI · RRC. | `/Users/luisdominguez/Documents/GitHub/qbxmlIntegrator` |
 
 ---
 
@@ -99,10 +109,10 @@ Cuando P4 completo → mover de `LedgerGateway/development/` a `LedgerGateway/pr
 ## PROMPTs — regla de emisión
 
 Todo hallazgo que requiere acción en otro proyecto se documenta como PROMPT antes de comunicarlo.
-Ver estándar completo: `methodology/prompts-standard.md`
+Ver estándar completo: `Hub/methodology/prompts-standard.md`
 
-**Ubicación:** `docs/inter-project/{proyecto}/PROMPT-{NNN}-{tema}.md`
-**Índice:** `docs/inter-project/README.md`
+**Ubicación:** `Hub/docs/inter-project/{proyecto}/PROMPT-{NNN}-{tema}.md`
+**Índice:** `Hub/docs/inter-project/README.md`
 
 ---
 
@@ -124,8 +134,8 @@ Ver estándar completo: `methodology/prompts-standard.md`
 | REC | 2024 | 17.0 | Producción |
 | RBR | 2024 | 17.0 | Producción |
 | RMX | 2021 | 13.0 | Producción — LB remapea versión |
-| TSI | — | — | Pendiente |
-| RRC | — | — | Pendiente |
+| TSI | 2024 | 17.0 | Temporal — VM single-company · se consolida en VM de RUS cuando qbxmlIntegrator multiempresa pase testing |
+| RRC | 2024 | 17.0 | Temporal — VM single-company · se consolida en VM de RUS cuando qbxmlIntegrator multiempresa pase testing |
 
 **Regla RMX:** Emitir PROMPT a LedgerBridge al inicio de cada entidad nueva — necesita schemas v13.0 antes de P1+P2.
 
@@ -133,7 +143,7 @@ Ver estándar completo: `methodology/prompts-standard.md`
 
 ## Monday.com
 
-LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `methodology/monday-standard.md`
+LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `Hub/methodology/monday-standard.md`
 
 - **Board:** `18386559547` (Quickbooks Tools)
 - **Owner (Luis):** `56420968`
@@ -146,11 +156,11 @@ LedgerOps gestiona Monday para todo el ecosistema. Ver estándar: `methodology/m
 |---|---|
 | `LedgerGateway/` | Ecosistema QB Desktop — development, production, architecture |
 | `Redix/` | Ecosistema Redix ERP — RIQ y proyectos futuros |
-| `methodology/` | WF Tipo 1/2/3, estándar de entrega, PROMPTs, Monday |
-| `research/` | Investigaciones por proyecto y generales |
-| `roadmap/` | Estado actual de entidades y sedes |
-| `docs/inter-project/` | PROMPTs emitidos a otros proyectos (fuente de verdad) |
-| `docs/development/` | Proceso de desarrollo, tipos XML, casos de prueba |
+| `Hub/methodology/` | WF Tipo 1/2/3, estándar de entrega, PROMPTs, Monday |
+| `Hub/research/` | Investigaciones por proyecto y generales |
+| `Hub/roadmap/` | Estado actual de entidades y sedes |
+| `Hub/docs/inter-project/` | PROMPTs emitidos a otros proyectos (fuente de verdad) |
+| `Hub/docs/development/` | Proceso de desarrollo, tipos XML, casos de prueba |
 
 ---
 
@@ -160,14 +170,14 @@ Antes de responder, identificar qué tipo de tarea es y leer el archivo correspo
 
 | Si el usuario pide... | Leer primero |
 |---|---|
-| Correo de entrega de una entidad QB (Tipo 1) | `docs/development/release-notification-template.md` |
-| Correo de entrega de un feature de plataforma (Tipo 2) | `docs/development/feature-dev-process.md` → sección F6 |
-| Estado de una entidad o qué sigue | `docs/development/roadmap.md` |
-| Planificar cualquier tipo de feature | `docs/development/feature-dev-process.md` |
-| Emitir un PROMPT a otro proyecto | `docs/inter-project/README.md` |
-| Casos de prueba o testing | `docs/development/test-cases.md` |
-| Tipos XML disponibles | `docs/development/xml-types.md` |
-| PROMPTs previos a un proyecto | `docs/inter-project/{proyecto}/` |
+| Correo de entrega de una entidad QB (Tipo 1) | `Hub/docs/development/release-notification-template.md` |
+| Correo de entrega de un feature de plataforma (Tipo 2) | `Hub/docs/development/feature-dev-process.md` → sección F6 |
+| Estado de una entidad o qué sigue | `Hub/docs/development/roadmap.md` |
+| Planificar cualquier tipo de feature | `Hub/docs/development/feature-dev-process.md` |
+| Emitir un PROMPT a otro proyecto | `Hub/docs/inter-project/README.md` |
+| Casos de prueba o testing | `Hub/docs/development/test-cases.md` |
+| Tipos XML disponibles | `Hub/docs/development/xml-types.md` |
+| PROMPTs previos a un proyecto | `Hub/docs/inter-project/{proyecto}/` |
 
 ---
 
@@ -236,17 +246,17 @@ Si los MCPs no están conectados, ejecutar:
 
 ```bash
 # Compilar
-cd mcp/n8n && npm install && npm run build && cd ../..
-cd mcp/monday && npm install && npm run build && cd ../..
+cd Hub/mcp/n8n && npm install && npm run build && cd ../../..
+cd Hub/mcp/monday && npm install && npm run build && cd ../../..
 
 # Crear .env con tokens
-echo "N8N_API_KEY=<token>" > mcp/n8n/.env
-echo "MONDAY_API_TOKEN=<token>" > mcp/monday/.env
+echo "N8N_API_KEY=<token>" > Hub/mcp/n8n/.env
+echo "MONDAY_API_TOKEN=<token>" > Hub/mcp/monday/.env
 
 # Registrar
-claude mcp add ledgerops-n8n -- node /ruta/SyncBridge/mcp/n8n/dist/index.js
-TOKEN=$(grep MONDAY_API_TOKEN mcp/monday/.env | cut -d= -f2)
-claude mcp add -e "MONDAY_API_TOKEN=${TOKEN}" -- ledgerops-monday node /ruta/SyncBridge/mcp/monday/dist/index.js
+claude mcp add ledgerops-n8n -- node /ruta/SyncBridge/Hub/mcp/n8n/dist/index.js
+TOKEN=$(grep MONDAY_API_TOKEN Hub/mcp/monday/.env | cut -d= -f2)
+claude mcp add -e "MONDAY_API_TOKEN=${TOKEN}" -- ledgerops-monday node /ruta/SyncBridge/Hub/mcp/monday/dist/index.js
 
 # Verificar
 claude mcp list

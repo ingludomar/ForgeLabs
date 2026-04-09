@@ -65,3 +65,14 @@
 **No hace:** construir QBXML, validar schemas, lógica de negocio.
 
 **Stack:** FastAPI. Corre en Windows (misma máquina que QB Desktop). Puerto `{sede-ip}:8600`.
+
+**Fuente de verdad:** Las VMs de cada sede — no el repositorio GitHub.
+El repo contiene el prototipo multiempresa (pendiente testing), no la versión desplegada.
+
+**Modelo de despliegue actual (single-company):**
+Una VM por sede. TEST · REC · RBR · RMX · RUS · TSI · RRC tienen cada una su instancia.
+TSI y RRC son temporales — se consolidan en la VM de RUS cuando la versión multiempresa pase testing.
+
+**Evolución (pendiente testing):**
+La versión multiempresa permite que una sola instancia atienda RUS · TSI · RRC según la sede de la petición.
+Cuando se despliegue, las VMs individuales de TSI y RRC se eliminan.

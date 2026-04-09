@@ -15,7 +15,7 @@ Cuando LedgerOps detecta un hallazgo que requiere acción en otro proyecto, se e
 
 ## Estructura del archivo
 
-**Ubicación:** `docs/inter-project/{proyecto}/PROMPT-{NNN}-{tema-corto}.md`
+**Ubicación:** `Hub/docs/inter-project/{proyecto}/PROMPT-{NNN}-{tema-corto}.md`
 
 **Formato:**
 
@@ -65,7 +65,7 @@ Cuando LedgerOps detecta un hallazgo que requiere acción en otro proyecto, se e
 
 ## Índice maestro
 
-Actualizar siempre `docs/inter-project/README.md` al emitir o cerrar un PROMPT.
+Actualizar siempre `Hub/docs/inter-project/README.md` al emitir o cerrar un PROMPT.
 
 **Formato de la fila:**
 ```

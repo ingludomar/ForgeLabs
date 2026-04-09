@@ -50,11 +50,8 @@ Ver detalle: [`ecosystems/redix.md`](ecosystems/redix.md)
 
 | Sección | Contenido |
 |---|---|
-| [`ecosystems/`](ecosystems/) | Detalle de cada ecosistema y sus proyectos |
-| [`methodology/`](methodology/) | WF Tipo 1 · 2 · 3 — cómo trabajamos |
-| [`research/`](research/) | Investigaciones por proyecto y generales |
-| [`docs/inter-project/`](docs/inter-project/) | PROMPTs emitidos a cada proyecto |
-| [`docs/development/`](docs/development/) | Guías técnicas y casos de prueba |
-| [`roadmap/`](roadmap/) | Estado de entidades y próximos pasos |
-| [`production/`](production/) | Entidades verificadas y entregadas |
-| [`development/`](development/) | Trabajo en progreso |
+| [`Hub/methodology/`](Hub/methodology/) | WF Tipo 1 · 2 · 3 — cómo trabajamos |
+| [`Hub/research/`](Hub/research/) | Investigaciones por proyecto y generales |
+| [`Hub/docs/inter-project/`](Hub/docs/inter-project/) | PROMPTs emitidos a cada proyecto |
+| [`Hub/docs/development/`](Hub/docs/development/) | Guías técnicas y casos de prueba |
+| [`Hub/roadmap/`](Hub/roadmap/) | Estado de entidades y próximos pasos |

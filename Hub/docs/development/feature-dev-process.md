@@ -112,8 +112,8 @@ Cuando P4 está completo → mover de `development/` a `production/`.
 Emitir PROMPT a LedgerBridge solicitando los schemas v13.0 para la entidad que se va a trabajar.
 RMX usa QB Desktop 2021 — necesita schemas v13.0 antes de poder ejecutar P1+P2 en esa sede.
 
-Formato: `docs/inter-project/ledgerbridge/PROMPT-{NNN}-{entidad}-rmx-schema.md`
-Actualizar índice: `docs/inter-project/README.md`
+Formato: `Hub/docs/inter-project/ledgerbridge/PROMPT-{NNN}-{entidad}-rmx-schema.md`
+Actualizar índice: `Hub/docs/inter-project/README.md`
 
 Entregar al usuario para que lo lleve a LedgerBridge.
 **Esperar confirmación antes de ejecutar P1+P2 en RMX.**
@@ -275,17 +275,17 @@ Esperar confirmación del usuario de que el correo fue enviado antes de cerrar e
 - Si son distintas → `from` = fecha mínima · `to` = fecha máxima
 
 ### P5.6 — Actualizar roadmap
-- `docs/development/features.md` → operaciones en ✅
-- `docs/development/roadmap.md` → entidad en ✅ con fecha de entrega
+- `Hub/docs/development/features.md` → operaciones en ✅
+- `Hub/docs/development/roadmap.md` → entidad en ✅ con fecha de entrega
 
 ### P5.7 — Commit en SyncBridge
 Hacer commit en el repo SyncBridge con todos los artefactos generados durante el flujo:
 - Workflows JSON (`development/` y `production/`)
 - `verified-{entidad}.json`
-- PROMPTs emitidos (`docs/inter-project/`)
-- `docs/development/bitacora.md` actualizada
-- `docs/development/roadmap.md` + `features.md` actualizados
-- `docs/inter-project/README.md` actualizado
+- PROMPTs emitidos (`Hub/docs/inter-project/`)
+- `Hub/docs/development/bitacora.md` actualizada
+- `Hub/docs/development/roadmap.md` + `features.md` actualizados
+- `Hub/docs/inter-project/README.md` actualizado
 
 ---
 
