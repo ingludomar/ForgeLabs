@@ -15,7 +15,7 @@ Las URLs de `qbxmlIntegrator` por sede están hardcodeadas en el código JavaScr
 
 ```javascript
 const sedeRoutes = {
-  TEST: "http://192.168.0.27:8600/qbxml",
+  TEST: "http://192.168.0.27:8600/qbxml", // ← desactualizada, nueva IP: 192.168.0.51
   RUS:  "http://192.168.0.74:8600/qbxml",
   REC:  "http://192.168.0.66:8600/qbxml",
   RBR:  "http://192.168.3.205:8600/qbxml",
@@ -37,7 +37,7 @@ Mover el mapa de URLs a un archivo JSON externo en el servidor donde corre N8N. 
 
 ```json
 {
-  "TEST": "http://192.168.0.27:8600/qbxml",
+  "TEST": "http://192.168.0.51:8600/qbxml",
   "RUS":  "http://192.168.0.74:8600/qbxml",
   "REC":  "http://192.168.0.66:8600/qbxml",
   "RBR":  "http://192.168.3.205:8600/qbxml",
@@ -87,7 +87,7 @@ Incluir en `docs/integration/architect/` la ruta del `sedes.json` y cómo actual
 
 ## Referencia
 
-- IP actual de TEST (tras reinicio de servidor): pendiente — Luis informa la nueva IP
+- IP actual de TEST (tras reinicio de servidor): `192.168.0.51` → URL: `http://192.168.0.51:8600/qbxml`
 - Workflow afectado: `LedgerExec.workflow.json` — nodo "Code — Resolve Sede to qbxml Target"
 
 ---
