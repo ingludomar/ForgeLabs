@@ -73,7 +73,9 @@ server.registerTool("n8n_update_workflow", {
         workflow: z.record(z.string(), z.any()).describe("Full workflow JSON object"),
     },
 }, async ({ id, workflow }) => {
-    const res = await api.put(`/workflows/${id}`, workflow);
+    // N8N API rejects 'description' as additional property — strip it before PUT
+    const { description: _desc, ...cleanWorkflow } = workflow;
+    const res = await api.put(`/workflows/${id}`, cleanWorkflow);
     return {
         content: [
             {

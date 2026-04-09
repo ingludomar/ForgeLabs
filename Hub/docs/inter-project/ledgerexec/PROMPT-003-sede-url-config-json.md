@@ -104,9 +104,39 @@ Reportar a ForgeLabs Hub:
 
 ---
 
+## Reporte recibido — 2026-04-09 · commit `31f433a`
+
+### Sub-workflow creado
+- **Nombre:** `[Config] Sede Routes`
+- **N8N ID:** `KY2WAU9GZlzXnOBf`
+- **Archivo:** `[Config] Sede Routes.workflow.json`
+- **Estado:** activo en N8N
+
+### LedgerExec actualizado
+- **N8N ID:** `GizrbIGXcdtXPyUJ` (activo)
+- Nodo `Execute — Config Sede Routes` insertado entre `Code — Fix XML` y `Code — Resolve Sede Target`
+- `Code — Resolve Sede Target` reescrito: lee el output del sub-workflow en lugar del objeto hardcodeado
+
+**Flujo resultante:**
+```
+Code — Fix XML
+  → Execute — Config Sede Routes   ← obtiene mapa de URLs
+  → Code — Resolve Sede Target     ← resuelve sede contra el mapa
+  → IF — Sede Known → qbxmlIntegrator — POST
+```
+
+### Nota técnica
+Se corrigió `cleanPayloadForUpdate` en `mcp-n8n/index.js` para excluir el campo `description` del payload PUT — la API de N8N lo rechazaba como "additional property" en la versión actual del servidor.
+
+### Verificación pendiente
+Ejecutar InvoiceQuery a TEST cuando QB Desktop esté abierto en `192.168.0.51` para confirmar resolución correcta.
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-09 | Emisión | PROMPT emitido — URLs hardcodeadas → sub-workflow `[Config] Sede Routes` |
 | 2026-04-09 | Corrección | Solución actualizada de archivo JSON en disco a sub-workflow N8N nativo |
+| 2026-04-09 | Resolución parcial | Sub-workflow creado · LedgerExec actualizado · commit `31f433a` · verificación pendiente (QB Desktop) |

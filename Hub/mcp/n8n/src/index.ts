@@ -102,7 +102,9 @@ server.registerTool(
     },
   },
   async ({ id, workflow }) => {
-    const res = await api.put(`/workflows/${id}`, workflow);
+    // N8N API rejects 'description' as additional property — strip it before PUT
+    const { description: _desc, ...cleanWorkflow } = workflow as any;
+    const res = await api.put(`/workflows/${id}`, cleanWorkflow);
     return {
       content: [
         {
