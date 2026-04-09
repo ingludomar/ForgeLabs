@@ -128,8 +128,29 @@ Code — Fix XML
 ### Nota técnica
 Se corrigió `cleanPayloadForUpdate` en `mcp-n8n/index.js` para excluir el campo `description` del payload PUT — la API de N8N lo rechazaba como "additional property" en la versión actual del servidor.
 
-### Verificación pendiente
-Ejecutar InvoiceQuery a TEST cuando QB Desktop esté abierto en `192.168.0.51` para confirmar resolución correcta.
+### Verificación — hallazgo en flujo
+
+QB Desktop responde correctamente — XML directo a `http://192.168.0.51:8600/qbxml` devuelve `statusCode="0"`.
+El problema está en el flujo de LE después del PROMPT-003.
+
+**Error observado:** `QB-PARSE-ERROR — QB found an error when parsing the provided XML text stream`
+
+**Hipótesis:** El nodo `Execute — Config Sede Routes` está reemplazando o alterando el payload original. Cuando llega a `Code — Resolve Sede Target` ya no tiene el QBXML correcto para enviar a qbxmlIntegrator.
+
+**Acción requerida a LE:** Ejecutar el workflow en modo test en N8N y revisar el output de cada nodo después de `Execute — Config Sede Routes`. Verificar que los campos `object`, `data`, `sede`, `version` del payload original siguen intactos después del sub-workflow.
+
+El flujo debe producir exactamente este XML válido hacia qbxmlIntegrator:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<?qbxml version="17.0"?>
+<QBXML>
+  <QBXMLMsgsRq onError="stopOnError">
+    <InvoiceQueryRq requestID="1">
+      <MaxReturned>1</MaxReturned>
+    </InvoiceQueryRq>
+  </QBXMLMsgsRq>
+</QBXML>
+```
 
 ---
 
