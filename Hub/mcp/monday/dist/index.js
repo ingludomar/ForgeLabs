@@ -85,6 +85,30 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             },
         },
         {
+            name: 'monday_move_item_to_group',
+            description: 'Mover un item existente a otro grupo dentro del mismo tablero',
+            inputSchema: {
+                type: 'object',
+                properties: {
+                    board_id: { type: 'string', description: 'ID del tablero' },
+                    item_id: { type: 'string', description: 'ID del item a mover' },
+                    group_id: { type: 'string', description: 'ID del grupo destino' },
+                },
+                required: ['board_id', 'item_id', 'group_id'],
+            },
+        },
+        {
+            name: 'monday_delete_item',
+            description: 'Eliminar un item o subitem de Monday.com por su ID',
+            inputSchema: {
+                type: 'object',
+                properties: {
+                    item_id: { type: 'string', description: 'ID del item o subitem a eliminar' },
+                },
+                required: ['item_id'],
+            },
+        },
+        {
             name: 'monday_find_board_by_name',
             description: 'Buscar un tablero por nombre (parcial o exacto)',
             inputSchema: {
@@ -192,6 +216,28 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
       `);
             return { content: [{ type: 'text', text: JSON.stringify(data.change_multiple_column_values, null, 2) }] };
+        }
+        if (name === 'monday_move_item_to_group') {
+            const { item_id, group_id } = args;
+            const data = await mondayQuery(`
+        mutation {
+          move_item_to_group(item_id: ${item_id}, group_id: "${group_id}") {
+            id name
+          }
+        }
+      `);
+            return { content: [{ type: 'text', text: JSON.stringify(data.move_item_to_group, null, 2) }] };
+        }
+        if (name === 'monday_delete_item') {
+            const { item_id } = args;
+            const data = await mondayQuery(`
+        mutation {
+          delete_item(item_id: ${item_id}) {
+            id name
+          }
+        }
+      `);
+            return { content: [{ type: 'text', text: JSON.stringify(data.delete_item, null, 2) }] };
         }
         if (name === 'monday_get_subitem_columns') {
             const { subitem_id } = args;
