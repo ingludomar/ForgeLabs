@@ -36,6 +36,7 @@ a Monday.com.
 | [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | 2026-04-01 | LedgerBridge | delivery | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | 2026-04-02 | LedgerBridge | research | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas para referencia de LC | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
+| [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | 2026-04-09 | LedgerExec | architecture | — | Patrón de payload post Execute Sub-workflow — nunca usar `$input` después de un sub-workflow | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-002](ledgerops/PROMPT-002-itemNonInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemNonInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
 | [PROMPT-LO-003](ledgerops/PROMPT-003-itemService-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemService | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -96,6 +97,12 @@ a Monday.com.
 | [PROMPT-RIQ-020](riq/PROMPT-RIQ-020-webhook-admin-docs.md) | 2026-04-04 | RIQ | docs | N8N Webhook Administration | Documentación por rol — Executive · Developer · Architect · QA · Support | ✅ solved |
 | [PROMPT-LO-024](ledgerops/PROMPT-LO-024-webhook-admin-platform-docs.md) | 2026-04-04 | LedgerOps | docs | N8N Webhook Administration | Crear docs/platform/WebhookAdmin/ con 5 archivos por rol | ✅ solved |
 | [PROMPT-LO-022](ledgerops/PROMPT-LO-022-qb-playground-item-inventory-docs.md) | 2026-04-03 | LedgerOps | docs | Item Inventory | Crear docs/qb-playground/ItemInventory.md — contenido generado por RIQ | ✅ solved |
+| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | 2026-04-08 | RIQ | docs | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ✅ solved |
+| [PROMPT-RIQ-027](riq/PROMPT-RIQ-027-invoice-routing-fix.md) | 2026-04-09 | RIQ | bug | Invoice | Routing InvoiceMod + InvoiceQuery faltaban en qb-endpoints.ts y webhooks.config.ts | ✅ solved |
+| [PROMPT-RIQ-028](riq/PROMPT-RIQ-028-invoice-contracts-mod-query.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod + InvoiceQuery faltaban en contracts.ts — Playground UI incompleto | ✅ solved |
+| [PROMPT-RIQ-029](riq/PROMPT-RIQ-029-invoice-mod-query-map.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
+| [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | 2026-04-09 | RIQ | delivery | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
+| [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | 2026-04-09 | LedgerOps | docs | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 
 ---
 
@@ -127,7 +134,7 @@ a Monday.com.
 | [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX — tipos Enterprise | ⏳ pending |
 
 ### LedgerExec
-4 prompts · 2 solved · 2 pending
+5 prompts · 3 solved · 2 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -135,9 +142,10 @@ a Monday.com.
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 | [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes → sub-workflow · implementación rota | ⏳ pending |
 | [PROMPT-004](ledgerexec/PROMPT-004-sede-url-subworkflow-fix.md) | — | Revert + reimplementación correcta del sub-workflow | ⏳ pending |
+| [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | — | Patrón de payload post Execute Sub-workflow — referenciar nodo original por nombre | ✅ solved |
 
 ### LedgerOps
-19 prompts · 18 solved · 1 pending
+21 prompts · 21 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -159,10 +167,12 @@ a Monday.com.
 | [PROMPT-LO-029](ledgerops/PROMPT-LO-029-qb-playground-vendor-role-docs.md) | Vendor | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-030](ledgerops/PROMPT-LO-030-qb-playground-customer-role-docs.md) | Customer | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-031](ledgerops/PROMPT-LO-031-qb-playground-item-inventory-role-docs.md) | ItemInventory | Publicar 5 docs por rol en docs/qb-playground/ | ✅ solved |
-| [PROMPT-LO-032](ledgerops/PROMPT-LO-032-invoicequery-payload-fix.md) | InvoiceQuery | Bug payload — tag extra en data genera XML inválido en QB | ⏳ pending |
+| [PROMPT-LO-032](ledgerops/PROMPT-LO-032-invoicequery-payload-fix.md) | InvoiceQuery | Bug payload — tag extra en data genera XML inválido en QB | ✅ solved |
+| [PROMPT-LO-033](ledgerops/PROMPT-LO-033-data-contract-standard.md) | — | Estándar de contrato `data` — campos directos sin wrapper + 5 workflows corregidos | ✅ solved |
+| [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-26 prompts · 25 solved · 1 pending
+31 prompts · 31 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -192,8 +202,11 @@ a Monday.com.
 | [PROMPT-RIQ-024](riq/PROMPT-RIQ-024-purchaseorder-playground-docs.md) | Purchase Order | Testing + 6 docs por rol QB Playground | ✅ solved |
 | [PROMPT-LO-028](ledgerops/PROMPT-LO-028-qb-playground-purchaseorder-docs.md) | Purchase Order | Publicar 6 docs en docs/qb-playground/ | ✅ solved |
 | [PROMPT-RIQ-025](riq/PROMPT-RIQ-025-playground-backfill-role-docs.md) | Vendor · Customer · ItemInventory | Backfill 5 docs por rol — 15 archivos en paralelo | ✅ solved |
-| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ⏳ pending |
-| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ⏳ pending |
+| [PROMPT-RIQ-026](riq/PROMPT-RIQ-026-invoice-playground-docs.md) | Invoice | Routing + testing 5 sedes + 6 docs por rol QB Playground | ✅ solved |
+| [PROMPT-RIQ-027](riq/PROMPT-RIQ-027-invoice-routing-fix.md) | Invoice | Routing InvoiceMod + InvoiceQuery faltaban en qb-endpoints.ts y webhooks.config.ts | ✅ solved |
+| [PROMPT-RIQ-028](riq/PROMPT-RIQ-028-invoice-contracts-mod-query.md) | Invoice | InvoiceMod + InvoiceQuery faltaban en contracts.ts — Playground UI incompleto | ✅ solved |
+| [PROMPT-RIQ-029](riq/PROMPT-RIQ-029-invoice-mod-query-map.md) | Invoice | InvoiceMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
+| [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

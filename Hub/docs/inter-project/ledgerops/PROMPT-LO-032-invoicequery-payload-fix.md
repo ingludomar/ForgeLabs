@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-09 |
 | **Proyecto destino** | LedgerOps |
 | **Tipo** | bug |
-| **Estado** | ⏳ pending |
+| **Estado** | ✅ solved |
 
 ---
 
@@ -109,3 +109,4 @@ Verificar si este mismo patrón existe en otros workflows Query de LedgerOps (Cu
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-09 | Emisión | Bug identificado en nodo Code — Validate Type del workflow InvoiceQuery |
+| 2026-04-09 | Resolución | Fix aplicado junto con PROMPT-LO-033 — 5 workflows corregidos · commits `f746184` · `a5951ba` |
