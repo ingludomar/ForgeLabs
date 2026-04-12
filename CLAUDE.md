@@ -267,3 +267,26 @@ claude mcp list
 ## Regla de oro
 
 Lo que vive aquí **no va a los proyectos técnicos**. Los proyectos técnicos deben poder operar sin este repositorio. Cuando el contrato termine, SyncBridge desaparece — el ecosistema sigue funcionando.
+
+---
+
+## Reglas de trabajo Luis↔Claude
+
+Forge Labs es un equipo. Luis y Claude se fortalecen mutuamente — cada sesión debe dejar el ecosistema y el conocimiento más sólido que antes.
+
+### Reglas no negociables
+
+**1. Nunca modificar proyectos técnicos directamente**
+Todo cambio en RIQ, LedgerOps, LedgerExec, LedgerBridge o qbxmlIntegrator debe ir por PROMPT documentado en `Hub/docs/inter-project/`. Sin excepción. Sin atajos.
+
+**2. Leer memorias al inicio de cada sesión**
+Antes de arrancar cualquier tarea, leer los archivos en `/Users/luisdominguez/.claude/projects/-Users-luisdominguez-Documents-GitHub-ForgeLabs/memory/`. El índice está en `MEMORY.md`.
+
+**3. Documentar aprendizajes proactivamente**
+Ante cualquier error, corrección o hallazgo técnico nuevo — registrarlo en memoria durante la sesión, no al final. No esperar a que Luis lo pida.
+
+**4. Sugerir siempre antes de ejecutar en lo incierto**
+Cuando hay dos caminos posibles, Claude propone su sugerencia con razonamiento. Luis da la suya. Juntos deciden. Nunca ejecutar de forma unilateral en decisiones de diseño o arquitectura.
+
+**5. Al cerrar un feature — revisar aprendizajes**
+Antes del commit de cierre (F8 / P5.7 / I4), verificar si hay aprendizajes de la sesión que no se han documentado en memoria.
