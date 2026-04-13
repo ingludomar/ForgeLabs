@@ -102,7 +102,9 @@ a Monday.com.
 | [PROMPT-RIQ-028](riq/PROMPT-RIQ-028-invoice-contracts-mod-query.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod + InvoiceQuery faltaban en contracts.ts — Playground UI incompleto | ✅ solved |
 | [PROMPT-RIQ-029](riq/PROMPT-RIQ-029-invoice-mod-query-map.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
 | [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | 2026-04-09 | RIQ | delivery | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
+| [PROMPT-RIQ-031](riq/PROMPT-RIQ-031-bill-mod-query-map.md) | 2026-04-12 | RIQ | bug | Bill | BillMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ⏳ pending |
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | 2026-04-09 | LedgerOps | docs | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | 2026-04-13 | LedgerOps | docs | Bill | Publicar 6 docs por rol en docs/integration/ (executive · developer · architect · qa · support · quickstart) | ✅ solved |
 
 ---
 
@@ -170,9 +172,10 @@ a Monday.com.
 | [PROMPT-LO-032](ledgerops/PROMPT-LO-032-invoicequery-payload-fix.md) | InvoiceQuery | Bug payload — tag extra en data genera XML inválido en QB | ✅ solved |
 | [PROMPT-LO-033](ledgerops/PROMPT-LO-033-data-contract-standard.md) | — | Estándar de contrato `data` — campos directos sin wrapper + 5 workflows corregidos | ✅ solved |
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
+| [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | Bill | Publicar 6 docs por rol en docs/integration/ | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-31 prompts · 31 solved · 0 pending
+32 prompts · 32 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -207,6 +210,8 @@ a Monday.com.
 | [PROMPT-RIQ-028](riq/PROMPT-RIQ-028-invoice-contracts-mod-query.md) | Invoice | InvoiceMod + InvoiceQuery faltaban en contracts.ts — Playground UI incompleto | ✅ solved |
 | [PROMPT-RIQ-029](riq/PROMPT-RIQ-029-invoice-mod-query-map.md) | Invoice | InvoiceMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
 | [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
+| [PROMPT-RIQ-031](riq/PROMPT-RIQ-031-bill-mod-query-map.md) | Bill | BillMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
+| [PROMPT-RIQ-032](riq/PROMPT-RIQ-032-bill-push-branch.md) | Bill | Push commit c13cfb2 pendiente — BillMod en MOD_QUERY_MAP | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
