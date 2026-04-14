@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-14 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | infrastructure |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — commit dc7edce · deploy pendiente |
 
 ---
 
@@ -136,8 +136,23 @@ Una vez implementado el cambio, desactivar `ExchangeRate` en `CreditCardChargeAd
 
 ---
 
+## Resultado de implementación
+
+| Script | Cambio |
+|---|---|
+| `schema-apply.py` | Formato dual — string siempre activo · objeto respeta flag `active` |
+| `lb-xml-build.py` | Misma lógica dual al validar campos requeridos antes de construir XML |
+| `lb-business-required-set.py` | `POST /webhook/business-rules/add` acepta objetos · string entrante → convertido a `{active:true, source:"manual", verified:true}` · archivos legacy migrados a objetos en primera escritura · respuesta incluye `activeRules / inactiveRules` |
+
+**Deploy:** workflow temporal `[TEMP] LB Deploy — git pull` (ID: Qx4pT2eaAP65AupP) creado en N8N · pendiente activación desde UI.
+
+**Acción post-deploy:** desactivar `ExchangeRate` en `CreditCardChargeAdd` para sedes TEST · RUS · RBR · REC · RMX via `POST /webhook/business-rules/add`.
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-14 | Emisión | Business rules active flag — metodología de inferencia empírica genera reglas incorrectas · solución: flag por campo con backward compatibility |
+| 2026-04-14 | Completado | Commit dc7edce — 3 scripts modificados · deploy pendiente · ExchangeRate desactivación pendiente post-deploy |

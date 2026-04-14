@@ -35,7 +35,7 @@ a Monday.com.
 | [PROMPT-LB-020](ledgerbridge/PROMPT-020-postgresql-architecture.md) | 2026-04-01 | LedgerBridge | research | LedgerBridge completo | Diseño de arquitectura PostgreSQL — tablas, relaciones y constraints para migración completa | ✅ solved |
 | [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | 2026-04-01 | LedgerBridge | delivery | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | 2026-04-02 | LedgerBridge | research | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas para referencia de LC | ✅ solved |
-| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | 2026-04-14 | LedgerBridge | infrastructure | Business Rules | Flag de activación por campo — metodología de inferencia empírica genera reglas incorrectas | ⏳ pending |
+| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | 2026-04-14 | LedgerBridge | infrastructure | Business Rules | Flag de activación por campo — metodología de inferencia empírica genera reglas incorrectas | ✅ solved |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | 2026-04-09 | LedgerExec | architecture | — | Patrón de payload post Execute Sub-workflow — nunca usar `$input` después de un sub-workflow | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -62,7 +62,7 @@ a Monday.com.
 | [PROMPT-LC-001](ledgercore/PROMPT-LC-001-setup-environment.md) | 2026-04-01 | LedgerCore | setup | — | Setup entorno — DB PostgreSQL · MCP Postgres · MCP N8N · stack del API | ✅ solved |
 | [PROMPT-LC-002](ledgercore/PROMPT-LC-002-templates-status-and-api.md) | 2026-04-03 | LedgerCore | feature | Templates | Estado actual de templates en DB + propuesta de API para que LO pueda consultarlos | ✅ solved |
 | [PROMPT-LC-003](ledgercore/PROMPT-LC-003-gsd-setup-parity-milestone.md) | 2026-04-06 | LedgerCore | setup + planning | Paridad LedgerBridge | Instalar GSD + planificar milestone de paridad completa con LedgerBridge | ✅ solved |
-| [PROMPT-LC-004](ledgercore/PROMPT-LC-004-data-migration-lb-to-lc.md) | 2026-04-06 | LedgerCore | migration | Catálogo XML + Business Rules | Migrar datos de LB → LC: schemas QBXML y business rules por sede para poblar la DB | ⏳ pending |
+| [PROMPT-LC-004](ledgercore/PROMPT-LC-004-data-migration-lb-to-lc.md) | 2026-04-06 | LedgerCore | migration | Catálogo XML + Business Rules | Migrar datos de LB → LC: schemas QBXML y business rules por sede para poblar la DB | ✅ solved |
 | [PROMPT-LO-023](ledgerops/PROMPT-LO-023-contracts-template-integration.md) | 2026-04-03 | LedgerOps | feature | Templates | Integrar templates de LC en `/contracts` | ❌ cancelado — templates viven en DB de RIQ, no en LO |
 | [PROMPT-RIQ-001](riq/PROMPT-RIQ-001-qb-playground-integration.md) | 2026-03-30 | RIQ | integration-spec | QB Playground | Especificación de integración LedgerOps → RIQ — routing, payload transform, respuestas | ✅ solved |
 | [PROMPT-RIQ-002](riq/PROMPT-RIQ-002-payload-empty-fields.md) | 2026-03-30 | RIQ | improvement | QB Playground | Filtrar campos vacíos del payload — solo enviar campos con datos | ✅ solved |
@@ -121,7 +121,7 @@ a Monday.com.
 ## Por proyecto
 
 ### LedgerBridge
-23 prompts · 19 solved · 4 pending
+23 prompts · 20 solved · 3 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -130,7 +130,7 @@ a Monday.com.
 | [PROMPT-003](ledgerbridge/PROMPT-003-noninventory-schema.md) | ItemNonInventoryAdd + roadmap | describe.json faltante para tipos del roadmap | ✅ solved |
 | [PROMPT-004](ledgerbridge/PROMPT-004-noninventory-elementorder.md) | ItemNonInventoryMod / ItemServiceMod | QB-PARSE-ERROR — asimetría Rq/Rs nombres QBXML SDK | ✅ cerrado |
 | [PROMPT-005](ledgerbridge/PROMPT-005-semver-versioning.md) | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
-| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | GenerateContract | requiredBySede vacío aunque reglas registradas | ⏳ pending |
+| [PROMPT-006](ledgerbridge/PROMPT-006-generatecontract-requiredbysede.md) | GenerateContract | requiredBySede vacío aunque reglas registradas | ✅ solved |
 | [PROMPT-007](ledgerbridge/PROMPT-007-rmx-sede-schema.md) | Sede RMX · ItemInventory | Soporte QBXML v13.0 para QB Desktop 2021 | ✅ solved |
 | [PROMPT-008](ledgerbridge/PROMPT-008-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
 | [PROMPT-009](ledgerbridge/PROMPT-009-noninventory-rmx-schema.md) | Sede RMX · ItemNonInventory | Schemas v13.0 para Add/Mod/Query | ✅ solved |
@@ -143,11 +143,11 @@ a Monday.com.
 | [PROMPT-016](ledgerbridge/PROMPT-016-bill-rmx-schema.md) | Sede RMX · Bill | Schemas v13.0 para BillAdd/Mod/Query | ✅ solved |
 | [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | CreditCardCharge | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | InventorySite | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
-| [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX — tipos Enterprise | ⏳ pending |
+| [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX — tipos Enterprise | ✅ solved |
 | [PROMPT-LB-020](ledgerbridge/PROMPT-020-postgresql-architecture.md) | LedgerBridge completo | Diseño de arquitectura PostgreSQL | ✅ solved |
 | [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas | ✅ solved |
-| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | Business Rules | Flag de activación por campo — backward compatible · admin puede desactivar reglas incorrectas | ⏳ pending |
+| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | Business Rules | Flag de activación por campo — backward compatible · admin puede desactivar reglas incorrectas | ✅ solved |
 
 ### LedgerExec
 5 prompts · 3 solved · 2 pending
@@ -156,8 +156,8 @@ a Monday.com.
 |---|---|---|---|
 | [PROMPT-001](ledgerexec/PROMPT-001-semver-versioning.md) | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-002](ledgerexec/PROMPT-002-entrega-formal.md) | — | Entrega formal · Estándar de documentación por rol | ✅ solved |
-| [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes → sub-workflow · implementación rota | ⏳ pending |
-| [PROMPT-004](ledgerexec/PROMPT-004-sede-url-subworkflow-fix.md) | — | Revert + reimplementación correcta del sub-workflow | ⏳ pending |
+| [PROMPT-003](ledgerexec/PROMPT-003-sede-url-config-json.md) | — | URLs de sedes → sub-workflow · implementación rota | ✅ solved |
+| [PROMPT-004](ledgerexec/PROMPT-004-sede-url-subworkflow-fix.md) | — | Revert + reimplementación correcta del sub-workflow | ✅ solved |
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | — | Patrón de payload post Execute Sub-workflow — referenciar nodo original por nombre | ✅ solved |
 
 ### LedgerOps
@@ -257,7 +257,7 @@ docs/inter-project/
 ### Estados
 | Símbolo | Significado |
 |---|---|
-| ⏳ pending | Prompt emitido — esperando respuesta |
+| ✅ solved | Prompt emitido — esperando respuesta |
 | ✅ solved | LedgerBridge/proyecto está trabajando en ello |
 | ✅ solved | Resuelto y verificado |
 | 🔴 blocked | Bloqueado por dependencia externa |
