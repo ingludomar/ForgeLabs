@@ -102,9 +102,15 @@ a Monday.com.
 | [PROMPT-RIQ-028](riq/PROMPT-RIQ-028-invoice-contracts-mod-query.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod + InvoiceQuery faltaban en contracts.ts — Playground UI incompleto | ✅ solved |
 | [PROMPT-RIQ-029](riq/PROMPT-RIQ-029-invoice-mod-query-map.md) | 2026-04-09 | RIQ | bug | Invoice | InvoiceMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
 | [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | 2026-04-09 | RIQ | delivery | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
-| [PROMPT-RIQ-031](riq/PROMPT-RIQ-031-bill-mod-query-map.md) | 2026-04-12 | RIQ | bug | Bill | BillMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ⏳ pending |
+| [PROMPT-RIQ-031](riq/PROMPT-RIQ-031-bill-mod-query-map.md) | 2026-04-12 | RIQ | bug | Bill | BillMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
+| [PROMPT-RIQ-032](riq/PROMPT-RIQ-032-bill-push-branch.md) | 2026-04-13 | RIQ | delivery | Bill | Push commit c13cfb2 pendiente — BillMod en MOD_QUERY_MAP | ✅ solved |
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | 2026-04-09 | LedgerOps | docs | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | 2026-04-13 | LedgerOps | docs | Bill | Publicar 6 docs por rol en docs/integration/ (executive · developer · architect · qa · support · quickstart) | ✅ solved |
+| [PROMPT-LO-036](ledgerops/PROMPT-LO-036-inventory-site-playground-docs.md) | 2026-04-14 | LedgerOps | docs | InventorySite | Publicar 6 docs por rol en docs/integration/ (executive · developer · architect · qa · support · quickstart) · commit 22a5010 | ✅ solved |
+| [PROMPT-RIQ-033](riq/PROMPT-RIQ-033-inventory-site-playground.md) | 2026-04-13 | RIQ | feature | InventorySite | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground | ✅ solved |
+| [PROMPT-RIQ-034](riq/PROMPT-RIQ-034-inventory-site-has-contract-fix.md) | 2026-04-13 | RIQ | bug | InventorySite | hasContract: false incorrecto para Add/Mod — formulario vacío en Playground | ✅ solved |
+| [PROMPT-RIQ-035](riq/PROMPT-RIQ-035-inventory-site-testing.md) | 2026-04-13 | RIQ | testing + docs | InventorySite | Testing E2E Add · Query · Mod en TEST + Query en sedes + 6 docs por rol · commit 24ddac9 | ✅ solved |
+| [PROMPT-RIQ-036](riq/PROMPT-RIQ-036-inventory-site-sedes-dropdown.md) | 2026-04-13 | RIQ | bug | InventorySite | Sedes no se listan en Playground UI para acciones InventorySite — bloqueante E2E usuario | ✅ solved |
 
 ---
 
@@ -147,7 +153,7 @@ a Monday.com.
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | — | Patrón de payload post Execute Sub-workflow — referenciar nodo original por nombre | ✅ solved |
 
 ### LedgerOps
-21 prompts · 21 solved · 0 pending
+22 prompts · 22 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -173,9 +179,10 @@ a Monday.com.
 | [PROMPT-LO-033](ledgerops/PROMPT-LO-033-data-contract-standard.md) | — | Estándar de contrato `data` — campos directos sin wrapper + 5 workflows corregidos | ✅ solved |
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | Bill | Publicar 6 docs por rol en docs/integration/ | ✅ solved |
+| [PROMPT-LO-036](ledgerops/PROMPT-LO-036-inventory-site-playground-docs.md) | InventorySite | Publicar 6 docs por rol en docs/integration/ · commit 22a5010 | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-32 prompts · 32 solved · 0 pending
+37 prompts · 37 solved · 0 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -212,6 +219,10 @@ a Monday.com.
 | [PROMPT-RIQ-030](riq/PROMPT-RIQ-030-invoice-push-branch.md) | Invoice | Push rama feature/redix-integration-quickbooks-playground — 6 commits locales pendientes | ✅ solved |
 | [PROMPT-RIQ-031](riq/PROMPT-RIQ-031-bill-mod-query-map.md) | Bill | BillMod no registrado en MOD_QUERY_MAP — botón "Obtener EditSequence" no aparece | ✅ solved |
 | [PROMPT-RIQ-032](riq/PROMPT-RIQ-032-bill-push-branch.md) | Bill | Push commit c13cfb2 pendiente — BillMod en MOD_QUERY_MAP | ✅ solved |
+| [PROMPT-RIQ-033](riq/PROMPT-RIQ-033-inventory-site-playground.md) | InventorySite | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground | ✅ solved |
+| [PROMPT-RIQ-034](riq/PROMPT-RIQ-034-inventory-site-has-contract-fix.md) | InventorySite | hasContract: false incorrecto para Add/Mod — formulario vacío en Playground | ✅ solved |
+| [PROMPT-RIQ-035](riq/PROMPT-RIQ-035-inventory-site-testing.md) | InventorySite | Testing E2E Add · Query · Mod en TEST + Query en RUS · RBR · RMX | ✅ solved |
+| [PROMPT-RIQ-036](riq/PROMPT-RIQ-036-inventory-site-sedes-dropdown.md) | InventorySite | Sedes no se listan en Playground UI — bloqueante E2E usuario | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
