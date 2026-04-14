@@ -13,11 +13,11 @@ Entidades QB Desktop expuestas en Redix vía QB Playground. Flujo: F1-F8.
 | 3 | ItemInventory | ✅ Entregado | ✅ |
 | 4 | SalesOrder | ✅ Entregado | ✅ |
 | 5 | PurchaseOrder | ✅ Entregado | ✅ |
-| 6 | **Invoice** | 🔄 En curso | ⬜ |
-| 7 | Bill | ⬜ Pendiente | ⬜ |
-| 8 | ItemNonInventory | ⬜ Pendiente | ⬜ |
-| 9 | ItemService | ⬜ Pendiente | ⬜ |
-| 10 | InventorySite | ⬜ Pendiente | ⬜ |
+| 6 | Invoice | ✅ Entregado | ✅ |
+| 7 | Bill | ✅ Entregado | ✅ |
+| 8 | InventorySite | ✅ Entregado | ✅ |
+| 9 | **ItemNonInventory** | ⬜ Pendiente | ⬜ |
+| 10 | **ItemService** | ⬜ Pendiente | ⬜ |
 | 11 | TransferInventory | ⬜ Pendiente | ⬜ |
 | 12 | BuildAssembly | ⬜ Pendiente | ⬜ |
 | 13 | CreditCardCharge | ⬜ Pendiente | ⬜ |
