@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-14 |
 | **Proyecto destino** | RIQ |
 | **Tipo** | feature |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — commit f6aae04 |
 
 ---
 
@@ -138,8 +138,42 @@ Con la app corriendo, confirmar en el Playground:
 
 ---
 
+## Corrección aplicada
+
+Las rutas `/webhook/items/item-service/*` del PROMPT no existen en N8N. ItemService reutiliza las mismas rutas que ItemInventory:
+
+| QB Type | Webhook Key | URL |
+|---|---|---|
+| ItemServiceAdd | QB_INVENTORY_ITEM_ADD | `/webhook/inventory/item/add` |
+| ItemServiceMod | QB_INVENTORY_ITEM_MOD | `/webhook/inventory/item/mod` |
+| ItemServiceQuery | QB_INVENTORY_ITEM_QUERY | `/webhook/inventory/item/query` |
+
+Sin cambios en `webhooks.config.ts` — las URLs ya estaban definidas.
+
+---
+
+## Resultados de testing
+
+| Operación | Sede | Payload | Resultado |
+|---|---|---|---|
+| Query | TEST | MaxReturned: 1 · ActiveStatus: All | ✅ |
+| Add | TEST | Name: RDX-SVC-001 · SalesTaxCodeRef · SalesOrPurchase.Price: 100.00 · AccountRef | ✅ ListID: 80009958-1776193394 |
+| Query | TEST | ListID: 80009958-1776193394 | ✅ |
+| Mod | TEST | ListID + EditSequence + SalesOrPurchaseMod + AccountRef | ✅ Name: RDX-SVC-001-MOD |
+| Query | RUS | MaxReturned: 1 | ✅ |
+| Query | RBR | MaxReturned: 1 | ✅ |
+| Query | RMX | MaxReturned: 1 | ✅ |
+
+### Hallazgo — Campos requeridos por sede TEST
+
+`SalesTaxCodeRef`, `SalesOrPurchase.Price` y `SalesOrPurchase.AccountRef.ListID` son requeridos por regla de negocio en sede TEST. No son requeridos por Intuit.
+En Mod el contenedor cambia de `SalesOrPurchase` a `SalesOrPurchaseMod`.
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-14 | Emisión | ItemService QB Playground — routing · webhooks · contratos · MOD_QUERY_MAP |
+| 2026-04-14 | Completado | Commit f6aae04 — rutas reutilizadas de ItemInventory · CRUD TEST ✅ · RUS/RBR/RMX Query ✅ |
