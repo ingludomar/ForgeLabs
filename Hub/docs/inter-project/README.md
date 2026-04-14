@@ -35,6 +35,7 @@ a Monday.com.
 | [PROMPT-LB-020](ledgerbridge/PROMPT-020-postgresql-architecture.md) | 2026-04-01 | LedgerBridge | research | LedgerBridge completo | Diseño de arquitectura PostgreSQL — tablas, relaciones y constraints para migración completa | ✅ solved |
 | [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | 2026-04-01 | LedgerBridge | delivery | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | 2026-04-02 | LedgerBridge | research | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas para referencia de LC | ✅ solved |
+| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | 2026-04-14 | LedgerBridge | infrastructure | Business Rules | Flag de activación por campo — metodología de inferencia empírica genera reglas incorrectas | ⏳ pending |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | 2026-04-09 | LedgerExec | architecture | — | Patrón de payload post Execute Sub-workflow — nunca usar `$input` después de un sub-workflow | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -120,7 +121,7 @@ a Monday.com.
 ## Por proyecto
 
 ### LedgerBridge
-19 prompts · 16 solved · 3 pending
+23 prompts · 19 solved · 4 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -143,6 +144,10 @@ a Monday.com.
 | [PROMPT-017](ledgerbridge/PROMPT-017-creditcardcharge-schema.md) | CreditCardCharge | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 | [PROMPT-018](ledgerbridge/PROMPT-018-inventorysite-schema.md) | InventorySite | Schemas v17.0 + v13.0 RMX — Add/Mod/Query | ✅ solved |
 | [PROMPT-019](ledgerbridge/PROMPT-019-inventorytransfer-assembly-schema.md) | InventoryTransfer · Assembly | Schemas v17.0 + v13.0 RMX — tipos Enterprise | ⏳ pending |
+| [PROMPT-LB-020](ledgerbridge/PROMPT-020-postgresql-architecture.md) | LedgerBridge completo | Diseño de arquitectura PostgreSQL | ✅ solved |
+| [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
+| [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas | ✅ solved |
+| [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | Business Rules | Flag de activación por campo — backward compatible · admin puede desactivar reglas incorrectas | ⏳ pending |
 
 ### LedgerExec
 5 prompts · 3 solved · 2 pending

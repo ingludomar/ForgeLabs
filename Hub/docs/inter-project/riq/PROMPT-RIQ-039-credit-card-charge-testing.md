@@ -168,8 +168,38 @@ Antes de entregar, verificar:
 
 ---
 
+## Resultados de testing
+
+| Sede | Add | Query | Mod |
+|---|---|---|---|
+| TEST | ✅ TxnID: 62656-1776183522 · EditSequence: 1776183522 | ✅ Retorna registro con Memo: RDX-CC-TEST-001 | ✅ EditSequence: 1776183540 |
+| RUS | — | ✅ items: 1 | — |
+| RBR | — | ✅ items: 1 | — |
+| RMX | — | ✅ items: 1 | — |
+| REC | — | ⏳ bloqueada (red) | — |
+| RRC | — | ⏳ bloqueada (red) | — |
+| TSI | — | ⏳ bloqueada (red) | — |
+
+### Payload Add funcional (TEST)
+```json
+{
+  "AccountRef": "800000FF-1601048998",
+  "PayeeEntityRef": "8000032A-1607638179",
+  "TxnDate": "2026-04-14",
+  "ExchangeRate": 1,
+  "ItemLineAdd": { "ItemRef": "80000026-1597198891", "Qty": 1, "Amount": 100.00 }
+}
+```
+
+### Hallazgo — ExchangeRate requerido por sede TEST
+`ExchangeRate` es requerido por regla de negocio en sede TEST (source: "sede"). No es requerido por Intuit.
+**Acción pendiente:** incluir en Fill Examples del contrato dinámico de LO para CreditCardChargeAdd — ver PROMPT-LO a emitir.
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-14 | Emisión | CreditCardCharge QB Playground — testing sedes + 6 docs por rol |
+| 2026-04-14 | Testing confirmado | CRUD TEST ✅ · RUS/RBR/RMX Query ✅ · REC/RRC/TSI bloqueadas (red) · Hallazgo: ExchangeRate requerido por sede TEST |
