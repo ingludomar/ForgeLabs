@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-14 |
 | **Proyecto destino** | RIQ |
 | **Tipo** | bug |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ cerrado — falsa alarma |
 | **Relacionado con** | PROMPT-RIQ-037 |
 
 ---
@@ -89,3 +89,4 @@ Con la app corriendo, confirmar en el Playground:
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-14 | Emisión | CreditCardChargeAdd faltante — nota ambigua en RIQ-037 causó que Add no fuera implementado |
+| 2026-04-14 | Cierre | Falsa alarma — RIQ sí implementó Add en RIQ-037. La tabla de resumen de RIQ no lo listó pero está visible en el Playground. |
