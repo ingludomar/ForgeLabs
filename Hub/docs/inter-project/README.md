@@ -113,6 +113,7 @@ a Monday.com.
 | [PROMPT-RIQ-036](riq/PROMPT-RIQ-036-inventory-site-sedes-dropdown.md) | 2026-04-13 | RIQ | bug | InventorySite | Sedes no se listan en Playground UI para acciones InventorySite — bloqueante E2E usuario | ✅ solved |
 | [PROMPT-RIQ-037](riq/PROMPT-RIQ-037-credit-card-charge-playground.md) | 2026-04-14 | RIQ | feature | CreditCardCharge | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground · commit eb6e1a8 | ✅ solved |
 | [PROMPT-RIQ-038](riq/PROMPT-RIQ-038-credit-card-charge-add-fix.md) | 2026-04-14 | RIQ | bug | CreditCardCharge | CreditCardChargeAdd faltante — falsa alarma · RIQ-037 fue suficiente | ✅ cerrado |
+| [PROMPT-RIQ-039](riq/PROMPT-RIQ-039-credit-card-charge-testing.md) | 2026-04-14 | RIQ | testing + docs | CreditCardCharge | Testing E2E Add · Query · Mod en TEST + Query en sedes + 6 docs por rol | 🔵 pending |
 
 ---
 
@@ -184,7 +185,7 @@ a Monday.com.
 | [PROMPT-LO-036](ledgerops/PROMPT-LO-036-inventory-site-playground-docs.md) | InventorySite | Publicar 6 docs por rol en docs/integration/ · commit 22a5010 | ✅ solved |
 
 ### RIQ (redix-integration-quickbooks)
-39 prompts · 39 solved · 0 pending
+40 prompts · 39 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -227,6 +228,7 @@ a Monday.com.
 | [PROMPT-RIQ-036](riq/PROMPT-RIQ-036-inventory-site-sedes-dropdown.md) | InventorySite | Sedes no se listan en Playground UI — bloqueante E2E usuario | ✅ solved |
 | [PROMPT-RIQ-037](riq/PROMPT-RIQ-037-credit-card-charge-playground.md) | CreditCardCharge | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground · commit eb6e1a8 | ✅ solved |
 | [PROMPT-RIQ-038](riq/PROMPT-RIQ-038-credit-card-charge-add-fix.md) | CreditCardCharge | CreditCardChargeAdd faltante — falsa alarma · RIQ-037 fue suficiente | ✅ cerrado |
+| [PROMPT-RIQ-039](riq/PROMPT-RIQ-039-credit-card-charge-testing.md) | CreditCardCharge | Testing E2E Add · Query · Mod en TEST + Query en sedes + 6 docs por rol | 🔵 pending |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending
