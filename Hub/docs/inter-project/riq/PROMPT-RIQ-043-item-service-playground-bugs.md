@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | RIQ |
 | **Tipo** | bug |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — commit 16996e8 |
 
 ---
 
@@ -61,8 +61,24 @@ Al ingresar el `ListID` en el formulario de `ItemServiceMod` y hacer clic en **O
 
 ---
 
+## Diagnóstico RIQ (2026-04-15)
+
+**Bug 1 — Fill Example:**
+`fillExamples` no tenía rama para template mode. Con `activeTemplate != null` y `headerFields: []`, iteraba array vacío → `setHeaderValues({})`. Fix: nueva rama template que itera `activeTemplate.fields` y busca en `QB_TEMPLATE_EXAMPLES[selectedAction.type]`. EditSequence excluido intencionalmente (dinámico, viene del QB Query). Datos cargados: `RDX-SVC-001` · tax `80000002` · account `80000078` · price `100.00`. Mod: ListID `80009958-1776193394` · price `150.00`.
+
+**Bug 2 — Obtener EditSequence:**
+`knownPaths` se construía solo desde `selectedAction.headerFields` (`[]`) → filtro excluía todo el QB return → `setHeaderValues({})` borraba el formulario. Fix en dos partes: (1) si `activeTemplate`, agrega `tf.key` de cada campo del template a `knownPaths`; (2) `setHeaderValues(filteredHeader)` → `setHeaderValues(prev => ({ ...prev, ...filteredHeader }))` — merge preserva campos no retornados por el Query.
+
+**Hallazgo adicional:** el mismo bug latente existía en InvoiceMod, BillMod y CreditCardChargeMod — corregido en el mismo fix.
+
+**FL aprobó implementación.**
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Dos bugs en ItemService Playground — Fill Example vacío · Obtener EditSequence borra el formulario |
+| 2026-04-15 | Diagnóstico RIQ | Causa raíz identificada en ambos bugs · fix latente en InvoiceMod/BillMod/CreditCardChargeMod incluido · FL aprobó |
+| 2026-04-15 | Completado RIQ | Commit 16996e8 — implementación entregada junto al diagnóstico |
