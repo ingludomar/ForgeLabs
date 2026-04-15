@@ -309,10 +309,11 @@ Features visibles para el usuario final en Redix. Involucran principalmente a RI
 | 10 | SB | Actualiza PROMPT-LO · notifica al proyecto para push (F5) | Cerrar subtarea Docs · registrar fecha (work item + delivery item) | — |
 | 11 | USR | Le pide al proyecto que suba la rama al repo remoto | — | ⏸ Proyecto confirma push (branch + commit) |
 | 12 | SB | Registra el push en el PROMPT del proyecto | — | — |
-| 13 | SB | Genera correo de entrega (F6) | — | — |
-| 14 | USR | Envía correo a Luis Potte CC Mike Habib | — | ⏸ Usuario confirma envío |
-| 15 | SB | Actualiza PROMPTs · `project_status = Listo` en ambos items (F7) | Cerrar subtarea Correo · registrar fecha · mover items → grupo **Lanzamiento** | — |
-| 16 | SB | Commit en SyncBridge — PROMPTs + README.md (F8) | — | — |
+| 13 | SB | Actualiza PROMPTs · `project_status = Listo` en ambos items (F6) | Cerrar subtareas · registrar fechas · mover items → grupo **Lanzamiento** | — |
+| 14 | SB | Commit en ForgeLabs Hub — PROMPTs + README.md (F7) | — | — |
+| 15 | SB | Genera correo de entrega (F8) | — | — |
+| 16 | USR | Envía correo a Luis Potte CC Mike Habib | — | ⏸ Usuario confirma envío |
+| **FIN** | — | Feature cerrado | Items en Lanzamiento + ForgeLabs commit + correo enviado | — |
 | **FIN** | — | Feature cerrado | Items en Lanzamiento + SyncBridge commit | — |
 
 ### Fases F1-F2 en el mismo PROMPT
@@ -347,15 +348,17 @@ F5 — Push del proyecto responsable
      El proyecto sube la rama al repo remoto
      SB actualiza el PROMPT con el commit y la rama
 
-F6 — Correo de entrega
-     Destinatario: Luis Potte · CC Mike Habib
-     Esperar confirmación del usuario antes de cerrar en Monday
-
-F7 — Monday
+F6 — Monday
      Item de trabajo con subitems por fase + item de entrega formal
+     Mover ambos items a grupo Lanzamiento · cerrar subtareas con fechas
 
-F8 — Commit en SyncBridge
+F7 — Commit en ForgeLabs Hub
      PROMPTs emitidos + índice README.md actualizados
+
+F8 — Correo de entrega (cierre formal)
+     Destinatario: Luis Potte · CC Mike Habib
+     Último paso — todo interno debe estar cerrado antes de enviar
+     Esperar confirmación del usuario
 ```
 
 ### Reglas Tipo 2
@@ -446,9 +449,9 @@ F2  [ ] Implementación confirmada — subtarea del PROMPT cerrada en Monday
 F3  [ ] E2E verificado desde el UI de Redix (no solo API)
 F4  [ ] 5 docs por rol entregados → PROMPT a LO → LO confirma commit → subtarea Docs cerrada
 F5  [ ] Push del proyecto responsable confirmado (rama + commit)
-F6  [ ] Correo entregado al usuario → confirmación de envío → subtarea Correo cerrada
-    [ ] project_status = Listo · items movidos a grupo Lanzamiento
-F8  [ ] Commit en SyncBridge (PROMPTs + README.md)
+F6  [ ] Monday: subtareas cerradas con fechas · project_status = Listo · items → grupo Lanzamiento
+F7  [ ] Commit en ForgeLabs Hub (PROMPTs + README.md)
+F8  [ ] Correo generado → entregado al usuario → usuario confirma envío
 ```
 
 ## Checklist rápido — Tipo 3

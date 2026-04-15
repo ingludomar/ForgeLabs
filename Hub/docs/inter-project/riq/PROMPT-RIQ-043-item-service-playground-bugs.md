@@ -82,3 +82,4 @@ Al ingresar el `ListID` en el formulario de `ItemServiceMod` y hacer clic en **O
 | 2026-04-15 | Emisión | Dos bugs en ItemService Playground — Fill Example vacío · Obtener EditSequence borra el formulario |
 | 2026-04-15 | Diagnóstico RIQ | Causa raíz identificada en ambos bugs · fix latente en InvoiceMod/BillMod/CreditCardChargeMod incluido · FL aprobó |
 | 2026-04-15 | Completado RIQ | Commit 16996e8 — implementación entregada junto al diagnóstico |
+| 2026-04-15 | Push RIQ | Branch feature/redix-integration-quickbooks-playground pusheada · remoto: redsis-rgh/redix-platform-engine · rango: f6aae04..babc414 |

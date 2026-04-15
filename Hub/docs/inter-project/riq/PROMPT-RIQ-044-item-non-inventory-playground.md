@@ -78,3 +78,4 @@ Agregar datos reales de TEST en `QB_TEMPLATE_EXAMPLES` para `ItemNonInventoryAdd
 | 2026-04-15 | Emisión | ItemNonInventory no aparece en Playground — necesita QB_ACTIONS + template qb_template + Fill Examples |
 | 2026-04-15 | Completado RIQ | Commit babc414 — routing · QB_ACTIONS · Fill Examples · MOD_QUERY_MAP · templates DB · SalesTaxCodeRef.ListID = 80000001 (NonInventory TEST) |
 | 2026-04-15 | FL | Sede rules desactivadas vía toggle-sede — Add y Mod · 5 sedes · Add: 3-4 reglas · Mod: 3-4 reglas |
+| 2026-04-15 | Push RIQ | Branch feature/redix-integration-quickbooks-playground pusheada · remoto: redsis-rgh/redix-platform-engine · rango: f6aae04..babc414 |
