@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | RIQ |
 | **Tipo** | bug |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — causa raíz identificada · solución en LO |
 
 ---
 
@@ -56,3 +56,5 @@ LO retorna campos con estructura anidada (`SalesOrPurchase`, `SalesTaxCodeRef`).
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | ItemService formulario vacío en Add/Mod — problema en RIQ · LO ya sirve contratos correctamente |
+| 2026-04-15 | Diagnóstico RIQ | Dos mecanismos: headerFields (estático) vs template LO (dinámico). headerFields:[] + hasContract:true = LO provee campos via template activo. Bill/Invoice/InventorySite funcionan porque LO tiene template activo. ItemService no tiene template en LO — causa raíz confirmada. |
+| 2026-04-15 | Cierre FL | Causa correctamente identificada — no es bug de RIQ. Solución derivada a LO vía PROMPT-LO-038. |
