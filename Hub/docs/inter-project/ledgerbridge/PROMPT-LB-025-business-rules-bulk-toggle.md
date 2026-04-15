@@ -70,8 +70,48 @@ POST /webhook/business-rules/toggle-sede
 
 ---
 
+## Respuesta de LB — Contraopropuesta
+
+**Viable.** LB propone agregar `--mode toggle-all` al script existente `lb-business-required-set.py` en lugar de un script separado. Razones:
+
+- El script ya tiene la infraestructura de lectura/escritura
+- Evita un par `.sh/.py` adicional — el inventario ya tiene 36 scripts
+- Input idéntico a los otros modos: `{type, sede, version, active}`
+- WH: `POST /webhook/business-rules/toggle-sede` — acepta el nombre propuesto por FL
+
+### Comportamiento acordado
+
+| Input | Comportamiento |
+|---|---|
+| `active: false` | Desactiva todas las reglas de sede del type+sede+version |
+| `active: true` | Reactiva todas las reglas de sede del type+sede+version |
+| Strings legacy | Se migran a objetos en el momento del toggle |
+| Respuesta | `{ affected: N, activeRules: N, inactiveRules: N }` |
+
+### Casos borde definidos
+
+| Caso | Comportamiento |
+|---|---|
+| Archivo no existe | `404 LB-BIZ-NOT_FOUND` |
+| Archivo vacío | `200` con `affected: 0` |
+| Ya en el estado solicitado | `200` con `affected: 0` — idempotente |
+| `active` no enviado | `400 LB-BIZ-MISSING_FIELD` |
+
+---
+
+## Aprobación FL
+
+**Contraopropuesta aprobada.** Proceder con la implementación:
+- `--mode toggle-all` en `lb-business-required-set.py`
+- WH: `POST /webhook/business-rules/toggle-sede`
+- Casos borde tal como fueron definidos
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Bulk toggle de reglas de sede por entidad — sin listar paths individuales |
+| 2026-04-15 | Contraopropuesta LB | --mode toggle-all en script existente · WH toggle-sede · casos borde definidos |
+| 2026-04-15 | Aprobación FL | Contraopropuesta aceptada — LB puede implementar |
