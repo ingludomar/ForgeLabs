@@ -50,7 +50,10 @@ O si el diseño correcto es seguir usando `business-rules/add` con el objeto com
 
 1. **Analizar viabilidad** — revisar el diseño actual y determinar si ya existe o si es necesario implementar algo nuevo
 2. Responder a FL con el diseño actual o propuesta
-3. Confirmar a FL: `PROMPT-LB-024 respondido`
+3. Si se requiere implementación: confirmar commit + deploy al servidor
+4. Confirmar a FL cada paso pendiente por separado — no solo el commit:
+   - `PROMPT-LB-024 respondido — diseño: {descripción}`
+   - Si hay deploy: `Deploy completado — {detalle}`
 
 ---
 
