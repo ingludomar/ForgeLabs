@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | research |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — respondido · deploy ya ejecutado por FL |
 
 ---
 
@@ -57,8 +57,32 @@ O si el diseño correcto es seguir usando `business-rules/add` con el objeto com
 
 ---
 
+## Respuesta de LB
+
+### 1 — No se implementará endpoint toggle separado
+
+El diseño correcto es continuar usando `POST /webhook/business-rules/add` como **upsert**: si el path ya existe lo actualiza, si no existe lo inserta. Para desactivar: `"active": false`. Para reactivar: `"active": true`.
+
+### 2 — `business-rules/get` retorna estado completo — commit 1a0622a
+
+`lb-business-required-get.py` actualizado: retorna siempre objetos completos con todos los metadatos, incluso si el archivo en disco tiene strings legacy. El archivo en disco no se modifica — solo la respuesta se normaliza. **Este es el endpoint de auditoría.**
+
+### 3 — Catálogo completo de endpoints business rules
+
+| Endpoint | Uso |
+|---|---|
+| `POST /webhook/business-rules/get` | Leer reglas con estado active/inactive — auditoría |
+| `POST /webhook/business-rules/add` | Agregar O activar/desactivar existente (upsert) |
+| `POST /webhook/business-rules/replace` | Reemplazar toda la lista de un tipo+sede |
+| `POST /webhook/business-rules/remove` | Eliminar permanentemente (no puede eliminar reglas Intuit) |
+
+**Deploy:** ejecutado por FL el 2026-04-15 via workflow `[TEMP] LB Deploy` (ID: Qx4pT2eaAP65AupP). Commit desplegado: `1a0622a`.
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Consulta de diseño — endpoint para toggle de reglas de sede · auditoría de campos activos/inactivos |
+| 2026-04-15 | Completado | LB respondió — add como upsert · get retorna objetos completos · commit 1a0622a · deploy ejecutado por FL |

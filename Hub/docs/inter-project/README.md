@@ -122,7 +122,7 @@ a Monday.com.
 ## Por proyecto
 
 ### LedgerBridge
-24 prompts · 20 solved · 4 pending
+24 prompts · 21 solved · 3 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -149,7 +149,7 @@ a Monday.com.
 | [PROMPT-LB-021](ledgerbridge/PROMPT-021-ledgercore-phase1-delivery.md) | LedgerCore · Fase 1 | Entregar 4 archivos (SCHEMA.sql · seeds · DELIVERY.md) al repo LedgerCore | ✅ solved |
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas | ✅ solved |
 | [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | Business Rules | Flag de activación por campo — backward compatible · admin puede desactivar reglas incorrectas | ✅ solved |
-| [PROMPT-LB-024](ledgerbridge/PROMPT-LB-024-business-rules-toggle-design.md) | Business Rules | Consulta de diseño — endpoint toggle por campo de sede · auditoría activos/inactivos | ⏳ pending |
+| [PROMPT-LB-024](ledgerbridge/PROMPT-LB-024-business-rules-toggle-design.md) | Business Rules | Consulta de diseño — add como upsert · get retorna estado completo · catálogo 4 endpoints | ✅ solved |
 
 ### LedgerExec
 5 prompts · 3 solved · 2 pending
