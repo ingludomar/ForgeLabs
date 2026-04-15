@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | bug |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved |
 
 ---
 
@@ -71,8 +71,43 @@ Consulta con entidad sin toggle-sede ejecutado (ej. `ItemInventoryAdd`) retorna 
 
 ---
 
+## Diagnóstico LB (2026-04-15)
+
+La propuesta de FL es correcta en el fix pero apunta al archivo equivocado. `lb-business-required-get.py` ya fue corregido en PROMPT-LB-024. El bug real está en 3 scripts que leen `rules/business/` directamente y aplican `str(p)` sin extraer `p["path"]` cuando el elemento es un objeto:
+
+| Archivo | Línea | Bug |
+|---|---|---|
+| `lb-jsonin.py` | 251 | `str(p)` sobre dict → serializa el objeto completo |
+| `lb-xml-build.py` | 89 | mismo patrón |
+| `lb-jsonin-validate.py` | 84 | mismo patrón |
+
+Fix idéntico en los 3 — reemplazar `str(p)` por `extract_path`:
+
+```python
+# Antes (buggy)
+[str(p) for p in doc.get('requiredBusiness', []) if str(p).strip()]
+
+# Después (correcto)
+def extract_path(rule):
+    if isinstance(rule, str): return rule.strip() or None
+    if isinstance(rule, dict) and rule.get('active', True) is not False:
+        return str(rule.get('path', '')).strip() or None
+    return None
+
+[p for rule in doc.get('requiredBusiness', []) for p in [extract_path(rule)] if p]
+```
+
+Bonus: también aplica el flag `active` correctamente — reglas con `active: false` no aparecen en `requiredFields` ni se validan.
+
+**FL aprobó implementación en los 3 archivos.**
+
+---
+
 ## Historial
 
 | Fecha | Evento | Resumen |
 |---|---|---|
-| 2026-04-15 | Emisión | Bug en requiredFields — objetos serializados como strings tras toggle-sede · causa en lb-business-required-get.py |
+| 2026-04-15 | Emisión | Bug en requiredFields — objetos serializados como strings tras toggle-sede · propuesta inicial apuntaba a lb-business-required-get.py |
+| 2026-04-15 | Diagnóstico LB | Archivo correcto identificado — bug en lb-jsonin.py:251 · lb-xml-build.py:89 · lb-jsonin-validate.py:84 · fix extract_path aprobado por FL |
+| 2026-04-15 | Completado LB | Commit f0b3228 · deploy verificado · requiredBusinessPaths retorna paths limpios · active:false respetado |
+| 2026-04-15 | Cierre FL | Verificado · PROMPT cerrado |
