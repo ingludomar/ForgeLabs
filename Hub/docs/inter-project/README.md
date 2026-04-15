@@ -110,6 +110,7 @@ a Monday.com.
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | 2026-04-09 | LedgerOps | docs | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | 2026-04-13 | LedgerOps | docs | Bill | Publicar 6 docs por rol en docs/integration/ (executive · developer · architect · qa · support · quickstart) | ✅ solved |
 | [PROMPT-LO-036](ledgerops/PROMPT-LO-036-inventory-site-playground-docs.md) | 2026-04-14 | LedgerOps | docs | InventorySite | Publicar 6 docs por rol en docs/integration/ (executive · developer · architect · qa · support · quickstart) · commit 22a5010 | ✅ solved |
+| [PROMPT-LO-037](ledgerops/PROMPT-LO-037-item-service-contract.md) | 2026-04-15 | LedgerOps | feature | ItemService | Contrato dinámico Add + Mod para QB Playground — formulario vacío | 🔵 pending |
 | [PROMPT-RIQ-033](riq/PROMPT-RIQ-033-inventory-site-playground.md) | 2026-04-13 | RIQ | feature | InventorySite | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground | ✅ solved |
 | [PROMPT-RIQ-034](riq/PROMPT-RIQ-034-inventory-site-has-contract-fix.md) | 2026-04-13 | RIQ | bug | InventorySite | hasContract: false incorrecto para Add/Mod — formulario vacío en Playground | ✅ solved |
 | [PROMPT-RIQ-035](riq/PROMPT-RIQ-035-inventory-site-testing.md) | 2026-04-13 | RIQ | testing + docs | InventorySite | Testing E2E Add · Query · Mod en TEST + Query en sedes + 6 docs por rol · commit 24ddac9 | ✅ solved |
@@ -165,7 +166,7 @@ a Monday.com.
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | — | Patrón de payload post Execute Sub-workflow — referenciar nodo original por nombre | ✅ solved |
 
 ### LedgerOps
-22 prompts · 22 solved · 0 pending
+23 prompts · 22 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -192,6 +193,7 @@ a Monday.com.
 | [PROMPT-LO-034](ledgerops/PROMPT-LO-034-invoice-playground-docs.md) | Invoice | Publicar 6 docs por rol en docs/qb-playground/ | ✅ solved |
 | [PROMPT-LO-035](ledgerops/PROMPT-LO-035-bill-playground-docs.md) | Bill | Publicar 6 docs por rol en docs/integration/ | ✅ solved |
 | [PROMPT-LO-036](ledgerops/PROMPT-LO-036-inventory-site-playground-docs.md) | InventorySite | Publicar 6 docs por rol en docs/integration/ · commit 22a5010 | ✅ solved |
+| [PROMPT-LO-037](ledgerops/PROMPT-LO-037-item-service-contract.md) | ItemService | Contrato dinámico Add + Mod para QB Playground — formulario vacío | 🔵 pending |
 
 ### RIQ (redix-integration-quickbooks)
 41 prompts · 40 solved · 1 pending
