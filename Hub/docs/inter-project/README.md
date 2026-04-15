@@ -117,7 +117,7 @@ a Monday.com.
 | [PROMPT-RIQ-042](riq/PROMPT-RIQ-042-item-service-template-db.md) | 2026-04-15 | RIQ | feature | ItemService | Crear template activo en qb_template para Add + Mod — formulario vacío en Playground | ✅ solved |
 | [PROMPT-RIQ-043](riq/PROMPT-RIQ-043-item-service-playground-bugs.md) | 2026-04-15 | RIQ | bug | ItemService | Fill Example vacío en Add · Obtener EditSequence borra formulario en Mod | ✅ solved |
 | [PROMPT-RIQ-044](riq/PROMPT-RIQ-044-item-non-inventory-playground.md) | 2026-04-15 | RIQ | feature | ItemNonInventory | QB_ACTIONS + template qb_template + Fill Examples para Playground | ✅ solved |
-| [PROMPT-RIQ-045](riq/PROMPT-RIQ-045-item-service-non-inventory-docs.md) | 2026-04-15 | RIQ | docs | ItemService + ItemNonInventory | 12 docs por rol (6 por entidad) para publicación en LO | 🔵 pending |
+| [PROMPT-RIQ-045](riq/PROMPT-RIQ-045-item-service-non-inventory-docs.md) | 2026-04-15 | RIQ | docs | ItemService + ItemNonInventory | 12 docs por rol (6 por entidad) para publicación en LO | ✅ solved |
 | [PROMPT-RIQ-033](riq/PROMPT-RIQ-033-inventory-site-playground.md) | 2026-04-13 | RIQ | feature | InventorySite | Routing · webhooks · contratos · MOD_QUERY_MAP para QB Playground | ✅ solved |
 | [PROMPT-RIQ-034](riq/PROMPT-RIQ-034-inventory-site-has-contract-fix.md) | 2026-04-13 | RIQ | bug | InventorySite | hasContract: false incorrecto para Add/Mod — formulario vacío en Playground | ✅ solved |
 | [PROMPT-RIQ-035](riq/PROMPT-RIQ-035-inventory-site-testing.md) | 2026-04-13 | RIQ | testing + docs | InventorySite | Testing E2E Add · Query · Mod en TEST + Query en sedes + 6 docs por rol · commit 24ddac9 | ✅ solved |
@@ -205,7 +205,7 @@ a Monday.com.
 | [PROMPT-LO-038](ledgerops/PROMPT-LO-038-item-service-template.md) | ItemService | Template activo Add + Mod para QB Playground — cancelado · templates en RIQ DB | ❌ cancelado |
 
 ### RIQ (redix-integration-quickbooks)
-46 prompts · 44 solved · 2 pending
+46 prompts · 45 solved · 1 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -254,7 +254,7 @@ a Monday.com.
 | [PROMPT-RIQ-042](riq/PROMPT-RIQ-042-item-service-template-db.md) | ItemService | Crear template activo en qb_template para ItemServiceAdd + ItemServiceMod | ✅ solved |
 | [PROMPT-RIQ-043](riq/PROMPT-RIQ-043-item-service-playground-bugs.md) | ItemService | Fill Example vacío en Add · Obtener EditSequence borra formulario en Mod | ✅ solved |
 | [PROMPT-RIQ-044](riq/PROMPT-RIQ-044-item-non-inventory-playground.md) | ItemNonInventory | QB_ACTIONS + template qb_template + Fill Examples para Playground | ✅ solved |
-| [PROMPT-RIQ-045](riq/PROMPT-RIQ-045-item-service-non-inventory-docs.md) | ItemService + ItemNonInventory | 12 docs por rol para publicación en LO | 🔵 pending |
+| [PROMPT-RIQ-045](riq/PROMPT-RIQ-045-item-service-non-inventory-docs.md) | ItemService + ItemNonInventory | 12 docs por rol para publicación en LO | ✅ solved |
 
 ### qbxmlIntegrator
 2 prompts · 2 solved · 0 pending

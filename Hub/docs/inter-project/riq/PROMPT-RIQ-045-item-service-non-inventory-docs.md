@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | RIQ |
 | **Tipo** | docs |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — 12 docs entregados · pendiente PROMPT a LO |
 
 ---
 
@@ -64,3 +64,4 @@ No es necesario hacer commit en RIQ para los docs — LO es quien los publica en
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Docs por rol para ItemService e ItemNonInventory — E2E verificado · ambas entidades listas |
+| 2026-04-15 | Completado RIQ | 12 docs entregados (6 por entidad) · sin commit en RIQ · branch: feature/redix-integration-quickbooks-playground · último commit: babc414 |
