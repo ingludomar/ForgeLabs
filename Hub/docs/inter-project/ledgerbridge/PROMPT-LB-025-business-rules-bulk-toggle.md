@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | LedgerBridge |
 | **Tipo** | feature |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — commit d23ca53 · desplegado |
 
 ---
 
@@ -115,3 +115,4 @@ POST /webhook/business-rules/toggle-sede
 | 2026-04-15 | Emisión | Bulk toggle de reglas de sede por entidad — sin listar paths individuales |
 | 2026-04-15 | Contraopropuesta LB | --mode toggle-all en script existente · WH toggle-sede · casos borde definidos |
 | 2026-04-15 | Aprobación FL | Contraopropuesta aceptada — LB puede implementar |
+| 2026-04-15 | Completado | Commit d23ca53 · deploy aplicado · WH toggle-sede operacional · FL verificó: ItemServiceAdd 5 sedes desactivadas ✅ |
