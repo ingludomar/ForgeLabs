@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | LedgerOps |
 | **Tipo** | feature |
-| **Estado** | 🔵 pending |
+| **Estado** | ✅ solved — no requiere implementación en LO |
 
 ---
 
@@ -80,3 +80,5 @@ El contenedor cambia de `SalesOrPurchase` a `SalesOrPurchaseMod`. Requiere `List
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Contrato dinámico ItemServiceAdd + ItemServiceMod para QB Playground |
+| 2026-04-15 | Análisis LO | LO ya sirve contratos correctamente — ContractsDynamic es genérico · problema está en RIQ · no se requieren cambios en LO |
+| 2026-04-15 | Cierre FL | Confirmado — PROMPT-LO-037 cerrado · problema derivado a RIQ vía PROMPT-RIQ-041 |
