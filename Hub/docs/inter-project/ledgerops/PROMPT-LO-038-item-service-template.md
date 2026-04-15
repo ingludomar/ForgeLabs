@@ -5,7 +5,7 @@
 | **Fecha** | 2026-04-15 |
 | **Proyecto destino** | LedgerOps |
 | **Tipo** | feature |
-| **Estado** | 🔵 pending |
+| **Estado** | ❌ cancelado — templates viven en DB de RIQ, no en LO |
 
 ---
 
@@ -71,3 +71,5 @@ Basado en el testing de RIQ (PROMPT-RIQ-040) y el contrato que LO ya sirve:
 | Fecha | Evento | Resumen |
 |---|---|---|
 | 2026-04-15 | Emisión | Template activo para ItemServiceAdd + ItemServiceMod — formulario vacío en Playground por ausencia de template en LO |
+| 2026-04-15 | Análisis LO | Templates no viven en LO — están en la tabla `qb_template` de RIQ (Prisma). LO no tiene responsabilidad en este punto. |
+| 2026-04-15 | Cancelado FL | PROMPT redirigido incorrectamente. Solución derivada a RIQ vía PROMPT-RIQ-042. |
