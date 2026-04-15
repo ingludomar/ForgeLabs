@@ -37,7 +37,8 @@ a Monday.com.
 | [PROMPT-LB-022](ledgerbridge/PROMPT-022-service-catalog.md) | 2026-04-02 | LedgerBridge | research | LedgerBridge completo | Catálogo completo de servicios — endpoints, parámetros y respuestas para referencia de LC | ✅ solved |
 | [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | 2026-04-14 | LedgerBridge | infrastructure | Business Rules | Flag de activación por campo — metodología de inferencia empírica genera reglas incorrectas | ✅ solved |
 | [PROMPT-LB-024](ledgerbridge/PROMPT-LB-024-business-rules-toggle-design.md) | 2026-04-15 | LedgerBridge | research | Business Rules | Consulta de diseño — endpoint toggle por campo de sede · auditoría activos/inactivos | ✅ solved |
-| [PROMPT-LB-025](ledgerbridge/PROMPT-LB-025-business-rules-bulk-toggle.md) | 2026-04-15 | LedgerBridge | feature | Business Rules | Bulk toggle por entidad+sede — activar/desactivar todas las reglas de sede en un llamado | 🔵 pending |
+| [PROMPT-LB-025](ledgerbridge/PROMPT-LB-025-business-rules-bulk-toggle.md) | 2026-04-15 | LedgerBridge | feature | Business Rules | Bulk toggle por entidad+sede — activar/desactivar todas las reglas de sede en un llamado | ✅ solved |
+| [PROMPT-LB-026](ledgerbridge/PROMPT-LB-026-business-rules-get-requiredfields-bug.md) | 2026-04-15 | LedgerBridge | bug | Business Rules | Bug requiredFields — objetos serializados como strings tras toggle-sede · lb-business-required-get.py | 🔵 pending |
 | [PROMPT-LX-001](ledgerexec/PROMPT-001-semver-versioning.md) | 2026-03-19 | LedgerExec | convention | — | Adoptar SemVer como esquema oficial de versioning | ✅ solved |
 | [PROMPT-LX-002](ledgerexec/PROMPT-LX-002-subworkflow-payload-pattern.md) | 2026-04-09 | LedgerExec | architecture | — | Patrón de payload post Execute Sub-workflow — nunca usar `$input` después de un sub-workflow | ✅ solved |
 | [PROMPT-LO-001](ledgerops/PROMPT-001-itemInventory-delivery.md) | 2026-03-23 | LedgerOps | delivery | ItemInventory | Entrega Add · Mod · Query — workflows + docs | ✅ solved |
@@ -126,7 +127,7 @@ a Monday.com.
 ## Por proyecto
 
 ### LedgerBridge
-25 prompts · 22 solved · 3 pending
+26 prompts · 22 solved · 4 pending
 
 | ID | Entidad | Asunto | Estado |
 |---|---|---|---|
@@ -155,6 +156,7 @@ a Monday.com.
 | [PROMPT-LB-023](ledgerbridge/PROMPT-LB-023-business-rules-active-flag.md) | Business Rules | Flag de activación por campo — backward compatible · admin puede desactivar reglas incorrectas | ✅ solved |
 | [PROMPT-LB-024](ledgerbridge/PROMPT-LB-024-business-rules-toggle-design.md) | Business Rules | Consulta de diseño — add como upsert · get retorna estado completo · catálogo 4 endpoints | ✅ solved |
 | [PROMPT-LB-025](ledgerbridge/PROMPT-LB-025-business-rules-bulk-toggle.md) | Business Rules | Bulk toggle por entidad+sede — desactivar/activar todas las reglas de sede en un llamado · commit d23ca53 | ✅ solved |
+| [PROMPT-LB-026](ledgerbridge/PROMPT-LB-026-business-rules-get-requiredfields-bug.md) | Business Rules | Bug requiredFields — objetos serializados como strings tras toggle-sede | 🔵 pending |
 
 ### LedgerExec
 5 prompts · 3 solved · 2 pending
